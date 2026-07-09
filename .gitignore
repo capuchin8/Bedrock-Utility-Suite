@@ -3,15 +3,18 @@
 
 # Editors
 .vscode/
+.prettierrc.json
 
 # Temporary files
 *.tmp
 *.log
+dist/
+lib/
 
 # Minecraft files
 *.mcworld
 *.mcpack
 *.mcaddon
 
-# Node modules if used later
+# Node modules
 node_modules/
