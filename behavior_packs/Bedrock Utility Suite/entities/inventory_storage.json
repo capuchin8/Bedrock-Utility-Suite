@@ -1,0 +1,26 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "bus:inventory_storage",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:collision_box": { "width": 0, "height": 0 },
+      "minecraft:physics": { "has_gravity": false, "has_collision": false },
+      "minecraft:knockback_resistance": { "value": 1 },
+      "minecraft:health": { "value": 1, "max": 1 },
+      "minecraft:damage_sensor": {
+        "triggers": { "cause": "all", "deals_damage": "no" }
+      },
+      "minecraft:inventory": {
+        "inventory_size": 41,
+        "container_type": "inventory",
+        "private": true,
+        "restrict_to_owner": false
+      }
+    }
+  }
+}

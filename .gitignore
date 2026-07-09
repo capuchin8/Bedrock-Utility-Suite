@@ -1,0 +1,17 @@
+# OS files
+.DS_Store
+
+# Editors
+.vscode/
+
+# Temporary files
+*.tmp
+*.log
+
+# Minecraft files
+*.mcworld
+*.mcpack
+*.mcaddon
+
+# Node modules if used later
+node_modules/

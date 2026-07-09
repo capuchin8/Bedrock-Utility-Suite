@@ -1,0 +1,24 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Bedrock Utility Suite",
+    "description": "Bedrock Utility Suite",
+    "uuid": "2d7ed858-97eb-48a0-b180-7c80d1ce9a48",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 30]
+  },
+  "modules": [
+    {
+      "description": "Bedrock Utility Suite",
+      "type": "resources",
+      "uuid": "0c4f42a2-04af-47eb-8edb-8d6f4dde229b",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "7dfcca22-54b5-43d6-bd97-080e62c33fa5",
+      "version": [1, 0, 0]
+    }
+  ]
+}
