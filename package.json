@@ -1,8 +1,8 @@
 {
-  "name": "scripting-starter",
+  "name": "Bedrock Utility Suite",
   "version": "0.1.0",
-  "productName": "Minecraft TypeScript Starter Project",
-  "description": "Minecraft TypeScript Starter Project",
+  "productName": "Bedrock Utility Suite",
+  "description": "Bedrock Utility Suite",
   "private": true,
   "devDependencies": {
     "@minecraft/core-build-tasks": "^5.5.0",
