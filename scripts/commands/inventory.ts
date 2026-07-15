@@ -67,7 +67,9 @@ const ARMOR_STORAGE_SLOT: Record<string, number> = {
 
 function hideInventory(player: Player): void {
   if (player.getDynamicProperty(HIDDEN_FLAG_KEY) === true) {
-    player.sendMessage("§cYour inventory is already hidden. Use restore first.");
+    player.sendMessage(
+      "§cYour inventory is already hidden. Use restore first.",
+    );
     return;
   }
 
@@ -86,12 +88,17 @@ function hideInventory(player: Player): void {
 
   const storage = dimension.spawnEntity(STORAGE_ENTITY_ID, spawnLoc);
   // Applied from script rather than baked into a resource pack visual.
-  storage.addEffect("invisibility", 20000000, { showParticles: false, amplifier: 0 });
+  storage.addEffect("invisibility", 20000000, {
+    showParticles: false,
+    amplifier: 0,
+  });
 
   const storageInvComponent = storage.getComponent("minecraft:inventory");
   if (!storageInvComponent?.container) {
     storage.remove();
-    player.sendMessage("§cFailed to set up inventory storage. Nothing was hidden.");
+    player.sendMessage(
+      "§cFailed to set up inventory storage. Nothing was hidden.",
+    );
     return;
   }
   const storageContainer = storageInvComponent.container;
@@ -125,7 +132,8 @@ function restoreInventory(player: Player): void {
     return;
   }
 
-  const storageId = player.getDynamicProperty(STORAGE_ENTITY_KEY_ID) as string | undefined;
+  const storageId = player.getDynamicProperty(STORAGE_ENTITY_KEY_ID) as
+    string | undefined;
   if (!storageId) {
     player.sendMessage("§cNo storage entity reference was found.");
     return;
@@ -134,7 +142,7 @@ function restoreInventory(player: Player): void {
   const storage = world.getEntity(storageId);
   if (!storage || !storage.isValid) {
     player.sendMessage(
-      "§cCouldn't find your stored inventory. It may be in an unloaded area — try again after moving around a bit."
+      "§cCouldn't find your stored inventory. It may be in an unloaded area — try again after moving around a bit.",
     );
     return;
   }
@@ -142,7 +150,12 @@ function restoreInventory(player: Player): void {
   const storageInvComponent = storage.getComponent("minecraft:inventory");
   const playerInvComponent = player.getComponent("minecraft:inventory");
   const equippable = player.getComponent("minecraft:equippable");
-  if (!storageInvComponent?.container || !playerInvComponent?.container || !equippable) return;
+  if (
+    !storageInvComponent?.container ||
+    !playerInvComponent?.container ||
+    !equippable
+  )
+    return;
 
   const storageContainer = storageInvComponent.container;
   const playerContainer = playerInvComponent.container;
@@ -158,7 +171,8 @@ function restoreInventory(player: Player): void {
     equippable.setEquipment(slot, item);
   }
 
-  const selectedSlot = player.getDynamicProperty(SELECTED_SLOT_KEY) as number | undefined;
+  const selectedSlot = player.getDynamicProperty(SELECTED_SLOT_KEY) as
+    number | undefined;
   if (selectedSlot !== undefined) player.selectedSlotIndex = selectedSlot;
 
   // Done with the storage entity — remove it immediately, no need to keep it around.
@@ -175,7 +189,10 @@ function restoreInventory(player: Player): void {
 // See / See Echest (unchanged — live reads, chat output only)
 // ---------------------------------------------------------------------------
 
-function formatItemLine(slotLabel: string, item: import("@minecraft/server").ItemStack | undefined): string {
+function formatItemLine(
+  slotLabel: string,
+  item: import("@minecraft/server").ItemStack | undefined,
+): string {
   if (!item) return `§7${slotLabel}: §8(empty)`;
 
   let line = `§7${slotLabel}: §f${item.typeId.replace("minecraft:", "")} §7x${item.amount}`;
@@ -191,7 +208,9 @@ function formatItemLine(slotLabel: string, item: import("@minecraft/server").Ite
   if (enchantable) {
     const list = enchantable.getEnchantments();
     if (list.length > 0) {
-      const enchStr = list.map((e) => `${e.type.id.replace("minecraft:", "")} ${e.level}`).join(", ");
+      const enchStr = list
+        .map((e) => `${e.type.id.replace("minecraft:", "")} ${e.level}`)
+        .join(", ");
       line += ` §7[${enchStr}]`;
     }
   }
@@ -268,7 +287,9 @@ system.beforeEvents.startup.subscribe((init) => {
       // Custom command callbacks run in a restricted "early execution"
       // context — defer actual game-state changes to the next tick.
       system.run(() => {
-        const players = (targetEntities ?? []).filter((e: Entity): e is Player => e instanceof Player);
+        const players = (targetEntities ?? []).filter(
+          (e: Entity): e is Player => e instanceof Player,
+        );
 
         if (players.length === 0) {
           if (origin.sourceEntity instanceof Player) {
@@ -277,7 +298,10 @@ system.beforeEvents.startup.subscribe((init) => {
           return;
         }
 
-        const runner = origin.sourceEntity instanceof Player ? origin.sourceEntity : undefined;
+        const runner =
+          origin.sourceEntity instanceof Player
+            ? origin.sourceEntity
+            : undefined;
 
         for (const target of players) {
           switch (action) {
@@ -298,6 +322,6 @@ system.beforeEvents.startup.subscribe((init) => {
       });
 
       return { status: CustomCommandStatus.Success };
-    }
+    },
   );
 });

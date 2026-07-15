@@ -1,0 +1,415 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "door_enter": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/jingles/door_enter",
+        "stream": true
+      }
+    ]
+  },
+  "cave_enter": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/jingles/cave_enter",
+        "stream": true
+      }
+    ]
+  },
+  "parkour_finish": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/parkour/parkour_win",
+        "stream": true
+      }
+    ]
+  },
+  "parkour_step": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/parkour/parkour_step",
+        "stream": true
+      }
+    ]
+  },
+  "parkour_fall": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/parkour/parkour_fall",
+        "stream": true
+      }
+    ]
+  },
+  "parkour_start": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/parkour/parkour_start",
+        "stream": true
+      }
+    ]
+  },
+  "parkour_leave": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/parkour/parkour_leave",
+        "stream": true
+      }
+    ]
+  },
+  "parkour_checkpoint": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/parkour/parkour_checkpoint",
+        "stream": true
+      }
+    ]
+  },
+  "scavenger_collect": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/jingles/scavenger_hunt_collect",
+        "stream": true
+      }
+    ]
+  },
+  "player_vote": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/jingles/voting_jingle",
+        "stream": true
+      }
+    ]
+  },
+  "zombie_say": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/whackamob/zombie_say1",
+        "stream": true
+      },
+      {
+        "name": "sounds/music/whackamob/zombie_say2",
+        "stream": true
+      }
+    ]
+  },
+  "queue_leave": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/jingles/queue_leave",
+        "stream": true
+      }
+    ]
+  },
+  "queue_join": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/jingles/queue_join",
+        "stream": true
+      }
+    ]
+  },
+  "zombie_death": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/whackamob/zombie_death",
+        "stream": true
+      }
+    ]
+  },
+  "creeper_death": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/whackamob/creeper_death",
+        "stream": true
+      }
+    ]
+  },
+  "creeper_say": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/whackamob/creeper_say1",
+        "stream": true
+      }
+    ]
+  },
+  "creeper_fuse": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/whackamob/creeper_fuse",
+        "stream": true
+      }
+    ]
+  },
+  "explode": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/whackamob/explosion",
+        "stream": true
+      }
+    ]
+  },
+  "mob_smash": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/whackamob/mob_smash",
+        "stream": true
+      }
+    ]
+  },
+  "villager_smash": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/whackamob/villager_smash",
+        "stream": true
+      }
+    ]
+  },
+  "mp_hide_colors": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/mobparty/hide_colors",
+        "stream": true
+      }
+    ]
+  },
+  "mp_reveal_colors": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/mobparty/reveal_colors",
+        "stream": true
+      }
+    ]
+  },
+  "mp_next_round": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/mobparty/next_round_success",
+        "stream": true
+      }
+    ]
+  },
+  "mp_platform_fall": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/mobparty/platform_fall",
+        "stream": true
+      }
+    ]
+  },
+  "mp_player_fall": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/mobparty/player_fall",
+        "stream": true
+      }
+    ]
+  },
+  "villager_hit": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/whackamob/villager_hit",
+        "stream": true
+      }
+    ]
+  },
+  "villager_idle": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/whackamob/villager_idle",
+        "stream": true
+      }
+    ]
+  },
+  "villager_death": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/whackamob/villager_death",
+        "stream": true
+      }
+    ]
+  },
+  "border_warning": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/jingles/border_warning",
+        "stream": true
+      }
+    ]
+  },
+  "border_tp": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/jingles/border_tp",
+        "stream": true
+      }
+    ]
+  },
+  "whack_a_mob_music": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/whackamob_final",
+        "stream": true
+      }
+    ]
+  },
+  "mob_party_loop": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/MP_loop",
+        "stream": true
+      }
+    ]
+  },
+  "mob_party_end": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/MP_short_end",
+        "stream": true
+      }
+    ]
+  },
+  "mob_party_end_short": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/MP_shortest_end",
+        "stream": true
+      }
+    ]
+  },
+  "ambient_track1": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/ambient1",
+        "stream": true
+      }
+    ]
+  },
+  "ambient_track2": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/ambient2",
+        "stream": true
+      }
+    ]
+  },
+  "ambient_track3": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/ambient3",
+        "stream": true
+      }
+    ]
+  },
+  "ambient_track4": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/ambient4",
+        "stream": true
+      }
+    ]
+  },
+  "ambient_track5": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/ambient5",
+        "stream": true
+      }
+    ]
+  },
+  "jens_ringtone": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/jingles/jens_ring",
+        "stream": true
+      }
+    ]
+  },
+  "currency_get": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/jingles/currency_get",
+        "stream": true
+      }
+    ]
+  },
+  "shop_purchase": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/jingles/shop_purchased",
+        "stream": true
+      }
+    ]
+  },
+  "shop_warning": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/jingles/shop_warning",
+        "stream": true
+      }
+    ]
+  },
+  "balloon_pop": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/music/balloon/pop1",
+        "stream": true
+      },
+      {
+        "name": "sounds/music/balloon/pop2",
+        "stream": true
+      },
+      {
+        "name": "sounds/music/balloon/pop3",
+        "stream": true
+      },
+      {
+        "name": "sounds/music/balloon/pop4",
+        "stream": true
+      }
+    ]
+  }
+}

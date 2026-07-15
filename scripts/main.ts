@@ -1,12 +1,4 @@
-import { world, system } from "@minecraft/server";
-import "./inventoryCommand";
-
-function mainTick() {
-  if (system.currentTick % 100 === 0) {
-    world.sendMessage("Hello starter! Tick: " + system.currentTick);
-  }
-
-  system.run(mainTick);
-}
-
-system.run(mainTick);
+import "./commands/impulse";
+import "./commands/inventory";
+import "./commands/item";
+import "./ItemManager";

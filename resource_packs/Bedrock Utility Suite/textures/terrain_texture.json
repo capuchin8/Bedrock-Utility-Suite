@@ -1,0 +1,11 @@
+{
+  "texture_data": {
+    "bus:camera_block": {
+      "textures": "textures/bus/blocks/bus_camera_block"
+    }
+  },
+  "num_mip_levels": 4,
+  "resource_pack_name": "Bedrock Utility Suite",
+  "texture_name": "atlas.terrain",
+  "padding": 8
+}

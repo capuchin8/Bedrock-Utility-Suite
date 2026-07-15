@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "bus:camera_block",
+          "weight": 1
+        }
+      ],
+      "conditions": []
+    }
+  ]
+}
