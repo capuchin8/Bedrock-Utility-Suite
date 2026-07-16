@@ -13,7 +13,7 @@
     },
     "description": {
       "menu_category": {
-        "category": "items"
+        "category": "equipment"
       },
       "identifier": "bus:leave"
     }

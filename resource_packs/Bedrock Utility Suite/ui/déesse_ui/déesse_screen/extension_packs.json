@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "extension_packs_list": {
+    "$is_empty_pack": false,
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": {
+          "restricted_mode@déesse_ui_extensionPacks.extension_pack_item": {
+            "$pack_name_underscore": "restricted_mode",
+            "$pack_name": "Resticted Mode",
+            "$pack_version": "1.0.0"
+          }
+        }
+      }
+    ]
+  }
+}

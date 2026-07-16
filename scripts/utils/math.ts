@@ -1,16 +1,16 @@
 import { Direction } from '@minecraft/server';
 
-export function areVectorsEqual(vector1, vector2) {
+export function areVectorsEqual(vector1: { x: any; y: any; z: any; }, vector2: { x: any; y: any; z: any; }) {
     return (vector1.x === vector2.x &&
         vector1.y === vector2.y &&
         vector1.z === vector2.z);
 }
 
-export function clamp(number, min, max) {
+export function clamp(number: number, min: number, max: number) {
     return Math.max(min, Math.min(number, max));
 }
 
-export function directionToVector3(direction) {
+export function directionToVector3(direction: any) {
     switch (direction) {
         case Direction.Down:
             return { x: 0, y: -1, z: 0 };
@@ -26,10 +26,10 @@ export function directionToVector3(direction) {
             return { x: 1, y: 0, z: 0 };
     }
 }
-export function vectorOfCenter(vector) {
+export function vectorOfCenter(vector: { x: number; y: number; z: number; }) {
     return { x: vector.x + 0.5, y: vector.y + 0.5, z: vector.z + 0.5 };
 }
-export function nextDouble(min, max) {
+export function nextDouble(min: number, max: number) {
     if (min >= max)
         return min;
     return Math.random() * (max - min) + min;
@@ -41,6 +41,6 @@ export function getRandomVelocity() {
         z: nextDouble(-0.5, 0.5)
     };
 }
-export function lerp(delta, start, end) {
+export function lerp(delta: number, start: number, end: number) {
     return start + delta * (end - start);
 }

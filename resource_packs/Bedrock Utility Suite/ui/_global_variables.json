@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$dé:tool_item_renderer": false,
+  "$dé:tool_minimap_renderer": false,
+  "$dé:tool_entity_renderer": false,
+  "$dé:enable_trade_unlocker": false,
+  "$dé:enable_force_spectator": false
+}
