@@ -27,5 +27,9 @@
     "@minecraft/server": "^2.0.0",
     "@minecraft/server-ui": "^2.0.0",
     "@minecraft/vanilla-data": "^1.21.90"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "esbuild@0.25.12": true
   }
 }

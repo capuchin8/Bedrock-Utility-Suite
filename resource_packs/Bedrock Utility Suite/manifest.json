@@ -9,7 +9,6 @@
   },
   "modules": [
     {
-      "description": "Bedrock Utility Suite",
       "type": "resources",
       "uuid": "0c4f42a2-04af-47eb-8edb-8d6f4dde229b",
       "version": [1, 0, 0]
@@ -20,5 +19,11 @@
       "uuid": "7dfcca22-54b5-43d6-bd97-080e62c33fa5",
       "version": [1, 0, 0]
     }
-  ]
+  ],
+  "metadata": {
+    "authors": ["Capuchin_"],
+    "license": "MIT",
+    "product_type": "addon",
+    "url": "https://github.com/capuchin8/Bedrock-Utility-Suite"
+  }
 }
