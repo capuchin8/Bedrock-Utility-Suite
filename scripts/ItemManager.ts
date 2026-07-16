@@ -22,6 +22,11 @@ function leave(player: Player) {
   player.runCommand("tp @s 0 288 0");
   player.runCommand("scoreboard players set @s parkour 0");
   player.runCommand("scoreboard players add @s parkour_leaves 1");
-  player.runCommand("playsound parkour_leave @s");
   player.runCommand("clear @s bus:leave");
+  // Delay the playsound command by 5 ticks so the player can hear it.
+  system.runTimeout(() => {
+    if (player.isValid) {
+      player.runCommand("playsound parkour_leave @s");
+    }
+  }, 5);
 }
