@@ -4,5 +4,6 @@
   "$dé:tool_minimap_renderer": false,
   "$dé:tool_entity_renderer": false,
   "$dé:enable_trade_unlocker": false,
-  "$dé:enable_force_spectator": false
+  "$dé:enable_force_spectator": false,
+  "$dé:item_id_offset": 1
 }

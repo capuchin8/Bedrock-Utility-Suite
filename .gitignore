@@ -2,8 +2,8 @@
 .DS_Store
 
 # Editors
-.vscode/
-.prettierrc.json
+# .vscode/
+# .prettierrc.json
 
 # Temporary files
 *.tmp
