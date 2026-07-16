@@ -1,6 +1,7 @@
 {
   "format_version": "1.21.40",
   "bus:camera_block": {
-    "sound": "itemframe"
+    "sound": "itemframe",
+    "textures": "bus:camera_block"
   }
 }

@@ -38,13 +38,6 @@
       "minecraft:loot": "loot_tables/blocks/bus_camera_block.json",
       "minecraft:map_color": "#6CE3FF",
       "minecraft:light_emission": 0,
-      "minecraft:material_instances": {
-        "*": {
-          "texture": "bus:camera_block",
-          "render_method": "opaque"
-        }
-      },
-      "minecraft:friction": 0.60000002384185791,
       "minecraft:tick": {
         "interval_range": [10, 20],
         "looping": true
