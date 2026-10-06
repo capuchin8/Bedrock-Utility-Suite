@@ -1,10 +1,4 @@
-import {
-  system,
-  CommandPermissionLevel,
-  CustomCommandParamType,
-  CustomCommandStatus,
-  Entity,
-} from "@minecraft/server";
+import { system, CommandPermissionLevel, CustomCommandParamType, CustomCommandStatus, Entity } from "@minecraft/server";
 
 // ---- registration (runs immediately when this file is imported) ----------
 
@@ -12,17 +6,14 @@ system.beforeEvents.startup.subscribe(({ customCommandRegistry }) => {
   customCommandRegistry.registerCommand(
     {
       name: "bus:impulse",
-      description:
-        "Set (or add to) the velocity of one or more entities. Supports ~ and ^ notation.",
+      description: "Set (or add to) the velocity of one or more entities. Supports ~ and ^ notation.",
       permissionLevel: CommandPermissionLevel.GameDirectors, // requires op / cheats
       cheatsRequired: true,
       mandatoryParameters: [
         { name: "targets", type: CustomCommandParamType.EntitySelector },
         { name: "location", type: CustomCommandParamType.Location },
       ],
-      optionalParameters: [
-        { name: "add", type: CustomCommandParamType.Boolean },
-      ],
+      optionalParameters: [{ name: "add", type: CustomCommandParamType.Boolean }],
     },
     (origin, targets, location, add) => {
       const entities = targets as Entity[];
@@ -65,6 +56,6 @@ system.beforeEvents.startup.subscribe(({ customCommandRegistry }) => {
       });
 
       return { status: CustomCommandStatus.Success };
-    },
+    }
   );
 });
