@@ -1,37 +1,68 @@
 {
-  "format_version": 2,
+  "format_version": 3,
   "header": {
-    "name": "Bedrock Utility Suite",
-    "description": "Bedrock Utility Suite",
+    "name": "pack.name",
+    "description": "pack.description",
     "uuid": "7dfcca22-54b5-43d6-bd97-080e62c33fa5",
-    "version": [1, 0, 0],
-    "min_engine_version": [1, 26, 30]
+    "version": "1.0.0-alpha.1",
+    "min_engine_version": "1.26.30"
   },
   "modules": [
+    {
+      "description": "Bedrock Utility Suite",
+      "type": "data",
+      "uuid": "c7475935-cfa2-4f48-a841-08ff20340e39",
+      "version": "1.0.0"
+    },
     {
       "description": "Script resources",
       "language": "javascript",
       "type": "script",
       "uuid": "ab1eb1a1-4999-4255-8647-b0a8025affe4",
-      "version": [1, 0, 0],
+      "version": "1.0.0",
       "entry": "scripts/main.js"
     }
   ],
   "dependencies": [
     {
       "module_name": "@minecraft/server",
-      "version": "2.8.0"
+      "version": "2.10.0"
     },
     {
       "module_name": "@minecraft/server-ui",
-      "version": "2.1.0"
+      "version": "2.2.0"
     },
-    { "uuid": "2d7ed858-97eb-48a0-b180-7c80d1ce9a48", "version": [1, 0, 0] }
+    {
+      "uuid": "2d7ed858-97eb-48a0-b180-7c80d1ce9a48",
+      "version": "1.0.0-alpha.1"
+    }
   ],
   "metadata": {
     "authors": ["Capuchin_"],
     "license": "MIT",
     "product_type": "addon",
     "url": "https://github.com/capuchin8/Bedrock-Utility-Suite"
-  }
+  },
+  "settings": [
+    {
+      "type": "slider",
+      "text": "bus.pack_settings.dimensions_slider",
+      "name": "bus:void_dimension_count",
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "multiselect",
+      "text": "bus.pack_settings.dimensions_multiselect",
+      "name": "bus:named_dimensions",
+      "options": [
+        { "text": "bus.pack_settings.dimensions_lobby", "name": "lobby" },
+        { "text": "bus.pack_settings.dimensions_staff", "name": "staff" },
+        { "text": "bus.pack_settings.dimensions_minigames", "name": "minigames" }
+      ],
+      "defaults": []
+    }
+  ]
 }

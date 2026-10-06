@@ -1,0 +1,7 @@
+pack.name=Bedrock Utility Suite
+pack.description=Bedrock Utility Suite
+bus.pack_settings.dimensions_slider=§l§6Void Dimensions§r\nNote: Disabling a dimension does not delete its contents.\nNumber of Void Dimensions
+bus.pack_settings.dimensions_multiselect=Named Void Dimensions
+bus.pack_settings.dimensions_lobby=Lobby
+bus.pack_settings.dimensions_staff=Staff
+bus.pack_settings.dimensions_minigames=Minigames

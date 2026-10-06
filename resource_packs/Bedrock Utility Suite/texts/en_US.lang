@@ -1,3 +1,5 @@
+pack.name=Bedrock Utility Suite
+pack.description=Bedrock Utility Suite
 item.bus:leave.name=§cLeave§r
 item.bus:leave=§cLeave§r
 tile.bus:camera_block.name=Camera Block
