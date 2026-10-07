@@ -9,7 +9,7 @@
         "value": {
           "restricted_mode@déesse_ui_extensionPacks.extension_pack_item": {
             "$pack_name_underscore": "restricted_mode",
-            "$pack_name": "Resticted Mode",
+            "$pack_name": "Restricted Mode",
             "$pack_version": "1.0.0"
           }
         }
