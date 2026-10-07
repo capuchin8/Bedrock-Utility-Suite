@@ -24,7 +24,7 @@
     "**/.DS_Store": true,
     "**/node_modules": true
   },
-  "cSpell.words": ["gametest", "gametests", "mcaddon", "mcworld", "minecart", "shulker", "zoglin"],
+  "cSpell.words": ["gametest", "gametests", "mcaddon", "mcworld", "minecart", "minigames", "shulker", "zoglin"],
   "editor.tabSize": 2,
   "eslint.experimental.useFlatConfig": true
 }
