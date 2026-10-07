@@ -63,6 +63,166 @@
         { "text": "bus.pack_settings.dimensions_minigames", "name": "minigames" }
       ],
       "defaults": []
+    },
+    {
+      "type": "dropdown",
+      "text": "bus.pack_settings.command_impulse",
+      "name": "bus:command_permission_impulse",
+      "options": [
+        {
+          "name": "disabled",
+          "text": "bus.pack_settings.command_level_disabled"
+        },
+        {
+          "name": "any",
+          "text": "bus.pack_settings.command_level_everyone"
+        },
+        {
+          "name": "game_directors",
+          "text": "bus.pack_settings.command_level_game_directors"
+        },
+        {
+          "name": "admin",
+          "text": "bus.pack_settings.command_level_admin"
+        },
+        {
+          "name": "host",
+          "text": "bus.pack_settings.command_level_host"
+        },
+        {
+          "name": "owner",
+          "text": "bus.pack_settings.command_level_owner"
+        }
+      ],
+      "default": "game_directors"
+    },
+    {
+      "type": "dropdown",
+      "text": "bus.pack_settings.command_inventory",
+      "name": "bus:command_permission_inventory",
+      "options": [
+        {
+          "name": "disabled",
+          "text": "bus.pack_settings.command_level_disabled"
+        },
+        {
+          "name": "any",
+          "text": "bus.pack_settings.command_level_everyone"
+        },
+        {
+          "name": "game_directors",
+          "text": "bus.pack_settings.command_level_game_directors"
+        },
+        {
+          "name": "admin",
+          "text": "bus.pack_settings.command_level_admin"
+        },
+        {
+          "name": "host",
+          "text": "bus.pack_settings.command_level_host"
+        },
+        {
+          "name": "owner",
+          "text": "bus.pack_settings.command_level_owner"
+        }
+      ],
+      "default": "game_directors"
+    },
+    {
+      "type": "dropdown",
+      "text": "bus.pack_settings.command_item",
+      "name": "bus:command_permission_item",
+      "options": [
+        {
+          "name": "disabled",
+          "text": "bus.pack_settings.command_level_disabled"
+        },
+        {
+          "name": "any",
+          "text": "bus.pack_settings.command_level_everyone"
+        },
+        {
+          "name": "game_directors",
+          "text": "bus.pack_settings.command_level_game_directors"
+        },
+        {
+          "name": "admin",
+          "text": "bus.pack_settings.command_level_admin"
+        },
+        {
+          "name": "host",
+          "text": "bus.pack_settings.command_level_host"
+        },
+        {
+          "name": "owner",
+          "text": "bus.pack_settings.command_level_owner"
+        }
+      ],
+      "default": "game_directors"
+    },
+    {
+      "type": "dropdown",
+      "text": "bus.pack_settings.command_settings",
+      "name": "bus:command_permission_settings",
+      "options": [
+        {
+          "name": "disabled",
+          "text": "bus.pack_settings.command_level_disabled"
+        },
+        {
+          "name": "any",
+          "text": "bus.pack_settings.command_level_everyone"
+        },
+        {
+          "name": "game_directors",
+          "text": "bus.pack_settings.command_level_game_directors"
+        },
+        {
+          "name": "admin",
+          "text": "bus.pack_settings.command_level_admin"
+        },
+        {
+          "name": "host",
+          "text": "bus.pack_settings.command_level_host"
+        },
+        {
+          "name": "owner",
+          "text": "bus.pack_settings.command_level_owner"
+        }
+      ],
+      "default": "any"
+    },
+    {
+      "type": "dropdown",
+      "text": "bus.pack_settings.command_shop",
+      "name": "bus:command_permission_shop",
+      "options": [
+        {
+          "name": "disabled",
+          "text": "bus.pack_settings.command_level_disabled"
+        },
+        {
+          "name": "any",
+          "text": "bus.pack_settings.command_level_everyone"
+        },
+        {
+          "name": "game_directors",
+          "text": "bus.pack_settings.command_level_game_directors"
+        },
+        {
+          "name": "admin",
+          "text": "bus.pack_settings.command_level_admin"
+        },
+        {
+          "name": "host",
+          "text": "bus.pack_settings.command_level_host"
+        },
+        {
+          "name": "owner",
+          "text": "bus.pack_settings.command_level_owner"
+        }
+      ],
+      "default": "any"
     }
   ]
 }
