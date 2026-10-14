@@ -10,6 +10,43 @@ import "./shop/shopCommands";
 import { registerShopEvents } from "./shop/shopCommands";
 registerShopEvents();
 
+// Core systems
+import "./commands/busCommand";
+import "./share/builtinShareables";
+import "./permissions/ownerCommand";
+
+// Player events (one listener for joins/leaves; modules below subscribe to it)
+import "./events/playerEvents";
+import "./events/newPlayers";
+import "./events/eventCommands";
+import "./combat/combatStore";
+import "./rules/rulesStore";
+import "./rules/rulesPrompt";
+
+// Roles, name tags and chat
+import "./roles/nameTag";
+import "./roles/chat";
+
+// Settings screen and its built-in sections
+import "./settings/settingsCommand";
+import "./settings/sections/rolesSection";
+import "./settings/sections/roleDisplaySection";
+import "./settings/sections/newPlayersSection";
+import "./settings/sections/eventCommandsSection";
+import "./interact/interactBlocks";
+import "./settings/sections/interactSection";
+import "./settings/sections/combatSection";
+import "./settings/sections/rulesSection";
+import "./settings/sections/permissionsSection";
+import "./settings/sections/shareSection";
+
+// Debug menu: stripped from production builds (see justfile dropLabels)
+import "./debug/debugSection";
+
+// Nicknames
+import "./nicknames/nicknameSection";
+import "./nicknames/nicknameCommand";
+
 /*!
  *
  * Bedrock Utility Suite
