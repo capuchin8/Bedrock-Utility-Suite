@@ -1,5 +1,292 @@
-pack.name=Bedrock Utility Suite
+## Bedrock Utility Suite - English.
 pack.description=Bedrock Utility Suite
 item.bus:leave.name=§cLeave§r
 item.bus:leave=§cLeave§r
 tile.bus:camera_block.name=Camera Block
+
+## ---- common ----
+bus.common.back=Back
+bus.common.cancel=Cancel
+bus.common.close=Close
+bus.command.no_permission=§cYou don't have permission to use this command.
+bus.command.in_combat=§cYou can't use this command while in combat.
+
+## ---- settings home ----
+bus.settings.title=Settings
+bus.settings.choose=Choose a menu:
+bus.settings.no_access=§cYou don't have access to any settings menus.
+bus.settings.access_revoked=§cYour access to that menu was removed.
+bus.settings.command_perm=Settings command
+
+## ---- sections ----
+bus.section.roles.title=Roles & Access
+bus.section.roles.desc=Create roles, set their icon, text and order, and assign them to players
+bus.section.role_display.title=Role & Name Display
+bus.section.role_display.desc=Chat and name tag display, multiple roles, nickname display
+bus.section.nicknames.title=Nickname
+bus.section.nicknames.desc=Change how your name appears in chat and on your name tag
+bus.section.permissions.title=Permissions
+bus.section.permissions.desc=Choose who can use each command, menu and feature
+bus.section.share.title=Share Setup
+bus.section.share.desc=Export your setup as a code, or import all or part of someone else's
+
+## ---- roles ----
+bus.roles.pick=Pick a role to edit it.
+bus.roles.none=No roles yet. Create one below.
+bus.roles.create=Create role
+bus.roles.create.confirm=Create
+bus.roles.assign=Assign roles to players
+bus.roles.name=Role name
+bus.roles.name.desc=For example Moderator, Builder or Shopkeeper
+bus.roles.error.name=§cEnter a unique name.
+bus.roles.edit.title=Role: %s
+bus.roles.text=Display text
+bus.roles.text.desc=Use &c for colors. For a custom icon, type the glyph's code like  (or paste the symbol).
+bus.roles.preview=Preview: %s
+bus.roles.priority=Priority
+bus.roles.priority.desc=Higher priority wins when a player has several roles, and shows first.
+bus.roles.name_color=Name color
+bus.roles.chat_color=Chat message color
+bus.roles.confirm_delete=Confirm delete
+bus.roles.delete=Delete role
+bus.roles.assign.need=§cYou need at least one role and one online player.
+bus.roles.assign.player=Player
+bus.roles.assign.role=Role
+bus.roles.assign.grant=Grant role
+bus.roles.assign.revoke=Revoke role
+bus.roles.assign.current=%s: %s
+bus.roles.assign.current_none=%s: no roles
+bus.roles.assign.offline=§cThat player is no longer online.
+bus.roles.assign.granted=Granted %s to %s
+bus.roles.assign.revoked=Revoked %s from %s
+
+## ---- role & name display ----
+bus.display.chat.header=Chat
+bus.display.chat.toggle=Show roles in chat
+bus.display.chat.toggle.desc=Off = roles never appear in chat. If nothing else applies, BUS leaves chat messages untouched.
+bus.display.chat.unsupported=Disabled because Beta APIs are not enabled for this world. Chat formatting needs them.
+bus.display.chat.format=Chat format
+bus.display.chat.format.desc=Tokens: {role} {name} {message}. Supports &c color codes.
+bus.display.nametag.header=Name tags
+bus.display.nametag.toggle=Show roles on name tags
+bus.display.nametag.toggle.desc=Off = BUS doesn't write role text to name tags.
+bus.display.nametag.position=Role position
+bus.display.nametag.above=Above the name
+bus.display.nametag.below=Below the name
+bus.display.nametag.beside=Beside the name
+bus.display.multi.header=Players with several roles
+bus.display.multi.show=Show
+bus.display.multi.highest=Only the highest role
+bus.display.multi.all=All roles (highest first)
+bus.display.multi.separator=Separator between roles
+bus.display.nick.header=Nicknames
+bus.display.nick.chat=Use nicknames in chat
+bus.display.nick.chat.desc=Show a player's nickname instead of their name in chat.
+bus.display.nick.tag=Use nicknames on name tags
+
+## ---- nicknames ----
+bus.nickname.player=Player
+bus.nickname.field=Nickname
+bus.nickname.field.desc=Up to %s characters. Use Reset to go back to your real name.
+bus.nickname.save=Save
+bus.nickname.reset=Reset
+bus.nickname.saved=§aNickname set to %s§r
+bus.nickname.cleared=§aNickname reset.
+bus.nickname.offline=§cThat player is no longer online.
+bus.nickname.no_edit_others=§cYou can't change other players' nicknames.
+bus.nickname.error.empty=§cNickname can't be empty.
+bus.nickname.error.too_long=§cNickname can be at most %s characters.
+bus.nickname.error.player_name=§cThat name belongs to another player.
+bus.nickname.error.in_use=§cThat nickname is already in use.
+
+## ---- permissions ----
+bus.perm.intro=The owner can always use everything. Pick an item to choose who else can.
+bus.perm.category.menu=Settings menus
+bus.perm.category.command=Commands
+bus.perm.category.feature=Features
+bus.perm.summary.everyone=Everyone
+bus.perm.summary.operators=Operators
+bus.perm.summary.roles=%s role(s)
+bus.perm.summary.owner_only=Owner only
+bus.perm.everyone=Everyone can use this
+bus.perm.everyone.desc=Turn this off to limit it to operators and the roles you pick.
+bus.perm.operators=Operators can use this
+bus.perm.operators.desc=Off = operators get no automatic access; only the roles below (and the owner) can use it.
+bus.perm.no_roles=No roles exist yet. Create some in Roles & Access.
+bus.perm.reset=Reset to default
+bus.perm.ceiling.disabled=§eThis command is disabled in the add-on's pack settings.
+bus.perm.ceiling.1=§eThe pack settings hide this command from everyone below Game Director, so roles can't give it to regular players.
+bus.perm.ceiling.2=§eThe pack settings hide this command from everyone below Admin, so roles can't give it to regular players.
+bus.perm.ceiling.3=§eThe pack settings hide this command from everyone below Host, so roles can't give it to regular players.
+bus.perm.ceiling.4=§eThe pack settings hide this command from everyone below Owner, so roles can't give it to regular players.
+bus.perm.combat=Usable while in combat
+bus.perm.combat.desc=Off = this command is blocked for players who are in combat (turn combat tracking on in Settings > Combat).
+bus.perm.nickname_command.name=Nickname menu and /bus:nickname
+bus.perm.nickname_edit_others.name=Change other players' nicknames
+bus.perm.nickname_edit_others.desc=Lets players with this edit anyone's nickname, not just their own.
+bus.perm.owner_command.name=/bus:owner command
+
+## ---- owner ----
+bus.owner.added=§a%s is now a BUS owner.
+bus.owner.removed=§a%s is no longer a BUS owner.
+
+## ---- command responses (shown as the command's own reply; no %s allowed here) ----
+bus.command.owner.not_online=§cThat player is not online.
+bus.command.owner.added=§aOwner added.
+bus.command.owner.removed=§aOwner removed.
+bus.command.owner.claim_self=§cOnly an owner can add or remove other owners. You can only add yourself while no owner exists.
+bus.command.nickname.usage=Usage: /bus:nickname <name|reset>
+bus.command.nickname.saved=§aNickname updated.
+bus.command.nickname.cleared=§aNickname reset.
+bus.command.nickname.empty=§cNickname can't be empty.
+bus.command.nickname.too_long=§cThat nickname is too long.
+bus.command.nickname.player_name=§cThat name belongs to another player.
+bus.command.nickname.in_use=§cThat nickname is already in use.
+
+## ---- share ----
+bus.share.code.placeholder=Paste a BUS setup code
+bus.share.result.title=Import result
+bus.share.roles=Roles & display
+bus.share.permissions=Permissions
+bus.share.imported=imported
+bus.share.nothing=§eNothing to import in that code.
+bus.share.error.roles=Invalid roles data.
+bus.share.error.permissions=Invalid permissions data.
+bus.share.error.parse=§cThat isn't a valid setup code (it couldn't be parsed).
+bus.share.error.format=§cThat doesn't look like a BUS setup code.
+bus.share.error.version=§cUnsupported setup code version (%s).
+
+## ---- colors ----
+bus.color.default=Default
+bus.color.red=Red
+bus.color.dark_red=Dark red
+bus.color.gold=Gold
+bus.color.yellow=Yellow
+bus.color.green=Green
+bus.color.dark_green=Dark green
+bus.color.aqua=Aqua
+bus.color.dark_aqua=Dark aqua
+bus.color.blue=Blue
+bus.color.dark_blue=Dark blue
+bus.color.light_purple=Light purple
+bus.color.dark_purple=Dark purple
+bus.color.white=White
+bus.color.gray=Gray
+bus.color.dark_gray=Dark gray
+
+## ---- share (export / import by section) ----
+bus.share.intro=Export your setup as a code to share, or import a code. When importing you can pick which sections to apply.
+bus.share.export=Export setup
+bus.share.export.pick=Choose what to include in the code:
+bus.share.export.show=Show code
+bus.share.export.label=Copy this code to share it
+bus.share.import=Import setup
+bus.share.import.label=Paste a setup code here
+bus.share.import.pick.title=Choose what to import
+bus.share.import.pick=This code contains the sections below. Turn off anything you don't want to replace.
+bus.share.import.apply=Import selected
+bus.share.error.generic=Invalid data.
+bus.share.combat=Combat
+bus.share.new_players=New players
+bus.share.event_commands=Event commands
+bus.share.rules=Rules
+
+## ---- new players ----
+bus.section.new_players.title=New Players
+bus.section.new_players.desc=Role given to players the first time they join
+bus.newplayers.first_role=Role given on first join
+bus.newplayers.first_role.desc=Added once, the first time a player ever joins.
+bus.newplayers.role.none=None
+bus.newplayers.no_roles=Create a role in Roles & Access to give one to new players.
+
+## ---- event commands ----
+bus.section.event_commands.title=Event Commands
+bus.section.event_commands.desc=Run commands when players join for the first time, join, or leave
+bus.events.intro=Commands here run with the game's command powers, so only the owner can edit them. Use {player} for the player's name (quoted).
+bus.events.first_join.title=First join
+bus.events.first_join.desc=Runs once, the first time a player ever joins. Runs as the player, so @s works.
+bus.events.join.title=Every join
+bus.events.join.desc=Runs every time a player joins. Runs as the player, so @s works.
+bus.events.leave.title=Leave
+bus.events.leave.desc=Runs when a player leaves. The player is gone by then, so @s does not work: use {player}.
+bus.events.exclude_first=Skip on first join
+bus.events.exclude_first.desc=On = these commands don't run on a player's first join (only the first-join commands do).
+bus.events.count=%s command(s)
+bus.events.none=No commands yet.
+bus.events.command_n=Command %s
+bus.events.remove_n=Remove command %s
+bus.events.add=Add command
+
+## ---- combat ----
+bus.section.combat.title=Combat
+bus.section.combat.desc=Combat tracking and which commands are blocked during it
+bus.combat.intro=While a player is in combat, commands you've turned off in Permissions (Usable while in combat) are blocked. This only affects BUS commands.
+bus.combat.enabled=Track combat
+bus.combat.enabled.desc=Off = nobody is ever in combat and every command works as normal.
+bus.combat.seconds=Combat lasts (seconds)
+bus.combat.seconds.desc=Time since the last hit.
+bus.combat.pvp_only=Player vs player only
+bus.combat.pvp_only.desc=Off = fighting mobs also counts as combat.
+bus.combat.clear_on_death=Dying ends combat
+bus.combat.exempt_creative=Creative and Spectator are exempt
+bus.combat.exempt_creative.desc=Players in Creative or Spectator can use any command, even right after a fight. Checked each time they run a command, so switching mode takes effect immediately.
+
+## ---- rules ----
+bus.section.rules.title=Rules
+bus.section.rules.desc=Rules players must accept before playing
+bus.rules.edit.intro=When enabled, players who haven't accepted the rules see them on joining and can't continue without accepting.
+bus.rules.enabled=Require players to accept the rules
+bus.rules.enabled.desc=Needs at least one rule. The owner never has to accept.
+bus.rules.exempt=Operators skip the rules
+bus.rules.exempt.desc=On = operators don't have to accept (the owner is always exempt).
+bus.rules.numbered=Number the rules
+bus.rules.numbered.desc=On = "1.", "2."... in front of each rule.
+bus.rules.format_help=In a rule, type \n for a new line and &c (or any & code) for colours.
+bus.rules.title=Title
+bus.rules.list=Rules
+bus.rules.none=No rules yet.
+bus.rules.rule_n=Rule %s
+bus.rules.remove_n=Remove rule %s
+bus.rules.add=Add rule
+bus.rules.preview=Preview
+bus.rules.reaccept=Make everyone accept again
+bus.rules.reaccept.desc=Use after changing the rules. Online players see the rules again straight away; others on their next join.
+bus.rules.intro=Please read the rules below.
+bus.rules.preview_note=Preview: nothing is saved here.
+bus.rules.item=%s. %s
+bus.rules.accept=I have read and accept the rules
+bus.rules.continue=Continue
+
+## ---- interactive blocks ----
+bus.section.interactive_blocks.title=Interactive Blocks
+bus.section.interactive_blocks.desc=Link signs, lecterns or other blocks to the rules screen or commands.
+bus.interact.intro=Right-clicking a linked block shows the rules and/or runs commands as the player who clicked. Works well on signs and lecterns. Owner only, because the commands run with the game's command powers.
+bus.interact.add=Link a new block
+bus.interact.manage=Linked blocks (%s)
+bus.interact.manage.title=Linked blocks
+bus.interact.remove_click=Unlink a block by clicking it
+bus.interact.none=No blocks are linked yet.
+bus.interact.pick_block=Choose a linked block:
+bus.interact.item=%s at %s, %s, %s (%s)
+bus.interact.setup.title=Link a block
+bus.interact.setup.intro=Choose what the block does, then press the button and right-click the block within 60 seconds.
+bus.interact.setup.editing=Editing a linked block. Press Save to apply.
+bus.interact.rules=Show the rules screen
+bus.interact.rules.desc=Read-only: players just read the rules and close the screen. Nothing is saved.
+bus.interact.commands.help=Commands run as the player who clicked. Use {player} for their name. Leave out the leading /.
+bus.interact.pick=Pick the block
+bus.interact.save=Save
+bus.interact.edit=Edit
+bus.interact.remove=Unlink this block
+bus.interact.detail.title=Linked block
+bus.interact.detail.rules_yes=Shows the rules screen.
+bus.interact.detail.rules_no=Does not show the rules screen.
+bus.interact.detail.commands=Runs:
+bus.interact.armed_bind=Right-click the block you want to link (within 60 seconds).
+bus.interact.armed_remove=Right-click the linked block you want to unlink (within 60 seconds).
+bus.interact.linked=§aBlock linked.
+bus.interact.removed=§aBlock unlinked.
+bus.interact.not_linked=§cThat block isn't linked.
+bus.interact.access_revoked=§cYou no longer have access to Interactive Blocks.
+bus.interact.error.empty=Turn on the rules screen or add at least one command.
+bus.interact.error.full=Couldn't save: too many linked blocks or too much command text.

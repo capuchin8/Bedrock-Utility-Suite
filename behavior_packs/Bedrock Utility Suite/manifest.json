@@ -1,11 +1,11 @@
 {
   "format_version": 3,
   "header": {
-    "name": "pack.name",
+    "name": "Bedrock Utility Suite",
     "description": "pack.description",
     "uuid": "7dfcca22-54b5-43d6-bd97-080e62c33fa5",
     "version": "1.0.0-alpha.1",
-    "min_engine_version": "1.26.30"
+    "min_engine_version": "1.26.50"
   },
   "modules": [
     {
@@ -26,11 +26,11 @@
   "dependencies": [
     {
       "module_name": "@minecraft/server",
-      "version": "2.10.0"
+      "version": "beta"
     },
     {
       "module_name": "@minecraft/server-ui",
-      "version": "2.2.0"
+      "version": "beta"
     },
     {
       "uuid": "2d7ed858-97eb-48a0-b180-7c80d1ce9a48",
@@ -191,6 +191,38 @@
         }
       ],
       "default": "any"
+    },
+    {
+      "type": "dropdown",
+      "text": "bus.pack_settings.command_nickname",
+      "name": "bus:command_permission_nickname",
+      "options": [
+        {
+          "name": "disabled",
+          "text": "bus.pack_settings.command_level_disabled"
+        },
+        {
+          "name": "any",
+          "text": "bus.pack_settings.command_level_everyone"
+        },
+        {
+          "name": "game_directors",
+          "text": "bus.pack_settings.command_level_game_directors"
+        },
+        {
+          "name": "admin",
+          "text": "bus.pack_settings.command_level_admin"
+        },
+        {
+          "name": "host",
+          "text": "bus.pack_settings.command_level_host"
+        },
+        {
+          "name": "owner",
+          "text": "bus.pack_settings.command_level_owner"
+        }
+      ],
+      "default": "game_directors"
     },
     {
       "type": "dropdown",

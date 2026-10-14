@@ -1,11 +1,11 @@
 {
   "format_version": 3,
   "header": {
-    "name": "pack.name",
+    "name": "Bedrock Utility Suite",
     "description": "pack.description",
     "uuid": "2d7ed858-97eb-48a0-b180-7c80d1ce9a48",
     "version": "1.0.0-alpha.1",
-    "min_engine_version": "1.26.30",
+    "min_engine_version": "1.26.50",
     "pack_scope": "world"
   },
   "modules": [

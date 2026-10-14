@@ -1,11 +1,11 @@
-pack.name=Bedrock Utility Suite
+## Bedrock Utility Suite - English.
 pack.description=Bedrock Utility Suite
 bus.pack_settings.dimensions_slider=Changes made here only take effect after restarting the world.\n\n§l§6Void Dimensions§r\nNote: Disabling a dimension does not delete its contents.\nNumber of Void Dimensions
 bus.pack_settings.dimensions_multiselect=Named Void Dimensions
 bus.pack_settings.dimensions_lobby=Lobby
 bus.pack_settings.dimensions_staff=Staff
 bus.pack_settings.dimensions_minigames=Minigames
-bus.pack_settings.command_level_disabled=Disabled — skips registering the command
+bus.pack_settings.command_level_disabled=Disabled — command is not registered
 bus.pack_settings.command_level_everyone=Everyone — anywhere, even by non-operators
 bus.pack_settings.command_level_game_directors=Game Directors — operators (including command blocks)
 bus.pack_settings.command_level_admin=Admin — operators (excluding command blocks)
@@ -15,4 +15,5 @@ bus.pack_settings.command_impulse=\n§l§6Command Permission Level§r\nSets the 
 bus.pack_settings.command_inventory=Inventory Command Permission Level
 bus.pack_settings.command_item=Item Command Permission Level
 bus.pack_settings.command_settings=Settings Command Permission Level
+bus.pack_settings.command_nickname=Nickname Command Permission Level
 bus.pack_settings.command_shop=Shop Command Permission Level
