@@ -6,7 +6,7 @@ A modular utility framework for Minecraft Bedrock Edition servers, realms and wo
 ## Features
 ✅ Custom commands
 
-❌ Rank system
+✅ Rank system
 
 ❌ Region protection
 
@@ -27,13 +27,13 @@ A modular utility framework for Minecraft Bedrock Edition servers, realms and wo
 4. Create or join your world.
 
 ## Requirements
-Minecraft Bedrock Edition v26.30 or later
+Minecraft Bedrock Edition v26.50 or later
 
 ## Documentation
 Wiki: https://github.com/capuchin8/Bedrock-Utility-Suite/wiki
 
 ## Bug Reports
-Found a bug? Open an issue on GitHub.
+Found a bug? [Open an issue on GitHub.](https://github.com/capuchin8/Bedrock-Utility-Suite/issues)
 
 ## Suggestions
-Have an idea? Open a GitHub Discussion.
+Have an idea? [Open a GitHub Discussion.](https://github.com/capuchin8/Bedrock-Utility-Suite/discussions/categories/ideas)
