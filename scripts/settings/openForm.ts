@@ -7,16 +7,20 @@ import {
     type ModalFormResponse,
 } from "@minecraft/server-ui";
 
-const RETRY_TICKS = 5;
-const MAX_ATTEMPTS = 40; // about 10 seconds
+// Running a command already closes the chat screen, so a form normally opens on the first try.
+// The short retry is only a safety net for the odd tick where another screen is still closing
+// (for example when one form is closed and the next opened straight away).
+const RETRY_TICKS = 4;
+const MAX_ATTEMPTS = 5;
 
 /**
- * Shows a DDUI form, retrying while the player is busy with another screen.
- * A command is typed in chat, so chat is still open when the callback runs and
- * show() resolves with UserBusy. `build` runs on every attempt for a fresh form.
+ * Shows a DDUI form, retrying briefly if the player is busy with another screen.
+ * `build` runs on every attempt for a fresh form.
+ * `onClosed` runs once when the form is finally gone (closed by the player, by code, or failed to
+ * open), e.g. to stop a timer that updates a label while the form is open.
  * Must not be called from restricted-execution mode (wrap in system.run).
  */
-export function showForm(player: Player, build: () => CustomForm): void {
+export function showForm(player: Player, build: () => CustomForm, onClosed?: () => void): void {
     let attempts = 0;
     const attempt = (): void => {
         if (!player.isValid) return;
@@ -26,11 +30,17 @@ export function showForm(player: Player, build: () => CustomForm): void {
                 .then((reason) => {
                     if (reason === DataDrivenScreenClosedReason.UserBusy && ++attempts < MAX_ATTEMPTS) {
                         system.runTimeout(attempt, RETRY_TICKS);
+                        return;
                     }
+                    onClosed?.();
                 })
-                .catch((e) => console.warn(`[bus:settings] form error: ${e}`));
+                .catch((e) => {
+                    console.warn(`[bus:settings] form error: ${e}`);
+                    onClosed?.();
+                });
         } catch (e) {
             console.warn(`[bus:settings] failed to show form: ${e}`);
+            onClosed?.();
         }
     };
     attempt();

@@ -45,6 +45,14 @@ export interface BusCommandDefinition {
         /** true = only the owner can run it. */
         ownerOnly?: boolean;
     };
+    /**
+     * Optional: change the parameters when the command is registered, based on the pack settings
+     * (read once at startup, so a change needs a world reload). Return undefined to keep the
+     * parameters above. Example: /bus:mute makes the reason mandatory when the owner turns that setting on.
+     */
+    configure?: (settings: Record<string, unknown>) =>
+        | { mandatoryParameters?: CustomCommandParameter[]; optionalParameters?: CustomCommandParameter[] }
+        | undefined;
     /** Only runs if the permission check passes. Mutations must be deferred with system.run. */
     run: (origin: CustomCommandOrigin, ...args: any[]) => CustomCommandResult | undefined;
 }
@@ -127,13 +135,14 @@ system.beforeEvents.startup.subscribe(({ customCommandRegistry }) => {
             customCommandRegistry.registerEnum(enumName, values);
         }
 
+        const override = def.configure?.(settings);
         customCommandRegistry.registerCommand(
             {
                 name: def.name,
                 description: def.description,
                 permissionLevel: ceiling === "disabled" ? CommandPermissionLevel.Any : ceiling,
-                mandatoryParameters: def.mandatoryParameters,
-                optionalParameters: def.optionalParameters,
+                mandatoryParameters: override?.mandatoryParameters ?? def.mandatoryParameters,
+                optionalParameters: override?.optionalParameters ?? def.optionalParameters,
                 cheatsRequired: def.cheatsRequired,
             },
             (origin, ...args) => {
