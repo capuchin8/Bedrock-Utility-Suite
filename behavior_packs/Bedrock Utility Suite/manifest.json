@@ -26,11 +26,11 @@
   "dependencies": [
     {
       "module_name": "@minecraft/server",
-      "version": "beta"
+      "version": "2.11.0-beta"
     },
     {
       "module_name": "@minecraft/server-ui",
-      "version": "beta"
+      "version": "2.3.0-beta"
     },
     {
       "uuid": "2d7ed858-97eb-48a0-b180-7c80d1ce9a48",
@@ -255,6 +255,140 @@
         }
       ],
       "default": "any"
+    },
+    {
+      "type": "dropdown",
+      "name": "bus:command_permission_mute",
+      "text": "bus.pack_settings.command_mute",
+      "default": "any",
+      "options": [
+        {
+          "name": "disabled",
+          "text": "bus.pack_settings.command_level_disabled"
+        },
+        {
+          "name": "any",
+          "text": "bus.pack_settings.command_level_everyone"
+        },
+        {
+          "name": "game_directors",
+          "text": "bus.pack_settings.command_level_game_directors"
+        },
+        {
+          "name": "admin",
+          "text": "bus.pack_settings.command_level_admin"
+        },
+        {
+          "name": "host",
+          "text": "bus.pack_settings.command_level_host"
+        },
+        {
+          "name": "owner",
+          "text": "bus.pack_settings.command_level_owner"
+        }
+      ]
+    },
+    {
+      "type": "toggle",
+      "name": "bus:mute_reason_required",
+      "text": "bus.pack_settings.mute_reason_required",
+      "default": false
+    },
+    {
+      "type": "dropdown",
+      "name": "bus:command_permission_unmute",
+      "text": "bus.pack_settings.command_unmute",
+      "default": "any",
+      "options": [
+        {
+          "name": "disabled",
+          "text": "bus.pack_settings.command_level_disabled"
+        },
+        {
+          "name": "any",
+          "text": "bus.pack_settings.command_level_everyone"
+        },
+        {
+          "name": "game_directors",
+          "text": "bus.pack_settings.command_level_game_directors"
+        },
+        {
+          "name": "admin",
+          "text": "bus.pack_settings.command_level_admin"
+        },
+        {
+          "name": "host",
+          "text": "bus.pack_settings.command_level_host"
+        },
+        {
+          "name": "owner",
+          "text": "bus.pack_settings.command_level_owner"
+        }
+      ]
+    },
+    {
+      "type": "dropdown",
+      "name": "bus:command_permission_staffchat",
+      "text": "bus.pack_settings.command_staffchat",
+      "default": "any",
+      "options": [
+        {
+          "name": "disabled",
+          "text": "bus.pack_settings.command_level_disabled"
+        },
+        {
+          "name": "any",
+          "text": "bus.pack_settings.command_level_everyone"
+        },
+        {
+          "name": "game_directors",
+          "text": "bus.pack_settings.command_level_game_directors"
+        },
+        {
+          "name": "admin",
+          "text": "bus.pack_settings.command_level_admin"
+        },
+        {
+          "name": "host",
+          "text": "bus.pack_settings.command_level_host"
+        },
+        {
+          "name": "owner",
+          "text": "bus.pack_settings.command_level_owner"
+        }
+      ]
+    },
+    {
+      "type": "dropdown",
+      "name": "bus:command_permission_sc",
+      "text": "bus.pack_settings.command_sc",
+      "default": "any",
+      "options": [
+        {
+          "name": "disabled",
+          "text": "bus.pack_settings.command_level_disabled"
+        },
+        {
+          "name": "any",
+          "text": "bus.pack_settings.command_level_everyone"
+        },
+        {
+          "name": "game_directors",
+          "text": "bus.pack_settings.command_level_game_directors"
+        },
+        {
+          "name": "admin",
+          "text": "bus.pack_settings.command_level_admin"
+        },
+        {
+          "name": "host",
+          "text": "bus.pack_settings.command_level_host"
+        },
+        {
+          "name": "owner",
+          "text": "bus.pack_settings.command_level_owner"
+        }
+      ]
     }
   ]
 }
