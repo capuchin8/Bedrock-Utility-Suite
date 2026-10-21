@@ -260,7 +260,7 @@
       "type": "dropdown",
       "name": "bus:command_permission_mute",
       "text": "bus.pack_settings.command_mute",
-      "default": "any",
+      "default": "game_directors",
       "options": [
         {
           "name": "disabled",
@@ -298,7 +298,7 @@
       "type": "dropdown",
       "name": "bus:command_permission_unmute",
       "text": "bus.pack_settings.command_unmute",
-      "default": "any",
+      "default": "game_directors",
       "options": [
         {
           "name": "disabled",
@@ -330,7 +330,7 @@
       "type": "dropdown",
       "name": "bus:command_permission_staffchat",
       "text": "bus.pack_settings.command_staffchat",
-      "default": "any",
+      "default": "admin",
       "options": [
         {
           "name": "disabled",
@@ -362,7 +362,7 @@
       "type": "dropdown",
       "name": "bus:command_permission_sc",
       "text": "bus.pack_settings.command_sc",
-      "default": "any",
+      "default": "admin",
       "options": [
         {
           "name": "disabled",
