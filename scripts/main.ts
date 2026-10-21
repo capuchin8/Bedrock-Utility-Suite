@@ -5,10 +5,6 @@ import "./ItemManager";
 import "./dimensions";
 import "./floatingText/floatingTextEntities";
 import "./floatingText/floatingTextMenu";
-import "./commands/testShop";
-import "./shop/shopCommands";
-import { registerShopEvents } from "./shop/shopCommands";
-registerShopEvents();
 
 // Core systems
 import "./commands/busCommand";
@@ -42,6 +38,7 @@ import "./settings/sections/combatSection";
 import "./settings/sections/rulesSection";
 import "./settings/sections/permissionsSection";
 import "./settings/sections/shareSection";
+import "./settings/sections/shopSection";
 
 // Debug menu: stripped from production builds (see justfile dropLabels)
 import "./debug/debugSection";
