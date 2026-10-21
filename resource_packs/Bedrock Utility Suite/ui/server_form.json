@@ -165,7 +165,7 @@
     "$text_edit_box_placeholder_content_binding_name": "$option_place_holder_text",
     "$text_edit_box_placeholder_content_binding_type": "collection",
     "$text_edit_box_grid_collection_name": "custom_form",
-    "$max_text_edit_length": 32000,
+    "$max_text_edit_length": 2147483647,
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "size": ["100%", "fill"],
