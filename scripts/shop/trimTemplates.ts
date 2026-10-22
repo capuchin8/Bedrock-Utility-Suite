@@ -3,13 +3,13 @@ import { getShop, getTrimStorage, newId, saveShop, setTrimStorage } from "./shop
 
 /**
  * The Script API (checked in @minecraft/server 2.11.0-beta typings) has no way to read or set an
- * armor trim on an ItemStack. A real ItemStack does keep its trim when it is moved between
+ * armor trim or firework explosion data on an ItemStack. A real ItemStack does keep its trim when it is moved between
  * containers though (the same thing /bus:inventory relies on), so trims are "captured": an admin
  * holds trimmed armor, BUS moves a copy into a hidden storage entity, and shop items refer to that
  * slot. A ticking area keeps the entity's chunk loaded so it can be read at any time.
  */
 const STORAGE_ENTITY_ID = "bus:inventory_storage";
-const AREA_NAME = "bus_shop_trims";
+const AREA_NAME = "bus_shop_captured_items";
 export const MAX_TRIM_TEMPLATES = 40;
 
 function storageEntity(): Entity | undefined {
@@ -45,33 +45,58 @@ function createStorage(player: Player): Entity | undefined {
     return e;
 }
 
-export type CaptureResult = "ok" | "no_item" | "not_armor" | "full" | "failed";
+export type CaptureResult = "ok" | "no_item" | "full" | "failed";
 
-/** Must run outside restricted execution (wrap in system.run). Captures the held item as a trim template. */
-export function captureTrimFromHand(player: Player, name: string): CaptureResult {
-    const held = player.getComponent("minecraft:inventory")?.container?.getItem(player.selectedSlotIndex);
-    if (!held) return "no_item";
-    if (!held.hasTag("minecraft:is_armor")) return "not_armor";
+/** Items whose data the Script API cannot rebuild, so they are captured automatically on import. */
+const AUTO_CAPTURE = new Set(["minecraft:firework_rocket", "minecraft:firework_star"]);
+export const needsCapture = (typeId: string): boolean => AUTO_CAPTURE.has(typeId);
+
+function uniqueName(base: string): string {
+    const names = new Set(getShop().trims.map((x) => x.name));
+    if (!names.has(base)) return base;
+    let n = 2;
+    while (names.has(`${base} ${n}`)) n++;
+    return `${base} ${n}`;
+}
+
+/**
+ * Stores a copy of `stack` as a template (armor with a trim, fireworks, anything the API can't build).
+ * Must run outside restricted execution (wrap in system.run).
+ */
+export function captureStack(player: Player, stack: ItemStack, name: string): { res: CaptureResult; id?: string } {
     const cfg = getShop();
-    if (cfg.trims.length >= MAX_TRIM_TEMPLATES) return "full";
+    if (cfg.trims.length >= MAX_TRIM_TEMPLATES) return { res: "full" };
     try {
         const entity = storageEntity() ?? createStorage(player);
         const container = entity?.getComponent("minecraft:inventory")?.container;
-        if (!container) return "failed";
+        if (!container) return { res: "failed" };
         const used = new Set(cfg.trims.map((x) => x.slot));
         let slot = 0;
         while (used.has(slot)) slot++;
-        if (slot >= container.size) return "full";
-        const copy = held.clone();
+        if (slot >= container.size) return { res: "full" };
+        const copy = stack.clone();
         copy.amount = 1;
         container.setItem(slot, copy);
-        cfg.trims.push({ id: newId("t"), name: name.trim().slice(0, 60) || held.typeId.replace("minecraft:", ""), slot });
+        const id = newId("t");
+        cfg.trims.push({ id, name: uniqueName(name.trim().slice(0, 60) || stack.typeId.replace("minecraft:", "")), slot });
         saveShop();
-        return "ok";
+        return { res: "ok", id };
     } catch (e) {
-        console.warn(`[bus:shop] trim capture failed: ${e}`);
-        return "failed";
+        console.warn(`[bus:shop] capture failed: ${e}`);
+        return { res: "failed" };
     }
+}
+
+/** Captures the held item as a template. */
+export function captureHeld(player: Player, name: string): { res: CaptureResult; id?: string } {
+    const held = player.getComponent("minecraft:inventory")?.container?.getItem(player.selectedSlotIndex);
+    if (!held) return { res: "no_item" };
+    return captureStack(player, held, name);
+}
+
+/** For fireworks and similar: captures the stack and returns the template id (undefined for other items). */
+export function autoCapture(player: Player, stack: ItemStack): string | undefined {
+    return needsCapture(stack.typeId) ? captureStack(player, stack, "").id : undefined;
 }
 
 export function deleteTrimTemplate(id: string): void {

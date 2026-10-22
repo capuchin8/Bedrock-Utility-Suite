@@ -15,6 +15,8 @@ export interface PurchaseResult {
 export interface QuantityFormOptions {
     title: UIRawMessage;
     /** Label for the running total, e.g. "bus.shop.total_cost" (args: total, currency). */
+    /** Optional text shown above the total (e.g. a kit's contents). */
+    details?: UIRawMessage;
     totalKey: string;
     /** Used instead of totalKey when unitAmount > 1 (args: items, total, currency). */
     totalUnitsKey?: string;
@@ -81,6 +83,7 @@ export function openQuantityForm(player: Player, o: QuantityFormOptions): void {
         }
 
         const form = new CustomForm(player, o.title);
+        if (o.details) form.label(o.details).spacer();
         form.label(total).spacer().spacer();
         if (!fixed) form.slider(unit > 1 ? t("bus.shop.quantity_bundles", unit) : t("bus.shop.quantity"), qty, o.min, o.max, { step: o.step ?? 1 }).spacer().spacer();
         form.button(t(o.confirmKey), () => confirm(fixed ? o.min : Math.max(o.min, Math.min(o.max, Math.round(qty.getData())))));

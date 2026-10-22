@@ -2,7 +2,8 @@ import { StatusLabel } from "../../shop/statusLabel";
 import { system, type Player } from "@minecraft/server";
 import { CustomForm, ObservableBoolean, ObservableString } from "@minecraft/server-ui";
 import { raw, t } from "../../core/lang";
-import { giveSpec, heldStack, prettyName } from "../../shop/shopItems";
+import { describeStack, giveSpec, heldStack, hotbarStacks, prettyName } from "../../shop/shopItems";
+import { autoCapture } from "../../shop/trimTemplates";
 import { defaultPriceFor, findCategory, flushSave, newId, scheduleSave } from "../../shop/shopStore";
 import type { ItemSpec, KitContent, Sellable, ShopCategory, ShopItem, ShopKit } from "../../shop/shopTypes";
 import { createGuard, type SettingsGuard } from "../guard";
@@ -82,7 +83,7 @@ export function openItemEditor(player: Player, categoryId: string, itemId: strin
         intField(form, guard, "bus.shopedit.min_qty", item.minQuantity, 1, 2304, (n) => (item.minQuantity = n));
         intField(form, guard, "bus.shopedit.max_qty", item.maxQuantity, 1, 2304, (n) => (item.maxQuantity = n));
         intField(form, guard, "bus.shopedit.step", item.step, 1, 2304, (n) => (item.step = n));
-        addSpecControls(form, guard, player, item, reopen, status, (info) => (item.name = info.name));
+        addSpecControls(form, guard, player, item, reopen, status, (name) => (item.name = name));
         testButton(form, guard, player, item, status);
         form.divider();
         deleteButton(form, guard, status, () => {
@@ -208,6 +209,27 @@ export function openKitEditor(player: Player, categoryId: string, kitId: string,
                 })
             );
         }
+        form.button(
+            t("bus.shopedit.kit_import_hotbar"),
+            guard.click(() =>
+                system.run(() => {
+                    const stacks = hotbarStacks(player);
+                    if (!stacks.length) {
+                        status.set(t("bus.shopedit.import_hotbar.empty"));
+                        return;
+                    }
+                    for (const st of stacks) {
+                        if (kit.contents.length >= 36) break;
+                        const info = describeStack(st);
+                        kit.contents.push({ itemId: info.itemId, amount: st.amount, enchants: info.enchants, potion: info.potion, trimId: autoCapture(player, st) });
+                    }
+                    flushSave();
+                    form.close();
+                    reopen();
+                })
+            ),
+            { tooltip: t("bus.shopedit.kit_import_hotbar.desc") }
+        );
         form.divider();
         deleteButton(form, guard, status, () => {
             cat.kits = cat.kits.filter((x) => x.id !== kitId);

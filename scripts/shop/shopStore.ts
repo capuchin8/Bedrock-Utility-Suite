@@ -69,8 +69,8 @@ function normEnchants(v: unknown): ShopEnchant[] | undefined {
 }
 
 function normPotion(v: unknown): ShopPotion | undefined {
-    if (!isRecord(v) || typeof v.effect !== "string" || typeof v.delivery !== "string") return undefined;
-    return { effect: v.effect.slice(0, 64), delivery: v.delivery.slice(0, 64) };
+    if (!isRecord(v) || typeof v.effect !== "string" || !v.effect) return undefined;
+    return { effect: v.effect.slice(0, 64) };
 }
 
 function itemId(v: unknown): string {

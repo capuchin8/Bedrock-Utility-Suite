@@ -5,7 +5,7 @@ import { raw, t } from "../core/lang";
 import { canUse } from "../permissions/permissionStore";
 import { addBalance, getBalance, tryRemoveBalance } from "./shopEconomy";
 import { getIconFor } from "./shopIcons";
-import { giveSpec } from "./shopItems";
+import { giveSpec, potionName, prettyName } from "./shopItems";
 import { openQuantityForm, type PurchaseResult } from "./shopQuantityForm";
 import { findCategory, getRoot, getShop, itemPrice, sellPriceOf, unitOf } from "./shopStore";
 import type { Sellable, ShopCategory, ShopItem, ShopKit, ShopTree } from "./shopTypes";
@@ -55,10 +55,11 @@ function openChooser(player: Player): void {
         });
         return;
     }
+    const cfg = getShop();
     new ActionFormData()
         .title(t("bus.shop.menu.title"))
-        .button({ rawtext: [raw("§a"), t("bus.shop.menu.buy")] })
-        .button({ rawtext: [raw("§6"), t("bus.shop.menu.sell")] })
+        .button({ rawtext: [raw("§a"), t("bus.shop.menu.buy")] }, cfg.buyRoot.icon || undefined)
+        .button({ rawtext: [raw("§6"), t("bus.shop.menu.sell")] }, cfg.sellRoot.icon || undefined)
         .show(player)
         .then((r) => {
             if (r.canceled || r.selection === undefined || !allowed(player)) return;
@@ -135,10 +136,10 @@ function openCategoryClassic(player: Player, tree: ShopTree, cat: ShopCategory):
 
     if (tree === "buy") {
         for (const item of cat.items) {
-            add({ rawtext: [raw(`${item.name}\n§a`), priceText(itemPrice(cat, item), unitOf(item), cfg.currencyName)] }, getIconFor(item.itemId, item.icon), () => openItem(player, tree, cat, item));
+            add({ rawtext: [raw(`${item.name}\n§a`), priceText(itemPrice(cat, item), unitOf(item), cfg.currencyName)] }, getIconFor(item.itemId, item.icon, item.potion), () => openItem(player, tree, cat, item));
         }
         for (const kit of cat.kits) {
-            add({ rawtext: [raw(`${kit.name}\n§6`), t("bus.shop.price", kit.price, cfg.currencyName), raw(" §e"), t("bus.shop.kit_tag")] }, kit.icon ? getIconFor("", kit.icon) : getIconFor(kit.contents[0]?.itemId ?? "minecraft:chest", undefined), () => openKit(player, tree, cat, kit));
+            add({ rawtext: [raw(`${kit.name}\n§6`), t("bus.shop.price", kit.price, cfg.currencyName), raw(" §e"), t("bus.shop.kit_tag")] }, kit.icon ? getIconFor("", kit.icon) : getIconFor(kit.contents[0]?.itemId ?? "minecraft:chest", undefined, kit.contents[0]?.potion), () => openKit(player, tree, cat, kit));
         }
     } else {
         for (const s of cat.sellables) {
@@ -186,6 +187,7 @@ function openItem(player: Player, tree: ShopTree, cat: ShopCategory, item: ShopI
     const unit = unitOf(item);
     openQuantityForm(player, {
         title: raw(item.name),
+        details: item.lore ? raw(item.lore) : undefined,
         totalKey: "bus.shop.total_cost",
         totalUnitsKey: "bus.shop.total_cost_units",
         unitAmount: unit,
@@ -201,11 +203,24 @@ function openItem(player: Player, tree: ShopTree, cat: ShopCategory, item: ShopI
     });
 }
 
+/** "Contains:" followed by one line per item, e.g. "1x Diamond Sword (sharpness 3)". */
+function kitContents(kit: ShopKit): Raw {
+    const lines = kit.contents.map((c) => {
+        let name = c.nameTag ?? prettyName(c.itemId);
+        if (c.potion) name = c.nameTag ?? potionName(c.itemId, c.potion.effect);
+        if (c.enchants?.length) name += ` (${c.enchants.map((e) => `${e.id} ${e.level}`).join(", ")})`;
+        return `${c.amount}x ${name}`;
+    });
+    const contents = [t("bus.shop.kit_contains"), raw(`\n${lines.join("\n") || "-"}`)];
+    return { rawtext: kit.lore ? [raw(`${kit.lore}\n\n`), ...contents] : contents };
+}
+
 function openKit(player: Player, tree: ShopTree, cat: ShopCategory, kit: ShopKit): void {
     const cfg = getShop();
     const max = kit.allowQuantity ? Math.max(1, kit.maxQuantity ?? 10) : 1;
     openQuantityForm(player, {
         title: raw(kit.name),
+        details: kitContents(kit),
         totalKey: "bus.shop.total_cost",
         sessionKey: "bus.shop.session_bought",
         confirmKey: "bus.shop.buy",

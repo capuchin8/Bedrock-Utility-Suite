@@ -3,6 +3,7 @@ import { system, type Player } from "@minecraft/server";
 import { CustomForm, ObservableString } from "@minecraft/server-ui";
 import { raw, t } from "../../core/lang";
 import { describeStack, hotbarStacks } from "../../shop/shopItems";
+import { autoCapture } from "../../shop/trimTemplates";
 import { emptyCategory, findCategory, findParent, flushSave, getRoot, itemPrice, newId, renameCategoryId, scheduleSave, sellPriceOf } from "../../shop/shopStore";
 import type { ShopTree } from "../../shop/shopTypes";
 import { createGuard } from "../guard";
@@ -41,7 +42,7 @@ export function openCategoryEditor(player: Player, tree: ShopTree, categoryId: s
             cat.icon = v.trim() || undefined;
             scheduleSave();
         });
-        form.textField(t("bus.shopedit.cat_icon"), icon, { description: t("bus.shopedit.cat_icon.desc") });
+        form.textField(t("bus.shopedit.cat_icon"), icon, { description: t(isRoot ? "bus.shopedit.root_icon.desc" : "bus.shopedit.cat_icon.desc") });
         const dp = new ObservableString(cat.defaultPrice === undefined ? "" : String(cat.defaultPrice), W);
         guard.on(dp, (v: string) => {
             if (v.trim() === "") cat.defaultPrice = undefined;
@@ -100,7 +101,7 @@ export function openCategoryEditor(player: Player, tree: ShopTree, categoryId: s
                         }
                         for (const st of stacks) {
                             const info = describeStack(st);
-                            cat.items.push({ id: newId("i"), itemId: info.itemId, name: info.name, enchants: info.enchants, potion: info.potion });
+                            cat.items.push({ id: newId("i"), itemId: info.itemId, name: info.name, enchants: info.enchants, potion: info.potion, trimId: autoCapture(player, st) });
                         }
                         flushSave();
                         form.close();

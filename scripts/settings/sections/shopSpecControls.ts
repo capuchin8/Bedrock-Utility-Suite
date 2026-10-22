@@ -1,12 +1,12 @@
 import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
 import { Potions, system, type Player } from "@minecraft/server";
-import { CustomForm, ObservableNumber, ObservableString } from "@minecraft/server-ui";
+import { CustomForm, ObservableBoolean, ObservableNumber, ObservableString } from "@minecraft/server-ui";
 import { raw, t } from "../../core/lang";
-import { describeStack, heldStack, type HeldInfo } from "../../shop/shopItems";
+import { describeStack, heldStack, isPotionItem, potionName } from "../../shop/shopItems";
 import { getShop, scheduleSave } from "../../shop/shopStore";
 import type { StatusLabel } from "../../shop/statusLabel";
 import type { ItemSpec } from "../../shop/shopTypes";
-import { trimTemplateTypeId } from "../../shop/trimTemplates";
+import { autoCapture, trimTemplateTypeId } from "../../shop/trimTemplates";
 import type { SettingsGuard } from "../guard";
 
 const W = { clientWritable: true } as const;
@@ -30,7 +30,8 @@ export function addSpecControls(
     spec: ItemSpec,
     reopen: () => void,
     status: StatusLabel,
-    onHeld?: (info: HeldInfo) => void
+    /** Called when the item gets a new natural name (from the held item or a chosen potion effect). */
+    onName?: (name: string) => void
 ): void {
     form.button(
         t("bus.shopedit.use_held"),
@@ -45,8 +46,8 @@ export function addSpecControls(
                 spec.itemId = info.itemId;
                 spec.enchants = info.enchants;
                 spec.potion = info.potion;
-                spec.trimId = undefined;
-                onHeld?.(info);
+                spec.trimId = autoCapture(player, held); // fireworks etc. are captured as templates
+                onName?.(info.name);
                 scheduleSave();
                 form.close();
                 reopen();
@@ -55,11 +56,13 @@ export function addSpecControls(
         { tooltip: t("bus.shopedit.use_held.desc") }
     );
 
+    const potionVisible = new ObservableBoolean(isPotionItem(spec.itemId));
     const id = new ObservableString(spec.itemId, W);
     guard.on(id, (v: string) => {
         const s = v.trim();
         if (!s) return;
         spec.itemId = s.includes(":") ? s : `minecraft:${s}`;
+        potionVisible.setData(isPotionItem(spec.itemId));
         scheduleSave();
     });
     form.textField(t("bus.shopedit.item_id"), id, { description: t("bus.shopedit.item_id.desc") });
@@ -117,40 +120,32 @@ export function addSpecControls(
         );
     }
 
-    // Potion
-    form.header(t("bus.shopedit.potion")).label(t("bus.shopedit.potion.desc"));
+    // Potion: only shown for potion / splash_potion / lingering_potion. The delivery follows the item id.
+    form.header(t("bus.shopedit.potion"), { visible: potionVisible }).label(t("bus.shopedit.potion.desc"), { visible: potionVisible });
     let effects: string[] = [];
-    let deliveries: string[] = [];
     try {
         effects = Potions.getAllEffectTypes().map((e) => e.id);
-        deliveries = Potions.getAllDeliveryTypes().map((d) => d.id);
     } catch {
         // potion registry unavailable
     }
-    if (effects.length && deliveries.length) {
+    if (effects.length) {
         const effIdx = new ObservableNumber(spec.potion ? effects.indexOf(spec.potion.effect) + 1 : 0, W);
-        const delIdx = new ObservableNumber(Math.max(0, spec.potion ? deliveries.indexOf(spec.potion.delivery) : 0), W);
-        const apply = (): void => {
-            const e = Math.round(effIdx.getData());
+        guard.on(effIdx, (v: number) => {
+            const e = Math.round(v);
             if (e <= 0) {
                 spec.potion = undefined;
             } else {
-                spec.potion = { effect: effects[e - 1], delivery: deliveries[Math.max(0, Math.round(delIdx.getData()))] };
-                try {
-                    spec.itemId = Potions.resolve(spec.potion.effect, spec.potion.delivery).typeId;
-                } catch {
-                    // keep the previous item id
-                }
+                spec.potion = { effect: effects[e - 1] };
+                onName?.(potionName(spec.itemId, spec.potion.effect));
             }
             scheduleSave();
-        };
-        guard.on(effIdx, apply);
-        guard.on(delIdx, apply);
-        form.dropdown(t("bus.shopedit.potion_effect"), effIdx, [
-            { label: t("bus.shopedit.potion_none"), value: 0 },
-            ...effects.map((id, n) => ({ label: raw(id), value: n + 1 })),
-        ]);
-        form.dropdown(t("bus.shopedit.potion_delivery"), delIdx, deliveries.map((id, n) => ({ label: raw(id), value: n })));
+        });
+        form.dropdown(
+            t("bus.shopedit.potion_effect"),
+            effIdx,
+            [{ label: t("bus.shopedit.potion_none"), value: 0 }, ...effects.map((e, n) => ({ label: raw(e.replace(/^[a-z0-9_.-]+:/, "")), value: n + 1 }))],
+            { visible: potionVisible }
+        );
     }
 
     // Armor trim

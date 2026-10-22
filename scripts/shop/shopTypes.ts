@@ -1,6 +1,5 @@
 export interface ShopPotion {
     effect: string;
-    delivery: string;
 }
 
 export interface ShopEnchant {
@@ -16,7 +15,7 @@ export interface ItemSpec {
     enchants?: ShopEnchant[];
     /** id of a captured trim template (see trimTemplates.ts). Armor only. */
     trimId?: string;
-    /** A specific potion (effect + delivery ids from Potions). Overrides itemId when set. */
+    /** Potion effect (id from Potions). The delivery (drink/splash/lingering) comes from itemId. Only used on potion items. */
     potion?: ShopPotion;
     /** Only present in share codes / during import: re-links to a trim template by name. */
     trimName?: string;

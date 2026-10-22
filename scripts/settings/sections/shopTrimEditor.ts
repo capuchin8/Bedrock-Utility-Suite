@@ -3,7 +3,7 @@ import { system, type Player } from "@minecraft/server";
 import { CustomForm, ObservableString } from "@minecraft/server-ui";
 import { raw, t } from "../../core/lang";
 import { getShop, trimInUse } from "../../shop/shopStore";
-import { captureTrimFromHand, deleteTrimTemplate, MAX_TRIM_TEMPLATES } from "../../shop/trimTemplates";
+import { captureHeld, deleteTrimTemplate, MAX_TRIM_TEMPLATES } from "../../shop/trimTemplates";
 import { createGuard } from "../guard";
 import { showForm } from "../openForm";
 
@@ -46,7 +46,7 @@ export function openTrimEditor(player: Player, key: string, back: () => void, no
                     guard.click(() => {
                         const label = name.getData();
                         system.run(() => {
-                            const res = captureTrimFromHand(player, label);
+                            const { res } = captureHeld(player, label);
                             if (res === "ok") {
                                 form.close();
                                 reopen("bus.shopedit.trim_captured");
