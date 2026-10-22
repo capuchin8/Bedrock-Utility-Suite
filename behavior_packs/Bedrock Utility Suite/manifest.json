@@ -39,15 +39,15 @@
   ],
   "metadata": {
     "authors": ["Capuchin_"],
-    "license": "MIT",
+    "license": "MIT License. See the license file for more information.",
     "product_type": "addon",
     "url": "https://github.com/capuchin8/Bedrock-Utility-Suite"
   },
   "settings": [
     {
       "type": "slider",
-      "text": "bus.pack_settings.dimensions_slider",
       "name": "bus:void_dimension_count",
+      "text": "bus.pack_settings.dimensions_slider",
       "min": 0,
       "max": 16,
       "step": 1,
@@ -55,19 +55,20 @@
     },
     {
       "type": "multiselect",
-      "text": "bus.pack_settings.dimensions_multiselect",
       "name": "bus:named_dimensions",
+      "text": "bus.pack_settings.dimensions_multiselect",
+      "defaults": [],
       "options": [
         { "text": "bus.pack_settings.dimensions_lobby", "name": "lobby" },
         { "text": "bus.pack_settings.dimensions_staff", "name": "staff" },
         { "text": "bus.pack_settings.dimensions_minigames", "name": "minigames" }
-      ],
-      "defaults": []
+      ]
     },
     {
       "type": "dropdown",
-      "text": "bus.pack_settings.command_impulse",
       "name": "bus:command_permission_impulse",
+      "text": "bus.pack_settings.command_impulse",
+      "default": "game_directors",
       "options": [
         {
           "name": "disabled",
@@ -75,7 +76,7 @@
         },
         {
           "name": "any",
-          "text": "bus.pack_settings.command_level_everyone"
+          "text": "bus.pack_settings.command_level_any"
         },
         {
           "name": "game_directors",
@@ -93,13 +94,13 @@
           "name": "owner",
           "text": "bus.pack_settings.command_level_owner"
         }
-      ],
-      "default": "game_directors"
+      ]
     },
     {
       "type": "dropdown",
-      "text": "bus.pack_settings.command_inventory",
       "name": "bus:command_permission_inventory",
+      "text": "bus.pack_settings.command_inventory",
+      "default": "game_directors",
       "options": [
         {
           "name": "disabled",
@@ -107,7 +108,7 @@
         },
         {
           "name": "any",
-          "text": "bus.pack_settings.command_level_everyone"
+          "text": "bus.pack_settings.command_level_any"
         },
         {
           "name": "game_directors",
@@ -125,13 +126,13 @@
           "name": "owner",
           "text": "bus.pack_settings.command_level_owner"
         }
-      ],
-      "default": "game_directors"
+      ]
     },
     {
       "type": "dropdown",
-      "text": "bus.pack_settings.command_item",
       "name": "bus:command_permission_item",
+      "text": "bus.pack_settings.command_item",
+      "default": "game_directors",
       "options": [
         {
           "name": "disabled",
@@ -139,7 +140,7 @@
         },
         {
           "name": "any",
-          "text": "bus.pack_settings.command_level_everyone"
+          "text": "bus.pack_settings.command_level_any"
         },
         {
           "name": "game_directors",
@@ -157,13 +158,13 @@
           "name": "owner",
           "text": "bus.pack_settings.command_level_owner"
         }
-      ],
-      "default": "game_directors"
+      ]
     },
     {
       "type": "dropdown",
-      "text": "bus.pack_settings.command_settings",
       "name": "bus:command_permission_settings",
+      "text": "bus.pack_settings.command_settings",
+      "default": "any",
       "options": [
         {
           "name": "disabled",
@@ -171,7 +172,7 @@
         },
         {
           "name": "any",
-          "text": "bus.pack_settings.command_level_everyone"
+          "text": "bus.pack_settings.command_level_any"
         },
         {
           "name": "game_directors",
@@ -189,13 +190,13 @@
           "name": "owner",
           "text": "bus.pack_settings.command_level_owner"
         }
-      ],
-      "default": "any"
+      ]
     },
     {
       "type": "dropdown",
-      "text": "bus.pack_settings.command_nickname",
       "name": "bus:command_permission_nickname",
+      "text": "bus.pack_settings.command_nickname",
+      "default": "game_directors",
       "options": [
         {
           "name": "disabled",
@@ -203,7 +204,7 @@
         },
         {
           "name": "any",
-          "text": "bus.pack_settings.command_level_everyone"
+          "text": "bus.pack_settings.command_level_any"
         },
         {
           "name": "game_directors",
@@ -221,13 +222,13 @@
           "name": "owner",
           "text": "bus.pack_settings.command_level_owner"
         }
-      ],
-      "default": "game_directors"
+      ]
     },
     {
       "type": "dropdown",
-      "text": "bus.pack_settings.command_shop",
       "name": "bus:command_permission_shop",
+      "text": "bus.pack_settings.command_shop",
+      "default": "any",
       "options": [
         {
           "name": "disabled",
@@ -235,7 +236,7 @@
         },
         {
           "name": "any",
-          "text": "bus.pack_settings.command_level_everyone"
+          "text": "bus.pack_settings.command_level_any"
         },
         {
           "name": "game_directors",
@@ -253,8 +254,7 @@
           "name": "owner",
           "text": "bus.pack_settings.command_level_owner"
         }
-      ],
-      "default": "any"
+      ]
     },
     {
       "type": "dropdown",
@@ -268,7 +268,7 @@
         },
         {
           "name": "any",
-          "text": "bus.pack_settings.command_level_everyone"
+          "text": "bus.pack_settings.command_level_any"
         },
         {
           "name": "game_directors",
@@ -306,7 +306,7 @@
         },
         {
           "name": "any",
-          "text": "bus.pack_settings.command_level_everyone"
+          "text": "bus.pack_settings.command_level_any"
         },
         {
           "name": "game_directors",
@@ -338,7 +338,7 @@
         },
         {
           "name": "any",
-          "text": "bus.pack_settings.command_level_everyone"
+          "text": "bus.pack_settings.command_level_any"
         },
         {
           "name": "game_directors",
@@ -370,7 +370,7 @@
         },
         {
           "name": "any",
-          "text": "bus.pack_settings.command_level_everyone"
+          "text": "bus.pack_settings.command_level_any"
         },
         {
           "name": "game_directors",
