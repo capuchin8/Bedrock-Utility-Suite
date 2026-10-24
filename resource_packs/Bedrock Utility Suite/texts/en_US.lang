@@ -498,3 +498,80 @@ bus.shopedit.kit_import_hotbar=Import hotbar into kit
 bus.shopedit.kit_import_hotbar.desc=Adds every item in your hotbar to this kit with its stack size, enchantments and potion. Up to 36 items per kit.
 
 bus.shopedit.root_icon.desc=Optional. A texture path shown next to this shop's button on the Buy/Sell chooser. Only the classic style shows icons.
+
+## ---- floating text  ----
+bus.section.floating_text.title=Floating Text
+bus.section.floating_text.desc=Create and edit floating text and floating scoreboards.
+
+bus.floatingtext.intro=Floating text and scoreboards are entities placed in the world.
+bus.floatingtext.new_text=New floating text
+bus.floatingtext.new_scoreboard=New floating scoreboard
+bus.floatingtext.edit=Edit loaded floating text
+bus.floatingtext.new_text.title=New floating text
+bus.floatingtext.new_scoreboard.title=New floating scoreboard
+bus.floatingtext.edit.title=Edit floating text
+bus.floatingtext.edit.note=Only floating text in loaded chunks is listed.
+bus.floatingtext.edit.none=No floating text or scoreboards are loaded right now. Only ones in loaded chunks are listed.
+bus.floatingtext.kind.text=Text
+bus.floatingtext.kind.scoreboard=Scoreboard
+bus.floatingtext.unnamed=(no text)
+
+bus.floatingtext.text=Text to display
+bus.floatingtext.text.desc=Type \\n for a new line.
+bus.floatingtext.position=Position
+bus.floatingtext.position.desc=X Y Z, separated by spaces.
+bus.floatingtext.create=Create
+bus.floatingtext.save=Save
+bus.floatingtext.delete=Delete
+bus.floatingtext.delete.again=Press again to delete
+bus.floatingtext.delete.warning=§eThis can't be undone. Press the button again to delete.
+
+bus.floatingtext.objective=Scoreboard objective
+bus.floatingtext.sort=Score order
+bus.floatingtext.sort.ascending=Ascending
+bus.floatingtext.sort.descending=Descending
+bus.floatingtext.enumerate=Number the players
+bus.floatingtext.hide_offline=Hide offline players
+bus.floatingtext.hide_offline.desc=On = scores belonging to players who are not online are left out.
+bus.floatingtext.enum_color=Number color
+bus.floatingtext.name_color=Player name color
+bus.floatingtext.score_color=Score color
+bus.floatingtext.max_listed=Players listed
+bus.floatingtext.preview=Preview: %s
+
+bus.floatingtext.notice.created=§aCreated.
+bus.floatingtext.notice.saved=§aSaved.
+bus.floatingtext.notice.deleted=§aDeleted.
+bus.floatingtext.error.position=§cEnter the position as three numbers: X Y Z.
+bus.floatingtext.error.no_objectives=§cCreate a scoreboard objective first, then come back.
+bus.floatingtext.error.spawn=§cCouldn't create it there. Try a position in a loaded area.
+bus.floatingtext.error.gone=§cThat floating text no longer exists.
+
+bus.floatingtext.color.dark_red=Dark red
+bus.floatingtext.color.mahogany_red=Mahogany red
+bus.floatingtext.color.red=Red
+bus.floatingtext.color.gold=Gold
+bus.floatingtext.color.dandelion=Dandelion
+bus.floatingtext.color.honey=Honey
+bus.floatingtext.color.yellow=Yellow
+bus.floatingtext.color.dark_green=Dark green
+bus.floatingtext.color.forest_green=Forest green
+bus.floatingtext.color.lime_green=Lime green
+bus.floatingtext.color.aqua=Aqua
+bus.floatingtext.color.dark_aqua=Dark aqua
+bus.floatingtext.color.cadet_blue=Cadet blue
+bus.floatingtext.color.teal=Teal
+bus.floatingtext.color.dark_blue=Dark blue
+bus.floatingtext.color.grape=Grape
+bus.floatingtext.color.light_purple=Light purple
+bus.floatingtext.color.dark_lavender=Dark lavender
+bus.floatingtext.color.dark_purple=Dark purple
+bus.floatingtext.color.brown=Brown
+bus.floatingtext.color.white=White
+bus.floatingtext.color.off_white=Off white
+bus.floatingtext.color.gray=Gray
+bus.floatingtext.color.dark_gray=Dark gray
+bus.floatingtext.color.charcoal=Charcoal
+bus.floatingtext.color.black=Black
+
+

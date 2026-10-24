@@ -3,8 +3,10 @@ import "./commands/inventory";
 import "./commands/item";
 import "./ItemManager";
 import "./dimensions";
+
+// Floating Text
 import "./floatingText/floatingTextEntities";
-import "./floatingText/floatingTextMenu";
+import "./settings/sections/floatingTextSection";
 
 // Core systems
 import "./commands/busCommand";
