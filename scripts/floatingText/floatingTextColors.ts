@@ -1,9 +1,9 @@
 import { t } from "../core/lang";
 
 /**
- * Color choices for floating scoreboards. One table keeps each dropdown name and its
- * color code together, so the two can never drift apart. Names are lang keys:
- * bus.floatingtext.color.<key>.
+ * Colour choices for floating scoreboards. One table keeps each dropdown name and its
+ * colour code together, so the two can never drift apart. Names are the shared
+ * bus.color.<key> lang keys, so every colour picker in BUS uses the same names.
  */
 export const FLOATING_COLORS = [
   { key: "dark_red", code: "§4" },
@@ -15,13 +15,13 @@ export const FLOATING_COLORS = [
   { key: "yellow", code: "§e" },
   { key: "dark_green", code: "§2" },
   { key: "forest_green", code: "§q" },
-  { key: "lime_green", code: "§a" },
+  { key: "green", code: "§a" }, // shown as "Lime green"
   { key: "aqua", code: "§b" },
   { key: "dark_aqua", code: "§3" },
   { key: "cadet_blue", code: "§s" },
   { key: "teal", code: "§t" },
   { key: "dark_blue", code: "§1" },
-  { key: "grape", code: "§9" },
+  { key: "blue", code: "§9" }, // shown as "Grape"
   { key: "light_purple", code: "§d" },
   { key: "dark_lavender", code: "§u" },
   { key: "dark_purple", code: "§5" },
@@ -34,19 +34,19 @@ export const FLOATING_COLORS = [
   { key: "black", code: "§0" },
 ] as const;
 
-/** Dropdown items (translated names) for any floating-scoreboard color picker. */
+/** Dropdown items (translated names) for any floating-scoreboard colour picker. */
 export const FLOATING_COLOR_ITEMS = FLOATING_COLORS.map((c, i) => ({
-  label: t(`bus.floatingtext.color.${c.key}`),
+  label: t(`bus.color.${c.key}`),
   value: i,
 }));
 
-/** Dropdown index for a stored color code (falls back if the code isn't in the table). */
+/** Dropdown index for a stored colour code (falls back if the code isn't in the table). */
 export function colorIndexOf(code: string, fallback = 0): number {
   const i = FLOATING_COLORS.findIndex((c) => c.code === code);
   return i < 0 ? fallback : i;
 }
 
-/** Color code for a dropdown index. */
+/** Colour code for a dropdown index. */
 export function colorCodeAt(index: number): string {
   return FLOATING_COLORS[Math.round(index)]?.code ?? "§f";
 }
