@@ -19,7 +19,7 @@ system.afterEvents.scriptEventReceive.subscribe((event) => {
 
 function leave(player: Player) {
   player.runCommand("tag @s remove parkour");
-  player.runCommand("tp @s 0 288 0");
+  player.runCommand("tp @s 308 69 251");
   player.runCommand("scoreboard players set @s parkour 0");
   player.runCommand("scoreboard players add @s parkour_leaves 1");
   player.runCommand("clear @s bus:leave");
