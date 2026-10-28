@@ -42,12 +42,16 @@ import "./settings/sections/permissionsSection";
 import "./settings/sections/shareSection";
 import "./settings/sections/shopSection";
 
-// Debug menu: stripped from production builds (see justfile dropLabels)
-import "./debug/debugSection";
+// God Mode
+import "./utils/godMode";
+import "./commands/god";
 
 // Nicknames
 import "./nicknames/nicknameSection";
 import "./nicknames/nicknameCommand";
+
+// Debug menu: stripped from production builds (see justfile dropLabels)
+import "./debug/debugSection";
 
 /*!
  *

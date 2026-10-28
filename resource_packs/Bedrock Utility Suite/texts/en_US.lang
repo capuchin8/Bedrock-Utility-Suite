@@ -557,3 +557,14 @@ bus.floatingtext.error.position=§cEnter the position as three numbers: X Y Z.
 bus.floatingtext.error.no_objectives=§cCreate a scoreboard objective first, then come back.
 bus.floatingtext.error.spawn=§cCouldn't create it there. Try a position in a loaded area.
 bus.floatingtext.error.gone=§cThat floating text no longer exists.
+
+## ---- god mode ----
+bus.perm.god_command.name=/bus:god command
+bus.command.god.description=Toggle god mode (no damage, hunger or drowning) on players or entities. Optional: target, and true/false to force it.
+bus.command.god.on=§aGod mode enabled.
+bus.command.god.off=§eGod mode disabled.
+bus.command.god.updated=§aGod mode updated.
+bus.command.god.not_found=§cNo matching entity found.
+bus.command.god.need_target=§cSpecify a target.
+bus.god.notify_on=§aGod mode enabled.
+bus.god.notify_off=§eGod mode disabled.

@@ -17,6 +17,7 @@ bus.pack_settings.command_item=Item Command Permission Level
 bus.pack_settings.command_settings=Settings Command Permission Level
 bus.pack_settings.command_nickname=Nickname Command Permission Level
 bus.pack_settings.command_shop=Shop Command Permission Level
+bus.pack_settings.command_god=God Command Permission Level
 bus.pack_settings.command_mute=Mute Command Permission Level
 bus.pack_settings.mute_reason_required=Require a reason when muting a player
 bus.pack_settings.command_unmute=Unmute Command Permission Level

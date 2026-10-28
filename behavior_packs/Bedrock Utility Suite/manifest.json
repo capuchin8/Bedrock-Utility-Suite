@@ -70,30 +70,12 @@
       "text": "bus.pack_settings.command_impulse",
       "default": "game_directors",
       "options": [
-        {
-          "name": "disabled",
-          "text": "bus.pack_settings.command_level_disabled"
-        },
-        {
-          "name": "any",
-          "text": "bus.pack_settings.command_level_any"
-        },
-        {
-          "name": "game_directors",
-          "text": "bus.pack_settings.command_level_game_directors"
-        },
-        {
-          "name": "admin",
-          "text": "bus.pack_settings.command_level_admin"
-        },
-        {
-          "name": "host",
-          "text": "bus.pack_settings.command_level_host"
-        },
-        {
-          "name": "owner",
-          "text": "bus.pack_settings.command_level_owner"
-        }
+        { "name": "disabled", "text": "bus.pack_settings.command_level_disabled" },
+        { "name": "any", "text": "bus.pack_settings.command_level_any" },
+        { "name": "game_directors", "text": "bus.pack_settings.command_level_game_directors" },
+        { "name": "admin", "text": "bus.pack_settings.command_level_admin" },
+        { "name": "host", "text": "bus.pack_settings.command_level_host" },
+        { "name": "owner", "text": "bus.pack_settings.command_level_owner" }
       ]
     },
     {
@@ -102,30 +84,12 @@
       "text": "bus.pack_settings.command_inventory",
       "default": "game_directors",
       "options": [
-        {
-          "name": "disabled",
-          "text": "bus.pack_settings.command_level_disabled"
-        },
-        {
-          "name": "any",
-          "text": "bus.pack_settings.command_level_any"
-        },
-        {
-          "name": "game_directors",
-          "text": "bus.pack_settings.command_level_game_directors"
-        },
-        {
-          "name": "admin",
-          "text": "bus.pack_settings.command_level_admin"
-        },
-        {
-          "name": "host",
-          "text": "bus.pack_settings.command_level_host"
-        },
-        {
-          "name": "owner",
-          "text": "bus.pack_settings.command_level_owner"
-        }
+        { "name": "disabled", "text": "bus.pack_settings.command_level_disabled" },
+        { "name": "any", "text": "bus.pack_settings.command_level_any" },
+        { "name": "game_directors", "text": "bus.pack_settings.command_level_game_directors" },
+        { "name": "admin", "text": "bus.pack_settings.command_level_admin" },
+        { "name": "host", "text": "bus.pack_settings.command_level_host" },
+        { "name": "owner", "text": "bus.pack_settings.command_level_owner" }
       ]
     },
     {
@@ -134,30 +98,12 @@
       "text": "bus.pack_settings.command_item",
       "default": "game_directors",
       "options": [
-        {
-          "name": "disabled",
-          "text": "bus.pack_settings.command_level_disabled"
-        },
-        {
-          "name": "any",
-          "text": "bus.pack_settings.command_level_any"
-        },
-        {
-          "name": "game_directors",
-          "text": "bus.pack_settings.command_level_game_directors"
-        },
-        {
-          "name": "admin",
-          "text": "bus.pack_settings.command_level_admin"
-        },
-        {
-          "name": "host",
-          "text": "bus.pack_settings.command_level_host"
-        },
-        {
-          "name": "owner",
-          "text": "bus.pack_settings.command_level_owner"
-        }
+        { "name": "disabled", "text": "bus.pack_settings.command_level_disabled" },
+        { "name": "any", "text": "bus.pack_settings.command_level_any" },
+        { "name": "game_directors", "text": "bus.pack_settings.command_level_game_directors" },
+        { "name": "admin", "text": "bus.pack_settings.command_level_admin" },
+        { "name": "host", "text": "bus.pack_settings.command_level_host" },
+        { "name": "owner", "text": "bus.pack_settings.command_level_owner" }
       ]
     },
     {
@@ -166,30 +112,12 @@
       "text": "bus.pack_settings.command_settings",
       "default": "any",
       "options": [
-        {
-          "name": "disabled",
-          "text": "bus.pack_settings.command_level_disabled"
-        },
-        {
-          "name": "any",
-          "text": "bus.pack_settings.command_level_any"
-        },
-        {
-          "name": "game_directors",
-          "text": "bus.pack_settings.command_level_game_directors"
-        },
-        {
-          "name": "admin",
-          "text": "bus.pack_settings.command_level_admin"
-        },
-        {
-          "name": "host",
-          "text": "bus.pack_settings.command_level_host"
-        },
-        {
-          "name": "owner",
-          "text": "bus.pack_settings.command_level_owner"
-        }
+        { "name": "disabled", "text": "bus.pack_settings.command_level_disabled" },
+        { "name": "any", "text": "bus.pack_settings.command_level_any" },
+        { "name": "game_directors", "text": "bus.pack_settings.command_level_game_directors" },
+        { "name": "admin", "text": "bus.pack_settings.command_level_admin" },
+        { "name": "host", "text": "bus.pack_settings.command_level_host" },
+        { "name": "owner", "text": "bus.pack_settings.command_level_owner" }
       ]
     },
     {
@@ -198,30 +126,12 @@
       "text": "bus.pack_settings.command_nickname",
       "default": "game_directors",
       "options": [
-        {
-          "name": "disabled",
-          "text": "bus.pack_settings.command_level_disabled"
-        },
-        {
-          "name": "any",
-          "text": "bus.pack_settings.command_level_any"
-        },
-        {
-          "name": "game_directors",
-          "text": "bus.pack_settings.command_level_game_directors"
-        },
-        {
-          "name": "admin",
-          "text": "bus.pack_settings.command_level_admin"
-        },
-        {
-          "name": "host",
-          "text": "bus.pack_settings.command_level_host"
-        },
-        {
-          "name": "owner",
-          "text": "bus.pack_settings.command_level_owner"
-        }
+        { "name": "disabled", "text": "bus.pack_settings.command_level_disabled" },
+        { "name": "any", "text": "bus.pack_settings.command_level_any" },
+        { "name": "game_directors", "text": "bus.pack_settings.command_level_game_directors" },
+        { "name": "admin", "text": "bus.pack_settings.command_level_admin" },
+        { "name": "host", "text": "bus.pack_settings.command_level_host" },
+        { "name": "owner", "text": "bus.pack_settings.command_level_owner" }
       ]
     },
     {
@@ -230,30 +140,26 @@
       "text": "bus.pack_settings.command_shop",
       "default": "any",
       "options": [
-        {
-          "name": "disabled",
-          "text": "bus.pack_settings.command_level_disabled"
-        },
-        {
-          "name": "any",
-          "text": "bus.pack_settings.command_level_any"
-        },
-        {
-          "name": "game_directors",
-          "text": "bus.pack_settings.command_level_game_directors"
-        },
-        {
-          "name": "admin",
-          "text": "bus.pack_settings.command_level_admin"
-        },
-        {
-          "name": "host",
-          "text": "bus.pack_settings.command_level_host"
-        },
-        {
-          "name": "owner",
-          "text": "bus.pack_settings.command_level_owner"
-        }
+        { "name": "disabled", "text": "bus.pack_settings.command_level_disabled" },
+        { "name": "any", "text": "bus.pack_settings.command_level_any" },
+        { "name": "game_directors", "text": "bus.pack_settings.command_level_game_directors" },
+        { "name": "admin", "text": "bus.pack_settings.command_level_admin" },
+        { "name": "host", "text": "bus.pack_settings.command_level_host" },
+        { "name": "owner", "text": "bus.pack_settings.command_level_owner" }
+      ]
+    },
+    {
+      "type": "dropdown",
+      "name": "bus:command_permission_god",
+      "text": "bus.pack_settings.command_god",
+      "default": "game_directors",
+      "options": [
+        { "name": "disabled", "text": "bus.pack_settings.command_level_disabled" },
+        { "name": "any", "text": "bus.pack_settings.command_level_any" },
+        { "name": "game_directors", "text": "bus.pack_settings.command_level_game_directors" },
+        { "name": "admin", "text": "bus.pack_settings.command_level_admin" },
+        { "name": "host", "text": "bus.pack_settings.command_level_host" },
+        { "name": "owner", "text": "bus.pack_settings.command_level_owner" }
       ]
     },
     {
@@ -262,30 +168,12 @@
       "text": "bus.pack_settings.command_mute",
       "default": "game_directors",
       "options": [
-        {
-          "name": "disabled",
-          "text": "bus.pack_settings.command_level_disabled"
-        },
-        {
-          "name": "any",
-          "text": "bus.pack_settings.command_level_any"
-        },
-        {
-          "name": "game_directors",
-          "text": "bus.pack_settings.command_level_game_directors"
-        },
-        {
-          "name": "admin",
-          "text": "bus.pack_settings.command_level_admin"
-        },
-        {
-          "name": "host",
-          "text": "bus.pack_settings.command_level_host"
-        },
-        {
-          "name": "owner",
-          "text": "bus.pack_settings.command_level_owner"
-        }
+        { "name": "disabled", "text": "bus.pack_settings.command_level_disabled" },
+        { "name": "any", "text": "bus.pack_settings.command_level_any" },
+        { "name": "game_directors", "text": "bus.pack_settings.command_level_game_directors" },
+        { "name": "admin", "text": "bus.pack_settings.command_level_admin" },
+        { "name": "host", "text": "bus.pack_settings.command_level_host" },
+        { "name": "owner", "text": "bus.pack_settings.command_level_owner" }
       ]
     },
     {
@@ -300,30 +188,12 @@
       "text": "bus.pack_settings.command_unmute",
       "default": "game_directors",
       "options": [
-        {
-          "name": "disabled",
-          "text": "bus.pack_settings.command_level_disabled"
-        },
-        {
-          "name": "any",
-          "text": "bus.pack_settings.command_level_any"
-        },
-        {
-          "name": "game_directors",
-          "text": "bus.pack_settings.command_level_game_directors"
-        },
-        {
-          "name": "admin",
-          "text": "bus.pack_settings.command_level_admin"
-        },
-        {
-          "name": "host",
-          "text": "bus.pack_settings.command_level_host"
-        },
-        {
-          "name": "owner",
-          "text": "bus.pack_settings.command_level_owner"
-        }
+        { "name": "disabled", "text": "bus.pack_settings.command_level_disabled" },
+        { "name": "any", "text": "bus.pack_settings.command_level_any" },
+        { "name": "game_directors", "text": "bus.pack_settings.command_level_game_directors" },
+        { "name": "admin", "text": "bus.pack_settings.command_level_admin" },
+        { "name": "host", "text": "bus.pack_settings.command_level_host" },
+        { "name": "owner", "text": "bus.pack_settings.command_level_owner" }
       ]
     },
     {
@@ -332,30 +202,12 @@
       "text": "bus.pack_settings.command_staffchat",
       "default": "admin",
       "options": [
-        {
-          "name": "disabled",
-          "text": "bus.pack_settings.command_level_disabled"
-        },
-        {
-          "name": "any",
-          "text": "bus.pack_settings.command_level_any"
-        },
-        {
-          "name": "game_directors",
-          "text": "bus.pack_settings.command_level_game_directors"
-        },
-        {
-          "name": "admin",
-          "text": "bus.pack_settings.command_level_admin"
-        },
-        {
-          "name": "host",
-          "text": "bus.pack_settings.command_level_host"
-        },
-        {
-          "name": "owner",
-          "text": "bus.pack_settings.command_level_owner"
-        }
+        { "name": "disabled", "text": "bus.pack_settings.command_level_disabled" },
+        { "name": "any", "text": "bus.pack_settings.command_level_any" },
+        { "name": "game_directors", "text": "bus.pack_settings.command_level_game_directors" },
+        { "name": "admin", "text": "bus.pack_settings.command_level_admin" },
+        { "name": "host", "text": "bus.pack_settings.command_level_host" },
+        { "name": "owner", "text": "bus.pack_settings.command_level_owner" }
       ]
     },
     {
@@ -364,30 +216,12 @@
       "text": "bus.pack_settings.command_sc",
       "default": "admin",
       "options": [
-        {
-          "name": "disabled",
-          "text": "bus.pack_settings.command_level_disabled"
-        },
-        {
-          "name": "any",
-          "text": "bus.pack_settings.command_level_any"
-        },
-        {
-          "name": "game_directors",
-          "text": "bus.pack_settings.command_level_game_directors"
-        },
-        {
-          "name": "admin",
-          "text": "bus.pack_settings.command_level_admin"
-        },
-        {
-          "name": "host",
-          "text": "bus.pack_settings.command_level_host"
-        },
-        {
-          "name": "owner",
-          "text": "bus.pack_settings.command_level_owner"
-        }
+        { "name": "disabled", "text": "bus.pack_settings.command_level_disabled" },
+        { "name": "any", "text": "bus.pack_settings.command_level_any" },
+        { "name": "game_directors", "text": "bus.pack_settings.command_level_game_directors" },
+        { "name": "admin", "text": "bus.pack_settings.command_level_admin" },
+        { "name": "host", "text": "bus.pack_settings.command_level_host" },
+        { "name": "owner", "text": "bus.pack_settings.command_level_owner" }
       ]
     }
   ]
