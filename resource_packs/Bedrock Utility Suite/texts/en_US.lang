@@ -1,5 +1,5 @@
 ## Bedrock Utility Suite - English.
-pack.description=Bedrock Utility Suite
+pack.description=Bedrock Utility Suite Version 26.10.0-alpha.1 By Capuchin_
 item.bus:leave.name=§cLeave§r
 item.bus:leave=§cLeave§r
 tile.bus:camera_block.name=Camera Block
@@ -351,6 +351,7 @@ bus.mute.detail.ended=No longer muted.
 ## ---- Shop  ----
 bus.command.players_only=Only players can use this.
 bus.section.shop.title=Shop
+bus.command.shop.description=Opens the shop (append " sell" to open the sell shop.)
 bus.section.shop.desc=Edit the buy shop, sell shop, currency and armor trims.
 bus.perm.shop.name=Use the shop
 bus.share.shop=Shop (categories, items, kits, prices)

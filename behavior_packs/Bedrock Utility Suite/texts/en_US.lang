@@ -1,5 +1,5 @@
 ## Bedrock Utility Suite - English.
-pack.description=Bedrock Utility Suite
+pack.description=Bedrock Utility Suite Version 26.10.0-alpha.1 By Capuchin_
 bus.pack_settings.dimensions_slider=Changes made here only take effect after restarting the world.\n\n§l§6Void Dimensions§r\nNote: Disabling a dimension does not delete its contents.\nNumber of Void Dimensions
 bus.pack_settings.dimensions_multiselect=Named Void Dimensions
 bus.pack_settings.dimensions_lobby=Lobby
