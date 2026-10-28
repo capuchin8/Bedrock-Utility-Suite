@@ -12,14 +12,14 @@
       "description": "Bedrock Utility Suite",
       "type": "data",
       "uuid": "c7475935-cfa2-4f48-a841-08ff20340e39",
-      "version": "1.0.0"
+      "version": "26.10.0-alpha.1"
     },
     {
       "description": "Script resources",
       "language": "javascript",
       "type": "script",
       "uuid": "ab1eb1a1-4999-4255-8647-b0a8025affe4",
-      "version": "1.0.0",
+      "version": "26.10.0-alpha.1",
       "entry": "scripts/main.js"
     }
   ],
