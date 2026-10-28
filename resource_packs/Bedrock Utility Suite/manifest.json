@@ -4,7 +4,7 @@
     "name": "Bedrock Utility Suite",
     "description": "pack.description",
     "uuid": "2d7ed858-97eb-48a0-b180-7c80d1ce9a48",
-    "version": "1.0.0-alpha.1",
+    "version": "26.10.0-alpha.1",
     "min_engine_version": "1.26.60",
     "pack_scope": "world"
   },
@@ -18,7 +18,7 @@
   "dependencies": [
     {
       "uuid": "7dfcca22-54b5-43d6-bd97-080e62c33fa5",
-      "version": "1.0.0-alpha.1"
+      "version": "26.10.0-alpha.1"
     }
   ],
   "metadata": {
