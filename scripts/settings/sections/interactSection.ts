@@ -1,6 +1,7 @@
 import type { Player } from "@minecraft/server";
 import { CustomForm, ObservableBoolean, ObservableString, ObservableUIRawMessage } from "@minecraft/server-ui";
 import { raw, t, tell } from "../../core/lang";
+import { clearEntityAction, listLinkedEntities, setEntityAction } from "../../interact/entityLinks";
 import { armPlayer } from "../../interact/interactBlocks";
 import {
   MAX_BLOCK_COMMANDS,
@@ -36,6 +37,8 @@ interface Draft {
   /** Set while editing an existing link (its block key and block type). */
   editKey?: string;
   editType?: string;
+  /** Set while editing a linked entity (its id). */
+  editEntityId?: string;
 }
 
 // The setup form is rebuilt when a command row is added or removed, so the draft lives here.
@@ -70,6 +73,13 @@ function home(player: Player, back: () => void): void {
       })
     );
     form.button(
+      t("bus.interact.entities"),
+      guard.click(() => {
+        form.close();
+        entityList(player, () => home(player, back));
+      })
+    );
+    form.button(
       t("bus.interact.remove_click"),
       guard.click(() => {
         form.close();
@@ -94,7 +104,7 @@ function setup(player: Player, back: () => void): void {
     const d = draftOf(player);
     const status = new ObservableUIRawMessage(raw(""));
     const form = guard.attach(new CustomForm(player, t("bus.interact.setup.title")));
-    form.label(t(d.editKey ? "bus.interact.setup.editing" : "bus.interact.setup.intro"));
+    form.label(t(d.editKey || d.editEntityId ? "bus.interact.setup.editing" : "bus.interact.setup.intro"));
 
     const rules = new ObservableBoolean(d.rules, WRITABLE);
     guard.on(rules, (v: boolean) => {
@@ -150,11 +160,22 @@ function setup(player: Player, back: () => void): void {
 
     form.divider().label(status);
     form.button(
-      t(d.editKey ? "bus.interact.save" : "bus.interact.pick"),
+      t(d.editKey || d.editEntityId ? "bus.interact.save" : "bus.interact.pick"),
       guard.click(() => {
         const action = { rules: d.rules, commands: d.commands.map((c) => c.trim()).filter((c) => c) };
         if (!action.rules && action.commands.length === 0) {
           status.setData(t("bus.interact.error.empty"));
+          return;
+        }
+        if (d.editEntityId) {
+          const found = listLinkedEntities().find((e) => e.entity.id === d.editEntityId);
+          if (!found || !setEntityAction(found.entity, action)) {
+            status.setData(t("bus.interact.error.entity_gone"));
+            return;
+          }
+          drafts.delete(player.id);
+          form.close();
+          back();
           return;
         }
         if (d.editKey) {
@@ -241,6 +262,90 @@ function detail(player: Player, key: string, back: () => void): void {
       t("bus.interact.remove"),
       guard.click(() => {
         removeBlock(key);
+        form.close();
+        back();
+      })
+    );
+    form.button(t("bus.common.back"), () => {
+      form.close();
+      back();
+    });
+    return form.closeButton();
+  });
+}
+
+function entityList(player: Player, back: () => void): void {
+  const guard = createGuard(player, KEY);
+  if (!guard.check()) return;
+  showForm(player, () => {
+    const form = guard.attach(new CustomForm(player, t("bus.interact.entities.title")));
+    const linked = listLinkedEntities();
+    form.label(t(linked.length ? "bus.interact.entities.pick" : "bus.interact.entities.none"));
+    for (const { entity, action } of linked) {
+      const at = entity.location;
+      form.button(
+        t(
+          "bus.interact.item",
+          short(action.type),
+          Math.floor(at.x),
+          Math.floor(at.y),
+          Math.floor(at.z),
+          short(entity.dimension.id)
+        ),
+        guard.click(() => {
+          form.close();
+          entityDetail(player, entity.id, () => entityList(player, back));
+        })
+      );
+    }
+    form.divider().button(t("bus.common.back"), () => {
+      form.close();
+      back();
+    });
+    return form.closeButton();
+  });
+}
+
+function entityDetail(player: Player, entityId: string, back: () => void): void {
+  const found = listLinkedEntities().find((e) => e.entity.id === entityId);
+  if (!found) return back();
+  const { entity, action } = found;
+  const guard = createGuard(player, KEY);
+  if (!guard.check()) return;
+  const at = entity.location;
+
+  showForm(player, () => {
+    const form = guard.attach(new CustomForm(player, t("bus.interact.entity.title")));
+    form.label(
+      t(
+        "bus.interact.item",
+        short(action.type),
+        Math.floor(at.x),
+        Math.floor(at.y),
+        Math.floor(at.z),
+        short(entity.dimension.id)
+      )
+    );
+    if (entity.nameTag) form.label(t("bus.interact.entity.name", entity.nameTag));
+    form.label(t(action.rules ? "bus.interact.detail.rules_yes" : "bus.interact.detail.rules_no"));
+    if (action.commands.length > 0) {
+      form.label(t("bus.interact.detail.commands"));
+      for (const c of action.commands) form.label(raw(`/${c.replace(/^\//, "")}`));
+    }
+    form.divider();
+    form.button(
+      t("bus.interact.edit"),
+      guard.click(() => {
+        drafts.set(player.id, { rules: action.rules, commands: [...action.commands], editEntityId: entityId });
+        form.close();
+        setup(player, () => entityDetail(player, entityId, back));
+      })
+    );
+    confirmButton(
+      form,
+      t("bus.interact.remove"),
+      guard.click(() => {
+        if (entity.isValid) clearEntityAction(entity);
         form.close();
         back();
       })

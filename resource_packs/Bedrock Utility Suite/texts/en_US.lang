@@ -3,6 +3,7 @@ pack.description=Bedrock Utility Suite Version 26.10.0-alpha.1 By Capuchin_
 item.bus:leave.name=§cLeave§r
 item.bus:leave=§cLeave§r
 tile.bus:camera_block.name=Camera Block
+entity.bus:inventory_storage.name=BUS Storage
 
 ## ---- common ----
 bus.common.back=Back
@@ -278,23 +279,23 @@ bus.rules.footer=Footer (below the rules)
 bus.rules.footer.desc=Optional. {player} shows the name of the player reading.
 
 ## ---- interactive blocks ----
-bus.section.interactive_blocks.title=Interactive Blocks
-bus.section.interactive_blocks.desc=Link signs, lecterns or other blocks to the rules screen or commands.
-bus.interact.intro=Right-clicking a linked block shows the rules and/or runs commands as the player who clicked. Works well on signs and lecterns. Owner only, because the commands run with the game's command powers.
-bus.interact.add=Link a new block
+bus.section.interactive_blocks.title=Interactive Blocks and Entities
+bus.section.interactive_blocks.desc=Link signs, lecterns, other blocks or entities to the rules screen or commands.
+bus.interact.intro=Right-clicking a linked block or entity shows the rules and/or runs commands as the player who clicked, and cancels what it would normally do (a sign editor, a trade screen, a horse's inventory...). Works well on signs, lecterns and villagers. Owner only, because the commands run with the game's command powers.
+bus.interact.add=Link a block or entity
 bus.interact.manage=Linked blocks (%s)
 bus.interact.manage.title=Linked blocks
-bus.interact.remove_click=Unlink a block by clicking it
+bus.interact.remove_click=Unlink a block or entity by clicking it
 bus.interact.none=No blocks are linked yet.
 bus.interact.pick_block=Choose a linked block:
 bus.interact.item=%s at %s, %s, %s (%s)
-bus.interact.setup.title=Link a block
-bus.interact.setup.intro=Choose what the block does, then press the button and right-click the block within 60 seconds.
-bus.interact.setup.editing=Editing a linked block. Press Save to apply.
+bus.interact.setup.title=Link a block or entity
+bus.interact.setup.intro=Choose what it does, then press the button and right-click the block or entity within 60 seconds.
+bus.interact.setup.editing=Editing a link. Press Save to apply.
 bus.interact.rules=Show the rules screen
 bus.interact.rules.desc=Read-only: players just read the rules and close the screen. Nothing is saved.
 bus.interact.commands.help=Commands run as the player who clicked. Use {player} for their name. Leave out the leading /.
-bus.interact.pick=Pick the block
+bus.interact.pick=Pick the block or entity
 bus.interact.save=Save
 bus.interact.edit=Edit
 bus.interact.remove=Unlink this block
@@ -302,14 +303,21 @@ bus.interact.detail.title=Linked block
 bus.interact.detail.rules_yes=Shows the rules screen.
 bus.interact.detail.rules_no=Does not show the rules screen.
 bus.interact.detail.commands=Runs:
-bus.interact.armed_bind=Right-click the block you want to link (within 60 seconds).
-bus.interact.armed_remove=Right-click the linked block you want to unlink (within 60 seconds).
-bus.interact.linked=§aBlock linked.
-bus.interact.removed=§aBlock unlinked.
-bus.interact.not_linked=§cThat block isn't linked.
+bus.interact.armed_bind=Right-click the block or entity you want to link (within 60 seconds).
+bus.interact.armed_remove=Right-click the linked block or entity you want to unlink (within 60 seconds).
+bus.interact.linked=§aLinked.
+bus.interact.removed=§aUnlinked.
+bus.interact.not_linked=That isn't linked.
 bus.interact.access_revoked=§cYou no longer have access to Interactive Blocks.
 bus.interact.error.empty=Turn on the rules screen or add at least one command.
 bus.interact.error.full=Couldn't save: too many linked blocks or too much command text.
+bus.interact.entities=Linked entities
+bus.interact.entities.title=Linked entities
+bus.interact.entities.pick=Choose a linked entity:
+bus.interact.entities.none=No linked entities found. Only entities in loaded chunks are listed, so go near the one you're looking for.
+bus.interact.entity.title=Linked entity
+bus.interact.entity.name=Name: %s
+bus.interact.error.entity_gone=That entity isn't loaded any more.
 
 ## ---- moderation: mute and staff chat ----
 bus.perm.mute_command.name=Mute players (/bus:mute, /bus:unmute, Muted Players menu)
