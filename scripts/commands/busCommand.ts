@@ -21,8 +21,12 @@ export interface BusCommandDefinition {
   mandatoryParameters?: CustomCommandParameter[];
   optionalParameters?: CustomCommandParameter[];
   cheatsRequired?: boolean;
-  /** Custom enums used by this command's parameters. Enum names must be unique across all commands. */
-  enums?: Record<string, string[]>;
+  /**
+   * Custom enums used by this command's parameters. Enum names must be unique across all commands.
+   * Can be a function when the values come from other modules' registrations (it runs at startup,
+   * after every module has loaded), e.g. the settings section names.
+   */
+  enums?: Record<string, string[]> | (() => Record<string, string[]>);
   /**
    * Extra rule checked when canUse says no: return true to let this player run the command anyway.
    * (Used by /bus:owner so the first owner can be claimed when none exists.)
@@ -132,7 +136,9 @@ system.beforeEvents.startup.subscribe(({ customCommandRegistry }) => {
     ceilings.set(key, ceiling);
     if (ceiling === "disabled" && !def.essential) continue;
 
-    for (const [enumName, values] of Object.entries(def.enums ?? {})) {
+    for (const [enumName, values] of Object.entries(
+      typeof def.enums === "function" ? def.enums() : (def.enums ?? {})
+    )) {
       customCommandRegistry.registerEnum(enumName, values);
     }
 

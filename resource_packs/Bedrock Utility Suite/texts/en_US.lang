@@ -8,6 +8,7 @@ tile.bus:camera_block.name=Camera Block
 bus.common.back=Back
 bus.common.cancel=Cancel
 bus.common.close=Close
+bus.common.press_again=Press again to confirm
 bus.command.no_permission=§cYou don't have permission to use this command.
 bus.command.in_combat=§cYou can't use this command while in combat.
 
@@ -17,6 +18,8 @@ bus.settings.choose=Choose a menu:
 bus.settings.no_access=§cYou don't have access to any settings menus.
 bus.settings.access_revoked=§cYour access to that menu was removed.
 bus.settings.command_perm=Settings command
+bus.command.settings.unknown=§cThat settings menu doesn't exist.
+bus.command.settings.no_access=§cYou don't have access to that settings menu.
 
 ## ---- sections ----
 bus.section.roles.title=Roles & Access
@@ -47,7 +50,6 @@ bus.roles.priority=Priority
 bus.roles.priority.desc=Higher priority wins when a player has several roles, and shows first.
 bus.roles.name_color=Name color
 bus.roles.chat_color=Chat message color
-bus.roles.confirm_delete=Confirm delete
 bus.roles.delete=Delete role
 bus.roles.assign.need=§cYou need at least one role and one online player.
 bus.roles.assign.player=Player
@@ -201,6 +203,9 @@ bus.share.combat=Combat
 bus.share.new_players=New players
 bus.share.event_commands=Event commands
 bus.share.rules=Rules
+bus.editor.open=Edit all commands as text
+bus.editor.commands_label=One command per line (leave out the leading /)
+bus.editor.commands_placeholder=say Welcome {player}
 
 ## ---- new players ----
 bus.section.new_players.title=New Players
@@ -252,7 +257,7 @@ bus.rules.exempt=Operators skip the rules
 bus.rules.exempt.desc=On = operators don't have to accept (the owner is always exempt).
 bus.rules.numbered=Number the rules
 bus.rules.numbered.desc=On = "1.", "2."... in front of each rule.
-bus.rules.format_help=In a rule, type \\n for a new line and &c (or any & code) for colors.
+bus.rules.format_help=In the preface, footer and rules: type \\n for a new line, &c (or any & code) for colors, and {player} for the name of the player reading.
 bus.rules.title=Title
 bus.rules.list=Rules
 bus.rules.none=No rules yet.
@@ -267,6 +272,10 @@ bus.rules.preview_note=Preview: nothing is saved here.
 bus.rules.item=%s. %s
 bus.rules.accept=I have read and accept the rules
 bus.rules.continue=Continue
+bus.rules.preface=Preface (above the rules)
+bus.rules.preface.desc=Optional. {player} shows the name of the player reading.
+bus.rules.footer=Footer (below the rules)
+bus.rules.footer.desc=Optional. {player} shows the name of the player reading.
 
 ## ---- interactive blocks ----
 bus.section.interactive_blocks.title=Interactive Blocks

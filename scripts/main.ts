@@ -20,6 +20,7 @@ import "./events/eventCommands";
 import "./combat/combatStore";
 import "./rules/rulesStore";
 import "./rules/rulesPrompt";
+import "./rules/rulesScriptEvent";
 
 // Roles, name tags and chat
 import "./roles/nameTag";
