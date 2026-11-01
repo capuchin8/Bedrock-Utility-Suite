@@ -7,6 +7,7 @@ import "./dimensions";
 // Floating Text
 import "./floatingText/floatingTextEntities";
 import "./settings/sections/floatingTextSection";
+import "./floatingImage/floatingImageDisplay";
 
 // Core systems
 import "./commands/busCommand";

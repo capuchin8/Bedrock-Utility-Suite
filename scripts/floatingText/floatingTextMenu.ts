@@ -17,8 +17,10 @@ import {
 } from "@minecraft/server-ui";
 import { raw, t } from "../core/lang";
 import { stripFormatting } from "../roles/display";
+import { confirmButton } from "../settings/confirmButton";
 import { createGuard } from "../settings/guard";
 import { showForm } from "../settings/openForm";
+import { openFloatingImageMenu } from "../floatingImage/floatingImageMenu";
 import { FLOATING_COLOR_ITEMS, colorCodeAt, colorIndexOf } from "./floatingTextColors";
 import { getDimensions, readScoreboardInfo, writeScoreboardInfo, type ScoreboardInfo } from "./floatingTextEntities";
 
@@ -106,29 +108,15 @@ function removeFloating(entity: Entity): UIRawMessage {
 
 /** True when at least one floating text or scoreboard entity is loaded in any dimension. */
 function hasLoadedFloatingText(): boolean {
-  return getDimensions().some((dimension) => dimension.getEntities({ type: ENTITY_ID, families: ["inanimate"] }).length > 0);
+  return getDimensions().some(
+    (dimension) => dimension.getEntities({ type: ENTITY_ID, families: ["inanimate"] }).length > 0
+  );
 }
 
-/**
- * Press-twice delete: the first press arms the button (its text changes and a warning label
- * appears), the second press deletes. `wrap` is the screen's guard.click.
- */
+/** Press-twice delete (project rule: confirmButton, no separate toggle). `wrap` is the screen's guard.click. */
 function addDeleteControls(form: CustomForm, onDelete: () => void, wrap: (fn: () => void) => () => void): void {
-  const armed = new ObservableBoolean(false);
-  const buttonText = new ObservableUIRawMessage(t("bus.floatingtext.delete"));
   form.divider();
-  form.label(t("bus.floatingtext.delete.warning"), { visible: armed });
-  form.button(
-    buttonText,
-    wrap(() => {
-      if (!armed.getData()) {
-        armed.setData(true);
-        buttonText.setData(t("bus.floatingtext.delete.again"));
-        return;
-      }
-      onDelete();
-    })
-  );
+  confirmButton(form, t("bus.floatingtext.delete"), wrap(onDelete));
 }
 
 // ---- home ----------------------------------------------------------------------------------
@@ -166,6 +154,13 @@ export function openFloatingTextMenu(player: Player, back: () => void, notice?: 
         })
       );
     }
+    form.button(
+      t("bus.floatingimage.open"),
+      guard.click(() => {
+        form.close();
+        openFloatingImageMenu(player, FLOATING_TEXT_KEY, () => reopen());
+      })
+    );
     form.label(status.message, { visible: status.visible });
     form.divider().button(t("bus.common.back"), () => {
       form.close();
@@ -280,8 +275,14 @@ function addScoreboardControls(form: CustomForm, objectiveIds: string[], info: S
   const sort = new ObservableNumber(info.sortOrder === "ascending" ? 0 : 1, W);
   const enumerate = new ObservableBoolean(info.enumeratePlayers, W);
   const hideOffline = new ObservableBoolean(info.hideOfflinePlayers === true, W);
-  const enumColor = new ObservableNumber(colorIndexOf(info.enumerationColor, fallback(DEFAULT_SCOREBOARD.enumerationColor)), W);
-  const nameColor = new ObservableNumber(colorIndexOf(info.playerNameColor, fallback(DEFAULT_SCOREBOARD.playerNameColor)), W);
+  const enumColor = new ObservableNumber(
+    colorIndexOf(info.enumerationColor, fallback(DEFAULT_SCOREBOARD.enumerationColor)),
+    W
+  );
+  const nameColor = new ObservableNumber(
+    colorIndexOf(info.playerNameColor, fallback(DEFAULT_SCOREBOARD.playerNameColor)),
+    W
+  );
   const scoreColor = new ObservableNumber(colorIndexOf(info.scoreColor, fallback(DEFAULT_SCOREBOARD.scoreColor)), W);
   const maxListed = new ObservableNumber(Math.min(MAX_LISTED, Math.max(1, info.maxListed)), W);
   const enumerateVisible = new ObservableBoolean(info.enumeratePlayers);
@@ -392,27 +393,25 @@ function editScoreboard(player: Player, entity: Entity, done: Done): void {
     const status = new Status();
     const form = guard.attach(new CustomForm(player, t("bus.floatingtext.edit.title")));
     const fields = addScoreboardControls(form, objectiveIds, info, formatPosition(entity.location, NAME_TAG_Y_OFFSET));
-    form
-      .label(status.message, { visible: status.visible })
-      .button(
-        t("bus.floatingtext.save"),
-        guard.click(() => {
-          const pos = parsePosition(fields.position.getData());
-          if (!pos) {
-            status.set(t("bus.floatingtext.error.position"));
-            return;
-          }
-          const updated = fields.read();
-          form.close();
-          system.run(() => {
-            if (!entity.isValid) return done(t("bus.floatingtext.error.gone"));
-            writeScoreboardInfo(entity, updated);
-            entity.nameTag = LOADING_TEXT;
-            entity.teleport({ x: pos.x, y: pos.y - NAME_TAG_Y_OFFSET, z: pos.z });
-            done(t("bus.floatingtext.notice.saved"));
-          });
-        })
-      );
+    form.label(status.message, { visible: status.visible }).button(
+      t("bus.floatingtext.save"),
+      guard.click(() => {
+        const pos = parsePosition(fields.position.getData());
+        if (!pos) {
+          status.set(t("bus.floatingtext.error.position"));
+          return;
+        }
+        const updated = fields.read();
+        form.close();
+        system.run(() => {
+          if (!entity.isValid) return done(t("bus.floatingtext.error.gone"));
+          writeScoreboardInfo(entity, updated);
+          entity.nameTag = LOADING_TEXT;
+          entity.teleport({ x: pos.x, y: pos.y - NAME_TAG_Y_OFFSET, z: pos.z });
+          done(t("bus.floatingtext.notice.saved"));
+        });
+      })
+    );
     addDeleteControls(
       form,
       () => {

@@ -529,10 +529,10 @@ bus.shopedit.kit_import_hotbar.desc=Adds every item in your hotbar to this kit w
 bus.shopedit.root_icon.desc=Optional. A texture path shown next to this shop's button on the Buy/Sell chooser. Only the classic style shows icons.
 
 ## ---- floating text  ----
-bus.section.floating_text.title=Floating Text
-bus.section.floating_text.desc=Create and edit floating text and floating scoreboards.
+bus.section.floating_text.title=Floating Text and Images
+bus.section.floating_text.desc=Create and edit floating text, floating scoreboards and floating images.
 
-bus.floatingtext.intro=Floating text and scoreboards are entities placed in the world.
+bus.floatingtext.intro=Floating text and scoreboards are entities placed in the world, floating images are particles.
 bus.floatingtext.new_text=New floating text
 bus.floatingtext.new_scoreboard=New floating scoreboard
 bus.floatingtext.edit=Edit loaded floating text
@@ -552,8 +552,6 @@ bus.floatingtext.position.desc=X Y Z, separated by spaces.
 bus.floatingtext.create=Create
 bus.floatingtext.save=Save
 bus.floatingtext.delete=Delete
-bus.floatingtext.delete.again=Press again to delete
-bus.floatingtext.delete.warning=§eThis can't be undone. Press the button again to delete.
 
 bus.floatingtext.objective=Scoreboard objective
 bus.floatingtext.sort=Score order
@@ -575,6 +573,57 @@ bus.floatingtext.error.position=§cEnter the position as three numbers: X Y Z.
 bus.floatingtext.error.no_objectives=§cCreate a scoreboard objective first, then come back.
 bus.floatingtext.error.spawn=§cCouldn't create it there. Try a position in a loaded area.
 bus.floatingtext.error.gone=§cThat floating text no longer exists.
+
+## ---- floating images ----
+bus.floatingimage.open=Floating images
+bus.floatingimage.title=Floating images
+bus.floatingimage.intro=Pictures that hang in the air or on a wall. Anyone who comes within range of one sees it.
+bus.floatingimage.new=New floating image
+bus.floatingimage.edit=Edit floating images
+bus.floatingimage.new.title=New floating image
+bus.floatingimage.edit.title=Edit floating image
+bus.floatingimage.edit.note=Nearest first. Images in other dimensions are listed last.
+bus.floatingimage.edit.none=There are no floating images yet.
+bus.floatingimage.create=Create
+bus.floatingimage.save=Save
+bus.floatingimage.delete=Delete
+
+bus.floatingimage.looking_at=Looking at the block at %s. Hit face: %s.
+bus.floatingimage.no_surface=No block in range in front of you, so enter a position below. To place it on a wall, look at the wall before opening this screen.
+bus.floatingimage.on_surface=Place on the surface I'm looking at
+bus.floatingimage.move_to_surface=Move to the surface I'm looking at
+bus.floatingimage.snap=Center on the block face
+bus.floatingimage.snap.desc=Off = placed exactly where you were looking.
+bus.floatingimage.position=Position
+bus.floatingimage.position.desc=X Y Z of the middle of the image, separated by spaces.
+bus.floatingimage.direction=Direction it faces
+bus.floatingimage.direction.desc=The side you read it from. Choose "Custom angles" to set it freely.
+bus.floatingimage.turn=Turn (degrees)
+bus.floatingimage.turn.desc=Which way it faces sideways: 0 = south, 90 = west, 180 = north, 270 = east.
+bus.floatingimage.tilt=Tilt (degrees)
+bus.floatingimage.tilt.desc=0 = upright, 90 = faces straight up, -90 = faces straight down.
+bus.floatingimage.rotation=Rotation (degrees)
+bus.floatingimage.rotation.desc=Spins the picture around the direction it faces (its roll).
+bus.floatingimage.width=Width (blocks)
+bus.floatingimage.height=Height (blocks)
+
+bus.floatingimage.dir.keep=Keep current direction
+bus.floatingimage.dir.north=North
+bus.floatingimage.dir.south=South
+bus.floatingimage.dir.east=East
+bus.floatingimage.dir.west=West
+bus.floatingimage.dir.up=Up
+bus.floatingimage.dir.down=Down
+bus.floatingimage.dir.toward_me=Toward me (level)
+bus.floatingimage.dir.toward_me_tilted=Toward me (tilted)
+bus.floatingimage.dir.custom=Custom angles
+
+bus.floatingimage.notice.created=§aCreated.
+bus.floatingimage.notice.saved=§aSaved.
+bus.floatingimage.notice.deleted=§aDeleted. It can take up to 10 seconds to disappear for players who can already see it.
+bus.floatingimage.error.position=§cEnter the position as three numbers: X Y Z.
+bus.floatingimage.error.limit=§cThe limit of %s floating images has been reached.
+bus.floatingimage.error.gone=§cThat floating image no longer exists.
 
 ## ---- god mode ----
 bus.perm.god_command.name=/bus:god command
