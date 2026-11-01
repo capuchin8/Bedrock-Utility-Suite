@@ -10,6 +10,7 @@
  *   @minecraft/server-ui  2.1.0
  */
 import { system, world, Dimension, Entity } from "@minecraft/server";
+import { removeFloatingEntity } from "./floatingTextProtection";
 
 /**
  * All dimensions we search when looking for floating text entities.
@@ -84,13 +85,13 @@ system.runInterval(() => {
     })) {
       const info = readScoreboardInfo(entity);
       if (!info) {
-        entity.remove();
+        removeFloatingEntity(entity);
         continue;
       }
 
       const objective = scoreboard.getObjective(info.objectiveId);
       if (!objective) {
-        entity.remove();
+        removeFloatingEntity(entity);
         continue;
       }
 

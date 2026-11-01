@@ -22,6 +22,7 @@ import { createGuard } from "../settings/guard";
 import { showForm } from "../settings/openForm";
 import { openFloatingImageMenu } from "../floatingImage/floatingImageMenu";
 import { FLOATING_COLOR_ITEMS, colorCodeAt, colorIndexOf } from "./floatingTextColors";
+import { protectFloating, removeFloatingEntity } from "./floatingTextProtection";
 import { getDimensions, readScoreboardInfo, writeScoreboardInfo, type ScoreboardInfo } from "./floatingTextEntities";
 
 /** Settings section id, also the permission key. */
@@ -93,6 +94,7 @@ function spawnFloating(player: Player, pos: Vector3, spawnEvent: string, init: (
       { spawnEvent }
     );
     init(entity);
+    protectFloating(entity);
     return t("bus.floatingtext.notice.created");
   } catch (e) {
     console.warn(`[bus:floatingtext] spawn failed: ${e}`);
@@ -102,7 +104,7 @@ function spawnFloating(player: Player, pos: Vector3, spawnEvent: string, init: (
 
 function removeFloating(entity: Entity): UIRawMessage {
   if (!entity.isValid) return t("bus.floatingtext.error.gone");
-  entity.remove();
+  removeFloatingEntity(entity);
   return t("bus.floatingtext.notice.deleted");
 }
 

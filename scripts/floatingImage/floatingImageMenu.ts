@@ -78,18 +78,18 @@ const toRadians = (degrees: number): number => (degrees * Math.PI) / 180;
 
 /**
  * Direction from two angles. Turn follows Minecraft's own yaw: 0 = south, 90 = west, 180 = north,
- * 270 = east. Tilt: 0 = level, 90 = straight up, -90 = straight down.
+ * 270 = east. Tilt follows Minecraft's pitch: 0 = level, 90 = straight down, -90 = straight up.
  */
 function directionFromAngles(turn: number, tilt: number): Vector3 {
   const yaw = toRadians(turn);
   const pitch = toRadians(tilt);
-  return { x: -Math.sin(yaw) * Math.cos(pitch), y: Math.sin(pitch), z: Math.cos(yaw) * Math.cos(pitch) };
+  return { x: -Math.sin(yaw) * Math.cos(pitch), y: -Math.sin(pitch), z: Math.cos(yaw) * Math.cos(pitch) };
 }
 
 /** The reverse, used to fill the angle sliders from an existing image. */
 function anglesFromDirection(dir: Vector3): { turn: number; tilt: number } {
   const turn = (Math.round((Math.atan2(-dir.x, dir.z) * 180) / Math.PI) + 360) % 360;
-  const tilt = Math.round((Math.asin(Math.max(-1, Math.min(1, dir.y))) * 180) / Math.PI);
+  const tilt = Math.round((-Math.asin(Math.max(-1, Math.min(1, dir.y))) * 180) / Math.PI);
   return { turn, tilt };
 }
 

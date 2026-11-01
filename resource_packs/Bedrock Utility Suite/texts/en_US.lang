@@ -601,7 +601,7 @@ bus.floatingimage.direction.desc=The side you read it from. Choose "Custom angle
 bus.floatingimage.turn=Turn (degrees)
 bus.floatingimage.turn.desc=Which way it faces sideways: 0 = south, 90 = west, 180 = north, 270 = east.
 bus.floatingimage.tilt=Tilt (degrees)
-bus.floatingimage.tilt.desc=0 = upright, 90 = faces straight up, -90 = faces straight down.
+bus.floatingimage.tilt.desc=0 = level, 90 = straight up, -90 = straight down.
 bus.floatingimage.rotation=Rotation (degrees)
 bus.floatingimage.rotation.desc=Spins the picture around the direction it faces (its roll).
 bus.floatingimage.width=Width (blocks)
