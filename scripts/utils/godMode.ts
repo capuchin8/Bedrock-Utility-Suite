@@ -56,6 +56,9 @@ export function isGod(entity: Entity): boolean {
 
 function applyEffects(entity: Entity): void {
   if (!entity.isValid) return;
+  // Effects only work on living things. Entities with no health (floating text, scoreboards) are
+  // still protected by the damage handlers below, so skip the effects instead of logging four warnings.
+  if (!entity.getComponent("minecraft:health")) return;
   for (const e of EFFECTS) {
     try {
       // "infinite" only needs to be applied once; hideParticles = true.
@@ -77,6 +80,7 @@ function applyEffects(entity: Entity): void {
 
 function clearEffects(entity: Entity): void {
   if (!entity.isValid) return;
+  if (!entity.getComponent("minecraft:health")) return;
   for (const e of EFFECTS) {
     try {
       entity.removeEffect(e.id);
