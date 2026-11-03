@@ -13,7 +13,7 @@ const SECTION_ENUM = "bus:settings_section";
 // The section names are the registered ids without "bus:". The list is built at startup, after every module has registered.
 defineBusCommand({
   name: "bus:settings",
-  description: "Open the settings menu, or a specific menu by name",
+  description: "bus.command.settings.description",
   enums: () => ({ [SECTION_ENUM]: getSections().map((s) => s.id.slice("bus:".length)) }),
   optionalParameters: [{ name: SECTION_ENUM, type: CustomCommandParamType.Enum }],
   // Everyone can run it; the home screen only lists menus they have access to.

@@ -15,6 +15,7 @@ bus.command.in_combat=§cYou can't use this command while in combat.
 
 ## ---- settings home ----
 bus.settings.title=Settings
+bus.command.settings.description=Open the settings menu, or a specific menu by name
 bus.settings.choose=Choose a menu:
 bus.settings.no_access=§cYou don't have access to any settings menus.
 bus.settings.access_revoked=§cYour access to that menu was removed.
@@ -90,6 +91,7 @@ bus.display.nick.tag=Use nicknames on name tags
 ## ---- nicknames ----
 bus.nickname.player=Player
 bus.nickname.field=Nickname
+bus.command.nickname.description=Set your nickname, or use 'reset' to clear it
 bus.nickname.field.desc=Up to %s characters. Use Reset to go back to your real name.
 bus.nickname.save=Save
 bus.nickname.reset=Reset
@@ -132,6 +134,7 @@ bus.perm.owner_command.name=/bus:owner command
 ## ---- owner ----
 bus.owner.added=§a%s is now a BUS owner.
 bus.owner.removed=§a%s is no longer a BUS owner.
+bus.command.owner.description=Add or remove a BUS owner (full access to every settings menu)
 
 ## ---- command responses (shown as the command's own reply; no %s allowed here) ----
 bus.command.owner.not_online=§cThat player is not online.
@@ -321,10 +324,13 @@ bus.interact.error.entity_gone=That entity isn't loaded any more.
 
 ## ---- moderation: mute and staff chat ----
 bus.perm.mute_command.name=Mute players (/bus:mute, /bus:unmute, Muted Players menu)
+bus.command.mute.description=Mute a player. Duration: 30m, 2h, 1d12h, or perm (default perm). Put a multi-word reason in quotes. Staff with the right permission still see what they try to say.
 bus.perm.unmute_command.name=Unmute players (/bus:unmute)
+bus.command.unmute.description=Unmute an online player (offline players can be unmuted from Settings > Muted Players)
 bus.perm.mute_see.name=See messages from muted players
 bus.perm.mute_see.desc=Staff with this see what a muted player tried to say, marked [Muted].
 bus.perm.staffchat_command.name=Staff chat (/bus:staffchat)
+bus.command.staffchat.description=Toggle staff chat (on: your messages go to staff only). Optional: on / off.
 bus.perm.sc_command.name=Staff chat shortcut (/bus:sc)
 bus.section.mute.title=Muted Players
 bus.section.mute.desc=See who is muted, why, and unmute them (works for players who are offline too).
@@ -635,3 +641,17 @@ bus.command.god.not_found=§cNo matching entity found.
 bus.command.god.need_target=§cSpecify a target.
 bus.god.notify_on=§aGod mode enabled.
 bus.god.notify_off=§eGod mode disabled.
+
+## ---- item command ----
+bus.perm.item_command.name=/bus:item command
+bus.command.item.description=Set the name or lore of the item you're holding. Separate lore lines with ; and type two backslashes then n for a line break inside a line.
+bus.command.item.no_item=§cHold an item first.
+bus.command.item.name_done=§aName updated.
+bus.command.item.lore_done=§aLore updated.
+bus.command.item.invalid=§cThat text couldn't be applied to the item (too long?).
+
+## ---- impulse command ----
+bus.perm.impulse_command.name=/bus:impulse command
+bus.command.impulse.description=Set (or add to) the velocity of entities. Location supports ~ and ^ notation.
+bus.command.impulse.not_found=§cNo matching entities found.
+bus.command.impulse.done=§aImpulse applied.
