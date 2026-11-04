@@ -655,3 +655,20 @@ bus.perm.impulse_command.name=/bus:impulse command
 bus.command.impulse.description=Set (or add to) the velocity of entities. Location supports ~ and ^ notation.
 bus.command.impulse.not_found=§cNo matching entities found.
 bus.command.impulse.done=§aImpulse applied.
+
+## ---- anti cheat ----
+bus.section.anti_cheat.title=Anti cheat
+bus.section.anti_cheat.desc=Protections against exploits and duplication.
+bus.section.anti_dupe.title=Anti dupe
+bus.anti_dupe.intro=Removes bundles from hoppers, droppers and dispensers (the part every known bundle dupe needs). Bundles are dropped back into the world.
+bus.anti_dupe.enabled=Anti dupe enabled
+bus.anti_dupe.enabled.desc=Off = no event listeners are active at all.
+bus.anti_dupe.alerts=Staff chat alerts
+bus.anti_dupe.alerts.desc=Tell staff in chat when a bundle is removed.
+bus.anti_dupe.alert.hopper=§e[Anti dupe]§r Removed a bundle from a hopper at %s, %s, %s.
+bus.anti_dupe.alert.dropper=§e[Anti dupe]§r Removed a bundle from a dropper at %s, %s, %s.
+bus.anti_dupe.alert.dispenser=§e[Anti dupe]§r Removed a bundle from a dispenser at %s, %s, %s.
+bus.perm.anti_dupe_alerts.name=Receive anti dupe alerts
+bus.perm.anti_dupe_alerts.desc=See a chat message whenever anti dupe removes a bundle.
+bus.share.anti_dupe=Anti dupe
+bus.share.anti_dupe.invalid=Anti dupe settings in the code are invalid.

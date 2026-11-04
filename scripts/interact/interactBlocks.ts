@@ -3,6 +3,7 @@ import { t, tell } from "../core/lang";
 import { isOwner } from "../permissions/permissionStore";
 import { runAsPlayer } from "../events/eventCommands";
 import { showRules } from "../rules/rulesPrompt";
+import { onBlockInteractBefore } from "../events/blockInteractEvents";
 import { clearEntityAction, getEntityAction, setEntityAction } from "./entityLinks";
 import { blockKey, getBlock, removeBlock, saveBlock, type BlockAction } from "./interactStore";
 
@@ -42,7 +43,7 @@ function onCooldown(player: Player): boolean {
 // ---- blocks ----------------------------------------------------------------------------------
 // Before-event so the click can be cancelled (no sign editor, no book, no block placed against it).
 // Restricted-execution: only read and cancel here, everything else is deferred.
-world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
+onBlockInteractBefore((event) => {
   if (!event.isFirstEvent) {
     // Held-down repeats: keep swallowing them for linked blocks so nothing opens late.
     if (getBlock(blockKey(event.block.dimension.id, event.block.location))) event.cancel = true;

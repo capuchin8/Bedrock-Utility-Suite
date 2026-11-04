@@ -52,6 +52,14 @@ import "./commands/god";
 import "./nicknames/nicknameSection";
 import "./nicknames/nicknameCommand";
 
+//Anti-Cheat
+import "./settings/sections/antiCheatSection";
+//Anti-Dupe
+import "./antiCheat/antiDupe/antiDupeEvents";
+import "./antiCheat/antiDupe/antiDupeShare";
+import "./antiCheat/antiDupe/antiDupeAlerts";
+import "./settings/sections/antiDupeSection";
+
 // Debug menu: stripped from production builds (see justfile dropLabels)
 import "./debug/debugSection";
 
