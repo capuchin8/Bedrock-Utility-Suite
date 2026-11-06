@@ -16,7 +16,7 @@
         "triggers": { "cause": "all", "deals_damage": "no" }
       },
       "minecraft:inventory": {
-        "inventory_size": 41,
+        "inventory_size": 42,
         "container_type": "inventory",
         "private": true,
         "restrict_to_owner": false

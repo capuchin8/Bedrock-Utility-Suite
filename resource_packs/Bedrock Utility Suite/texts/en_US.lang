@@ -656,6 +656,29 @@ bus.command.impulse.description=Set (or add to) the velocity of entities. Locati
 bus.command.impulse.not_found=§cNo matching entities found.
 bus.command.impulse.done=§aImpulse applied.
 
+## ---- inventory command ----
+bus.command.inventory.description=Hide, restore, or view a player's inventory (hide, restore, see, see_echest)
+bus.perm.inventory_command.name=Use /bus:inventory
+bus.command.inventory.no_players=§cNo valid player targets found.
+bus.command.inventory.already_hidden=§cThat inventory is already hidden. Use restore first.
+bus.command.inventory.not_hidden=§cThat player has no hidden inventory to restore.
+bus.command.inventory.hidden=§aInventory hidden.
+bus.command.inventory.restored=§aInventory restored.
+bus.inventory.error.hide_failed=§cCould not hide %s's inventory. Nothing was changed.
+bus.inventory.error.restore_missing=§cCould not find %s's stored inventory. It may be in an unloaded area.
+bus.inventory.error.restore_failed=§cCould not restore %s's inventory.
+bus.inventory.error.echest=§cCould not access %s's ender chest.
+bus.inventory.see.header=§e--- %s's inventory ---
+bus.inventory.echest.header=§e--- %s's ender chest ---
+bus.inventory.see.footer=§e--- end ---
+bus.inventory.slot=§7Slot %s:
+bus.inventory.durability=§7(durability %s/%s)
+bus.inventory.equip.head=Head
+bus.inventory.equip.chest=Chest
+bus.inventory.equip.legs=Legs
+bus.inventory.equip.feet=Feet
+bus.inventory.equip.offhand=Offhand
+
 ## ---- anti-cheat / anti-dupe ----
 bus.section.anti_cheat.title=Anti cheat
 bus.section.anti_cheat.desc=Protections against exploits and duplication.
