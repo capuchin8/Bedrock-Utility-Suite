@@ -34,6 +34,14 @@ export const VIEWER_GRACE_TICKS = 100;
 export const VIEWER_LOOK_TOLERANCE_DEG = 2;
 /** The same block never alerts staff twice within this many ticks (one removal can look like two when the item is re-collected). */
 export const ALERT_COOLDOWN_TICKS = 40;
+/** Piston guard: how many blocks in front of a piston are checked for an unloaded chunk (the arm plus a pushed falling block). */
+export const PISTON_LOOKAHEAD = 3;
+/** Piston guard: a falling block within this many blocks of the piston counts as "being pushed". */
+export const PISTON_FALLING_BLOCK_RADIUS = 5;
+/** Piston guard (falling-block trigger): how far down a spawned falling block's column is searched for pistons aimed at it. */
+export const PISTON_FALL_SCAN = 8;
+/** A chunk is 16 blocks wide in X and Z. */
+export const CHUNK_SIZE = 16;
 /** Blocks around a spawned bundle item that are searched for hoppers/droppers/dispensers. */
 export const ITEM_WATCH_RADIUS = 3;
 /** Horizontal speed given to a bundle ejected from a hopper so it clears the hopper's pickup area. */

@@ -1,12 +1,14 @@
 import {
   system,
-  world,
   type Dimension,
   type EntitySpawnAfterEvent,
   type PistonActivateAfterEvent,
   type PlayerInteractWithBlockAfterEvent,
   type Vector3,
 } from "@minecraft/server";
+import { onBlockInteract } from "../../events/blockInteractEvents";
+import { onEntitySpawn } from "../../events/entitySpawnEvents";
+import { onPistonActivate } from "../../events/pistonEvents";
 import {
   ITEM_WATCH_DURATION_TICKS,
   ITEM_WATCH_RADIUS,
@@ -14,16 +16,14 @@ import {
   WATCH_DURATION_TICKS,
   isBundleTypeId,
 } from "./antiDupeConfig";
-import { onBlockInteract } from "../../events/blockInteractEvents";
-import { isAntiDupeEnabled, onAntiDupeToggled } from "./antiDupeStore";
+import { defineAntiDupeRule } from "./antiDupeRule";
 import { clearWatches, watchBlock, watchMonitoredIn } from "./antiDupeWatcher";
 
 /**
- * The three things that can put a bundle in motion around a hopper/dispenser/dropper. Each one only
- * says "look at these blocks for a while"; antiDupeWatcher.ts does the checking.
- *
- * The subscriptions only exist while anti dupe is switched on (Settings > Anti cheat > Anti dupe):
- * startAntiDupe() subscribes, stopAntiDupe() unsubscribes and clears everything that was being watched.
+ * Rule "bundle": hoppers, droppers and dispensers may never hold a bundle.
+ * The three things that can put a bundle in motion around them each say "look at these blocks for a
+ * while"; antiDupeWatcher.ts does the checking. The subscriptions (shared hubs in events/) only exist
+ * while the rule is on.
  */
 
 /**
@@ -35,8 +35,7 @@ import { clearWatches, watchBlock, watchMonitoredIn } from "./antiDupeWatcher";
  */
 const PISTON_RECHECK_TICKS = [2, 4, 6, 8, 10, 14, 20];
 const pendingBoxes = new Set<string>();
-let active = false;
-let removeInteract: (() => void) | undefined;
+let running = false;
 
 function recheckBox(dimension: Dimension, min: Vector3, max: Vector3): void {
   const key = `${dimension.id}|${min.x},${min.y},${min.z}|${max.x},${max.y},${max.z}`;
@@ -45,7 +44,7 @@ function recheckBox(dimension: Dimension, min: Vector3, max: Vector3): void {
   const last = PISTON_RECHECK_TICKS[PISTON_RECHECK_TICKS.length - 1];
   for (const delay of PISTON_RECHECK_TICKS) {
     system.runTimeout(() => {
-      if (active) watchMonitoredIn(dimension, min, max);
+      if (running) watchMonitoredIn(dimension, min, max);
       if (delay === last) pendingBoxes.delete(key);
     }, delay);
   }
@@ -96,8 +95,8 @@ const onPiston = ({ dimension, piston, block }: PistonActivateAfterEvent): void 
 
 // 2) A player right-clicked one (opening it, or spam-clicking it while it moves): watch it, and keep
 //    watching for as long as that player has not moved their camera (they can sit in the screen for
-//    minutes, then insert the bundle). The click event is the only signal there is: the Script API has no "container
-//    opened/closed" or "item inserted" event.
+//    minutes, then insert the bundle). The click event is the only signal there is: the Script API has
+//    no "container opened/closed" or "item inserted" event.
 const onInteract = ({ block, player }: PlayerInteractWithBlockAfterEvent): void => {
   if (MONITORED_BLOCK_IDS.has(block.typeId)) {
     watchBlock(block.dimension, block.location, WATCH_DURATION_TICKS, player);
@@ -119,31 +118,18 @@ const onSpawn = ({ entity }: EntitySpawnAfterEvent): void => {
   );
 };
 
-export function startAntiDupe(): void {
-  if (active) return;
-  active = true;
-  world.afterEvents.pistonActivate.subscribe(onPiston);
-  removeInteract = onBlockInteract(onInteract); // shared hub: events/blockInteractEvents.ts
-  world.afterEvents.entitySpawn.subscribe(onSpawn);
-}
+let removers: (() => void)[] = [];
 
-export function stopAntiDupe(): void {
-  if (!active) return;
-  active = false;
-  world.afterEvents.pistonActivate.unsubscribe(onPiston);
-  removeInteract?.();
-  removeInteract = undefined;
-  world.afterEvents.entitySpawn.unsubscribe(onSpawn);
-  pendingBoxes.clear();
-  clearWatches();
-}
-
-// Switching it on/off from Settings (deferred so it is safe from any callback).
-onAntiDupeToggled((enabled) => {
-  system.run(() => (enabled ? startAntiDupe() : stopAntiDupe()));
-});
-
-// Startup: read the saved setting after the world is ready, then subscribe only if enabled.
-system.run(() => {
-  if (isAntiDupeEnabled()) startAntiDupe();
+defineAntiDupeRule("bundle", {
+  start: () => {
+    running = true;
+    removers = [onPistonActivate(onPiston), onBlockInteract(onInteract), onEntitySpawn(onSpawn)];
+  },
+  stop: () => {
+    running = false;
+    for (const remove of removers) remove();
+    removers = [];
+    pendingBoxes.clear();
+    clearWatches();
+  },
 });

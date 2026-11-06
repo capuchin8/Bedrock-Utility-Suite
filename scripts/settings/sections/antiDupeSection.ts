@@ -2,10 +2,13 @@ import { CustomForm, ObservableBoolean } from "@minecraft/server-ui";
 import { t } from "../../core/lang";
 import { registerAntiCheatModule } from "../../antiCheat/antiCheatRegistry";
 import {
+  ANTI_DUPE_RULES,
   areAntiDupeAlertsEnabled,
   isAntiDupeEnabled,
+  isRuleEnabled,
   setAntiDupeAlerts,
   setAntiDupeEnabled,
+  setRuleEnabled,
 } from "../../antiCheat/antiDupe/antiDupeStore";
 import { createGuard } from "../guard";
 import { showForm } from "../openForm";
@@ -32,6 +35,15 @@ registerAntiCheatModule({
       const alerts = new ObservableBoolean(areAntiDupeAlertsEnabled(), { clientWritable: true });
       form.toggle(t("bus.anti_dupe.alerts"), alerts, { description: t("bus.anti_dupe.alerts.desc") });
       guard.on(alerts, (value: boolean) => setAntiDupeAlerts(value));
+
+      for (const rule of ANTI_DUPE_RULES) {
+        const on = new ObservableBoolean(isRuleEnabled(rule), { clientWritable: true });
+        form.toggle(t(`bus.anti_dupe.rule.${rule}`), on, {
+          description: t(`bus.anti_dupe.rule.${rule}.desc`),
+          visible: enabled,
+        });
+        guard.on(on, (value: boolean) => setRuleEnabled(rule, value));
+      }
 
       form.button(t("bus.common.back"), () => {
         form.close();

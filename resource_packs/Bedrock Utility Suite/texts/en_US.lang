@@ -656,19 +656,30 @@ bus.command.impulse.description=Set (or add to) the velocity of entities. Locati
 bus.command.impulse.not_found=§cNo matching entities found.
 bus.command.impulse.done=§aImpulse applied.
 
-## ---- anti cheat ----
+## ---- anti-cheat / anti-dupe ----
 bus.section.anti_cheat.title=Anti cheat
 bus.section.anti_cheat.desc=Protections against exploits and duplication.
 bus.section.anti_dupe.title=Anti dupe
-bus.anti_dupe.intro=Removes bundles from hoppers, droppers and dispensers (the part every known bundle dupe needs). Bundles are dropped back into the world.
+bus.anti_dupe.intro=Stops known duplication exploits. Each rule can be switched off on its own.
 bus.anti_dupe.enabled=Anti dupe enabled
-bus.anti_dupe.enabled.desc=Off = no event listeners are active at all.
+bus.anti_dupe.enabled.desc=Master switch. Off = no event listeners are active at all.
 bus.anti_dupe.alerts=Staff chat alerts
-bus.anti_dupe.alerts.desc=Tell staff in chat when a bundle is removed.
+bus.anti_dupe.alerts.desc=Tell staff in chat when a rule acts.
+bus.anti_dupe.rule.bundle=Bundles in hoppers
+bus.anti_dupe.rule.bundle.desc=Removes bundles from hoppers, droppers and dispensers.
+bus.anti_dupe.rule.piston=Pistons at unloaded chunks
+bus.anti_dupe.rule.piston.desc=Breaks a piston that pushes a falling block toward an unloaded chunk.
+bus.anti_dupe.rule.chest=Double chests on chunk borders
+bus.anti_dupe.rule.chest.desc=Breaks a powered hopper under a double chest that crosses a chunk border when the chest is opened.
+bus.anti_dupe.rule.dripleaf=Falling blocks on dripleaves
+bus.anti_dupe.rule.dripleaf.desc=Breaks a big dripleaf that a falling block spawns on.
 bus.anti_dupe.alert.hopper=§e[Anti dupe]§r Removed a bundle from a hopper at %s, %s, %s.
 bus.anti_dupe.alert.dropper=§e[Anti dupe]§r Removed a bundle from a dropper at %s, %s, %s.
 bus.anti_dupe.alert.dispenser=§e[Anti dupe]§r Removed a bundle from a dispenser at %s, %s, %s.
+bus.anti_dupe.alert.piston=§e[Anti dupe]§r Broke a piston pushing a falling block toward an unloaded chunk at %s, %s, %s.
+bus.anti_dupe.alert.chest_hopper=§e[Anti dupe]§r Broke a powered hopper under a double chest across a chunk border at %s, %s, %s.
+bus.anti_dupe.alert.dripleaf=§e[Anti dupe]§r Broke a big dripleaf with a falling block on it at %s, %s, %s.
 bus.perm.anti_dupe_alerts.name=Receive anti dupe alerts
-bus.perm.anti_dupe_alerts.desc=See a chat message whenever anti dupe removes a bundle.
+bus.perm.anti_dupe_alerts.desc=See a chat message whenever anti dupe acts.
 bus.share.anti_dupe=Anti dupe
 bus.share.anti_dupe.invalid=Anti dupe settings in the code are invalid.

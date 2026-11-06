@@ -18,26 +18,33 @@ registerPermission({
 
 const lastAlert = new Map<string, number>();
 
-const ALERT_KEYS: Record<string, string> = {
+const BUNDLE_ALERT_KEYS: Record<string, string> = {
   "minecraft:hopper": "bus.anti_dupe.alert.hopper",
   "minecraft:dropper": "bus.anti_dupe.alert.dropper",
   "minecraft:dispenser": "bus.anti_dupe.alert.dispenser",
 };
 
-/** Chat message for staff: a bundle was removed from a hopper/dropper/dispenser at this position. */
-export function alertStaffBundleRemoved(blockTypeId: string, x: number, y: number, z: number): void {
+/**
+ * Chat message for staff with a lang key whose three %s are x, y, z.
+ * One alert per key and position per cooldown, so one detection that fires twice reads as one.
+ */
+export function alertStaff(langKey: string, x: number, y: number, z: number): void {
   if (!areAntiDupeAlertsEnabled()) return;
-  const key = ALERT_KEYS[blockTypeId];
-  if (key === undefined) return;
 
-  // One alert per block per cooldown: a bundle that is ejected and re-collected counts as one detection.
   const now = system.currentTick;
   for (const [k, tick] of lastAlert) if (now - tick >= ALERT_COOLDOWN_TICKS) lastAlert.delete(k);
-  const alertKey = `${blockTypeId}|${x}|${y}|${z}`;
-  if (lastAlert.has(alertKey)) return;
-  lastAlert.set(alertKey, now);
-  const message = t(key, String(x), String(y), String(z));
+  const dedupe = `${langKey}|${Math.floor(x)}|${Math.floor(y)}|${Math.floor(z)}`;
+  if (lastAlert.has(dedupe)) return;
+  lastAlert.set(dedupe, now);
+
+  const message = t(langKey, String(Math.floor(x)), String(Math.floor(y)), String(Math.floor(z)));
   for (const player of world.getAllPlayers()) {
     if (canUse(player, ANTI_DUPE_ALERT_KEY)) tell(player, message);
   }
+}
+
+/** A bundle was removed from a hopper/dropper/dispenser. */
+export function alertStaffBundleRemoved(blockTypeId: string, x: number, y: number, z: number): void {
+  const key = BUNDLE_ALERT_KEYS[blockTypeId];
+  if (key !== undefined) alertStaff(key, x, y, z);
 }

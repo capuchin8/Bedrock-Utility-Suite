@@ -52,10 +52,12 @@ import "./commands/god";
 import "./nicknames/nicknameSection";
 import "./nicknames/nicknameCommand";
 
-//Anti-Cheat
+//Anti-Cheat / Anti-Dupe
 import "./settings/sections/antiCheatSection";
-//Anti-Dupe
 import "./antiCheat/antiDupe/antiDupeEvents";
+import "./antiCheat/antiDupe/pistonChunkGuard";
+import "./antiCheat/antiDupe/chestHopperGuard";
+import "./antiCheat/antiDupe/dripleafGuard";
 import "./antiCheat/antiDupe/antiDupeShare";
 import "./antiCheat/antiDupe/antiDupeAlerts";
 import "./settings/sections/antiDupeSection";
