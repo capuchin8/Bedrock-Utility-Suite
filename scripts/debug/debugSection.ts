@@ -1,5 +1,5 @@
 import { CommandPermissionLevel, PlayerPermissionLevel, world, type Player } from "@minecraft/server";
-import { CustomForm } from "@minecraft/server-ui";
+import { CustomForm, ObservableBoolean } from "@minecraft/server-ui";
 import { raw, t } from "../core/lang";
 import { getListedOwners, isListedOwner, removeListedOwner } from "../permissions/owners";
 import { canClaimOwnership } from "../permissions/ownership";
@@ -7,6 +7,7 @@ import { isOperator, isOwner } from "../permissions/permissionStore";
 import { createGuard } from "../settings/guard";
 import { showForm } from "../settings/openForm";
 import { registerSettingsSection } from "../settings/registry";
+import { isTpsMonitorOn, setTpsMonitor } from "./tpsMonitor";
 
 // DEBUG-ONLY MENU. Everything inside the `dev:` label below is removed from production builds by esbuild
 // (justfile: dropLabels: ["dev"] when --production is passed). The text here is intentionally not
@@ -53,6 +54,14 @@ function openDebug(player: Player, back: () => void): void {
       if (p.id !== player.id) form.label(raw(describe(p)));
     }
 
+    form.header(raw("Tools"));
+    // Shown on the action bar, which is hidden while this screen is open: close it to see the readout.
+    const tpsOn = new ObservableBoolean(isTpsMonitorOn(player), { clientWritable: true });
+    guard.on(tpsOn, (v: boolean) => setTpsMonitor(player, v));
+    form.toggle(raw("TPS monitor (action bar)"), tpsOn, {
+      description: raw("Ticks per second and ms per tick, shown to you only. Close this screen to see it."),
+    });
+
     form.divider();
     form.button(
       raw("Refresh"),
@@ -84,7 +93,7 @@ dev: {
   registerSettingsSection({
     id: KEY,
     title: raw("Debug (dev builds only)"),
-    description: raw("Permission levels, owner detection and the ownership-claim check"),
+    description: raw("Permission levels, owner detection, the ownership-claim check and the TPS monitor"),
     order: 990,
     // Open to everyone on purpose: the point is to see what a non-owner / operator / realm owner gets.
     defaultEveryone: true,
