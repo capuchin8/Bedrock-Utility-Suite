@@ -3,22 +3,22 @@
   "header": {
     "name": "Bedrock Utility Suite",
     "description": "pack.description",
-    "uuid": "2d7ed858-97eb-48a0-b180-7c80d1ce9a48",
-    "version": "26.11.0-alpha.1",
+    "uuid": "2d59cde1-2302-4f7f-99e3-590e14592e5a",
+    "version": "26.11.11",
     "min_engine_version": "1.26.60",
     "pack_scope": "world"
   },
   "modules": [
     {
       "type": "resources",
-      "uuid": "0c4f42a2-04af-47eb-8edb-8d6f4dde229b",
-      "version": "26.11.0-alpha.1"
+      "uuid": "5ec67c91-1a7f-4a56-89f6-7ce8391e8691",
+      "version": "26.11.11"
     }
   ],
   "dependencies": [
     {
       "uuid": "7dfcca22-54b5-43d6-bd97-080e62c33fa5",
-      "version": "26.11.0-alpha.1"
+      "version": "26.11.11"
     }
   ],
   "metadata": {

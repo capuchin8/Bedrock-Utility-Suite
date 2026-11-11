@@ -23,3 +23,4 @@ bus.pack_settings.mute_reason_required=Require a reason when muting a player
 bus.pack_settings.command_unmute=Unmute Command Permission Level
 bus.pack_settings.command_staffchat=StafChat Command Permission Level
 bus.pack_settings.command_sc=SC (StaffChat Alias) Command Permission Level
+bus.pack_settings.command_owner=Owner Command Permission Level

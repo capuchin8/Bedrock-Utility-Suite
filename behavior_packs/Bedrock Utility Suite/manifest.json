@@ -4,7 +4,7 @@
     "name": "Bedrock Utility Suite",
     "description": "pack.description",
     "uuid": "7dfcca22-54b5-43d6-bd97-080e62c33fa5",
-    "version": "26.11.0-alpha.1",
+    "version": "26.11.11",
     "min_engine_version": "1.26.60"
   },
   "modules": [
@@ -12,14 +12,14 @@
       "description": "Bedrock Utility Suite",
       "type": "data",
       "uuid": "c7475935-cfa2-4f48-a841-08ff20340e39",
-      "version": "26.11.0-alpha.1"
+      "version": "26.11.11"
     },
     {
       "description": "Script resources",
       "language": "javascript",
       "type": "script",
       "uuid": "ab1eb1a1-4999-4255-8647-b0a8025affe4",
-      "version": "26.11.0-alpha.1",
+      "version": "26.11.11",
       "entry": "scripts/main.js"
     }
   ],
@@ -33,8 +33,8 @@
       "version": "2.4.0-beta"
     },
     {
-      "uuid": "2d7ed858-97eb-48a0-b180-7c80d1ce9a48",
-      "version": "26.11.0-alpha.1"
+      "uuid": "2d59cde1-2302-4f7f-99e3-590e14592e5a",
+      "version": "26.11.11"
     }
   ],
   "metadata": {
@@ -57,7 +57,7 @@
       "type": "multiselect",
       "name": "bus:named_dimensions",
       "text": "bus.pack_settings.dimensions_multiselect",
-      "defaults": [],
+      "defaults": ["staff"],
       "options": [
         { "text": "bus.pack_settings.dimensions_lobby", "name": "lobby" },
         { "text": "bus.pack_settings.dimensions_staff", "name": "staff" },
@@ -200,7 +200,7 @@
       "type": "dropdown",
       "name": "bus:command_permission_staffchat",
       "text": "bus.pack_settings.command_staffchat",
-      "default": "admin",
+      "default": "game_directors",
       "options": [
         { "name": "disabled", "text": "bus.pack_settings.command_level_disabled" },
         { "name": "any", "text": "bus.pack_settings.command_level_any" },
@@ -214,10 +214,22 @@
       "type": "dropdown",
       "name": "bus:command_permission_sc",
       "text": "bus.pack_settings.command_sc",
-      "default": "admin",
+      "default": "game_directors",
       "options": [
         { "name": "disabled", "text": "bus.pack_settings.command_level_disabled" },
         { "name": "any", "text": "bus.pack_settings.command_level_any" },
+        { "name": "game_directors", "text": "bus.pack_settings.command_level_game_directors" },
+        { "name": "admin", "text": "bus.pack_settings.command_level_admin" },
+        { "name": "host", "text": "bus.pack_settings.command_level_host" },
+        { "name": "owner", "text": "bus.pack_settings.command_level_owner" }
+      ]
+    },
+    {
+      "type": "dropdown",
+      "name": "bus:command_permission_owner",
+      "text": "bus.pack_settings.command_owner",
+      "default": "game_directors",
+      "options": [
         { "name": "game_directors", "text": "bus.pack_settings.command_level_game_directors" },
         { "name": "admin", "text": "bus.pack_settings.command_level_admin" },
         { "name": "host", "text": "bus.pack_settings.command_level_host" },
