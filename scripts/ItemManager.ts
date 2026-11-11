@@ -23,6 +23,8 @@ function leave(player: Player) {
   player.runCommand("scoreboard players set @s parkour 0");
   player.runCommand("scoreboard players add @s parkour_leaves 1");
   player.runCommand("clear @s bus:leave");
+  player.runCommand("bus:inventory restore @s");
+  player.runCommand("bus:god @s false");
   // Delay the playsound command by 5 ticks so the player can hear it.
   system.runTimeout(() => {
     if (player.isValid) {
