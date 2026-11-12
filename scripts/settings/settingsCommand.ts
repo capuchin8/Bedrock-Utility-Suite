@@ -4,7 +4,7 @@ import { reply } from "../core/commandResult";
 import { t } from "../core/lang";
 import { canUse } from "../permissions/permissionStore";
 import { openSettingsHome } from "./homeMenu";
-import { getSections } from "./registry";
+import { getSections, isBlockedByCheats } from "./registry";
 
 const SECTION_ENUM = "bus:settings_section";
 
@@ -13,7 +13,9 @@ const SECTION_ENUM = "bus:settings_section";
 // The section names are the registered ids without "bus:". The list is built at startup, after every module has registered.
 defineBusCommand({
   name: "bus:settings",
-  description: "bus.command.settings.description",
+  description: "Open the settings menu, or a specific menu by name",
+  // The command itself never needs cheats. A menu that does says so itself (SettingsSection.requiresCheats).
+  cheatsRequired: false,
   enums: () => ({ [SECTION_ENUM]: getSections().map((s) => s.id.slice("bus:".length)) }),
   optionalParameters: [{ name: SECTION_ENUM, type: CustomCommandParamType.Enum }],
   // Everyone can run it; the home screen only lists menus they have access to.
@@ -44,6 +46,14 @@ defineBusCommand({
         CustomCommandStatus.Failure,
         "bus.command.settings.no_access",
         "You don't have access to that menu."
+      );
+    }
+    if (isBlockedByCheats(section.id)) {
+      return reply(
+        origin,
+        CustomCommandStatus.Failure,
+        "bus.command.settings.cheats",
+        "That menu needs cheats enabled."
       );
     }
     // The section's own guard re-checks access when it opens.
