@@ -243,6 +243,55 @@ bus.events.command_n=Command %s
 bus.events.remove_n=Remove command %s
 bus.events.add=Add command
 
+## ---- treasure ----
+
+bus.treasure.open=Treasure containers
+bus.treasure.title=Treasure containers
+bus.treasure.intro=A treasure container gives its contents to every player once. Right-clicking it copies the items into the player's inventory (the container keeps its items for the next player), plays a sound and sends a chat message. Clicking it again says it was already claimed and plays an error sound. It never opens for players. Owners can sneak and right-click to open it and change what is inside.
+bus.treasure.add=Make a container a treasure
+bus.treasure.list=Treasure containers
+bus.treasure.defaults=Default settings
+bus.treasure.defaults.title=Treasure defaults
+bus.treasure.defaults.intro=These apply to every treasure unless a treasure has its own setting.
+bus.treasure.name=Name
+bus.treasure.name.desc=Used in chat messages, such as "You opened Treasure". Leave blank for "Treasure". Supports & colour codes.
+bus.treasure.name.override.desc=Leave blank to use the default name.
+bus.treasure.sound_open=Claim sound
+bus.treasure.sound_error=Already-claimed sound
+bus.treasure.sound.desc=A Bedrock sound id, such as random.levelup. Leave blank for no sound.
+bus.treasure.sound.override.desc=A sound id such as random.levelup. Leave blank to use the default, or type none for silence.
+bus.treasure.test_open=Test claim sound
+bus.treasure.test_error=Test error sound
+bus.treasure.protect=Protect from breaking
+bus.treasure.protect.desc=Players can't break the container.
+bus.treasure.protect.override=Use a different protection setting for this treasure
+bus.treasure.protect.override.desc=Off: follows the default. On: choose below.
+bus.treasure.protect.entity=Entities can't be protected from being killed or removed.
+bus.treasure.pick=Choose a treasure container:
+bus.treasure.none=No treasure containers found. Only entities in loaded chunks are listed, so go near the one you're looking for.
+bus.treasure.item=%s: %s at %s, %s, %s (%s)
+bus.treasure.detail.title=Treasure container
+bus.treasure.detail.intro=Changes save instantly. Blank fields use the default settings.
+bus.treasure.reset=Let everyone claim it again
+bus.treasure.claims_reset=Done: everyone can claim this treasure again.
+bus.treasure.remove=Remove this treasure
+bus.treasure.gone=That treasure isn't available any more.
+bus.treasure.armed=Right-click the chest, barrel or other container you want to make a treasure (within 60 seconds).
+bus.treasure.created=§aTreasure created.
+bus.treasure.removed=§aTreasure removed.
+bus.treasure.default_name=Treasure
+bus.treasure.found=§aYou opened %s and received %s item(s).
+bus.treasure.claimed=§cYou have already claimed %s.
+bus.treasure.empty=§e%s is empty.
+bus.treasure.protected=§cThis can't be broken.
+bus.treasure.error.no_container=That doesn't have an inventory, so it can't be a treasure.
+bus.treasure.error.linked=That is already linked as an interactive block or entity. Unlink it first.
+bus.treasure.error.exists=That is already a treasure.
+bus.treasure.error.is_treasure=That is a treasure. Remove it from the Treasure containers menu first.
+bus.treasure.error.full=Couldn't save: too many treasures.
+bus.share.treasure=Treasure defaults
+bus.share.error.treasure=Invalid treasure data.
+
 ## ---- combat ----
 bus.section.combat.title=Combat
 bus.section.combat.desc=Combat tracking and which commands are blocked during it

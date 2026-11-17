@@ -13,6 +13,7 @@ import {
   type BlockAction,
 } from "../../interact/interactStore";
 import { editLines } from "../codeEditor";
+import { openTreasureHome } from "./treasureScreens";
 import { confirmButton } from "../confirmButton";
 import { createGuard } from "../guard";
 import { showForm } from "../openForm";
@@ -77,6 +78,13 @@ function home(player: Player, back: () => void): void {
       guard.click(() => {
         form.close();
         entityList(player, () => home(player, back));
+      })
+    );
+    form.button(
+      t("bus.treasure.open"),
+      guard.click(() => {
+        form.close();
+        openTreasureHome(player, () => home(player, back));
       })
     );
     form.button(

@@ -34,6 +34,7 @@ import "./settings/sections/roleDisplaySection";
 import "./settings/sections/newPlayersSection";
 import "./settings/sections/eventCommandsSection";
 import "./interact/interactBlocks";
+import "./interact/treasure";
 import "./settings/sections/interactSection";
 import "./moderation/mute";
 import "./moderation/staffChat";
