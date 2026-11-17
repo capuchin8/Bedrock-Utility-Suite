@@ -1,1 +1,47 @@
-{}
+{
+  "content": [
+    {
+      "path": "LICENSE"
+    },
+    {
+      "path": "blocks/bus_camera_block.json"
+    },
+    {
+      "path": "contents.json"
+    },
+    {
+      "path": "entities/floatingtext.json"
+    },
+    {
+      "path": "entities/inventory_storage.json"
+    },
+    {
+      "path": "items/bus_leave.json"
+    },
+    {
+      "path": "items/inventory_hidden_notice.json"
+    },
+    {
+      "path": "loot_tables/blocks/bus_camera_block.json"
+    },
+    {
+      "path": "manifest.json"
+    },
+    {
+      "path": "pack_icon.png"
+    },
+    {
+      "path": "scripts/main.js"
+    },
+    {
+      "path": "structures/clone.mcstructure"
+    },
+    {
+      "path": "texts/en_US.lang"
+    },
+    {
+      "path": "texts/languages.json"
+    }
+  ],
+  "version": 1
+}

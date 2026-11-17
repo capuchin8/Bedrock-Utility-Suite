@@ -1,1 +1,611 @@
-{}
+{
+  "content": [
+    {
+      "path": "LICENSE"
+    },
+    {
+      "path": "blocks.json"
+    },
+    {
+      "path": "contents.json"
+    },
+    {
+      "path": "entity/floatingtext.json"
+    },
+    {
+      "path": "manifest.json"
+    },
+    {
+      "path": "pack_icon.png"
+    },
+    {
+      "path": "particles/logo.json"
+    },
+    {
+      "path": "sounds/music/MP_loop.ogg"
+    },
+    {
+      "path": "sounds/music/MP_short_end.ogg"
+    },
+    {
+      "path": "sounds/music/MP_shortest_end.ogg"
+    },
+    {
+      "path": "sounds/music/ambient1.ogg"
+    },
+    {
+      "path": "sounds/music/ambient2.ogg"
+    },
+    {
+      "path": "sounds/music/ambient3.ogg"
+    },
+    {
+      "path": "sounds/music/ambient4.ogg"
+    },
+    {
+      "path": "sounds/music/ambient5.ogg"
+    },
+    {
+      "path": "sounds/music/jingles/border_tp.ogg"
+    },
+    {
+      "path": "sounds/music/jingles/border_warning.ogg"
+    },
+    {
+      "path": "sounds/music/jingles/cave_enter.ogg"
+    },
+    {
+      "path": "sounds/music/jingles/currency_get.ogg"
+    },
+    {
+      "path": "sounds/music/jingles/door_enter.ogg"
+    },
+    {
+      "path": "sounds/music/jingles/jens_ring.ogg"
+    },
+    {
+      "path": "sounds/music/jingles/queue_join.ogg"
+    },
+    {
+      "path": "sounds/music/jingles/queue_leave.ogg"
+    },
+    {
+      "path": "sounds/music/jingles/scavenger_hunt_collect.ogg"
+    },
+    {
+      "path": "sounds/music/jingles/server_transfer.ogg"
+    },
+    {
+      "path": "sounds/music/jingles/shop_purchased.ogg"
+    },
+    {
+      "path": "sounds/music/jingles/shop_warning.ogg"
+    },
+    {
+      "path": "sounds/music/jingles/voting_jingle.ogg"
+    },
+    {
+      "path": "sounds/music/mobparty/hide_colors.ogg"
+    },
+    {
+      "path": "sounds/music/mobparty/next_round_success.ogg"
+    },
+    {
+      "path": "sounds/music/mobparty/platform_fall.ogg"
+    },
+    {
+      "path": "sounds/music/mobparty/player_fall.ogg"
+    },
+    {
+      "path": "sounds/music/mobparty/reveal_colors.ogg"
+    },
+    {
+      "path": "sounds/music/parkour/parkour_checkpoint.ogg"
+    },
+    {
+      "path": "sounds/music/parkour/parkour_fall.ogg"
+    },
+    {
+      "path": "sounds/music/parkour/parkour_leave.ogg"
+    },
+    {
+      "path": "sounds/music/parkour/parkour_start.ogg"
+    },
+    {
+      "path": "sounds/music/parkour/parkour_step.ogg"
+    },
+    {
+      "path": "sounds/music/parkour/parkour_win.ogg"
+    },
+    {
+      "path": "sounds/music/whackamob_final.ogg"
+    },
+    {
+      "path": "sounds/sound_definitions.json"
+    },
+    {
+      "path": "texts/en_US.lang"
+    },
+    {
+      "path": "texts/languages.json"
+    },
+    {
+      "path": "textures/3d_blocks/acacia_leaves.png"
+    },
+    {
+      "path": "textures/3d_blocks/acacia_log.png"
+    },
+    {
+      "path": "textures/3d_blocks/acacia_planks.png"
+    },
+    {
+      "path": "textures/3d_blocks/amethyst_block.png"
+    },
+    {
+      "path": "textures/3d_blocks/azalea.png"
+    },
+    {
+      "path": "textures/3d_blocks/azalea_leaves.png"
+    },
+    {
+      "path": "textures/3d_blocks/bamboo_planks.png"
+    },
+    {
+      "path": "textures/3d_blocks/big_dripleaf.png"
+    },
+    {
+      "path": "textures/3d_blocks/birch_leaves.png"
+    },
+    {
+      "path": "textures/3d_blocks/birch_log.png"
+    },
+    {
+      "path": "textures/3d_blocks/birch_planks.png"
+    },
+    {
+      "path": "textures/3d_blocks/black_concrete.png"
+    },
+    {
+      "path": "textures/3d_blocks/black_stained_glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/black_terracotta.png"
+    },
+    {
+      "path": "textures/3d_blocks/black_wool.png"
+    },
+    {
+      "path": "textures/3d_blocks/blocks.png"
+    },
+    {
+      "path": "textures/3d_blocks/blue_concrete.png"
+    },
+    {
+      "path": "textures/3d_blocks/blue_stained_glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/blue_terracotta.png"
+    },
+    {
+      "path": "textures/3d_blocks/blue_wool.png"
+    },
+    {
+      "path": "textures/3d_blocks/bricks.png"
+    },
+    {
+      "path": "textures/3d_blocks/brown_concrete.png"
+    },
+    {
+      "path": "textures/3d_blocks/brown_stained_glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/brown_terracotta.png"
+    },
+    {
+      "path": "textures/3d_blocks/brown_wool.png"
+    },
+    {
+      "path": "textures/3d_blocks/cherry_leaves.png"
+    },
+    {
+      "path": "textures/3d_blocks/cherry_log.png"
+    },
+    {
+      "path": "textures/3d_blocks/cherry_planks.png"
+    },
+    {
+      "path": "textures/3d_blocks/chest.png"
+    },
+    {
+      "path": "textures/3d_blocks/crimson_nylium.png"
+    },
+    {
+      "path": "textures/3d_blocks/crimson_planks.png"
+    },
+    {
+      "path": "textures/3d_blocks/crimson_stem.png"
+    },
+    {
+      "path": "textures/3d_blocks/cyan_concrete.png"
+    },
+    {
+      "path": "textures/3d_blocks/cyan_stained_glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/cyan_terracotta.png"
+    },
+    {
+      "path": "textures/3d_blocks/cyan_wool.png"
+    },
+    {
+      "path": "textures/3d_blocks/dark_oak_leaves.png"
+    },
+    {
+      "path": "textures/3d_blocks/dark_oak_log.png"
+    },
+    {
+      "path": "textures/3d_blocks/dark_oak_planks.png"
+    },
+    {
+      "path": "textures/3d_blocks/dark_prismarine.png"
+    },
+    {
+      "path": "textures/3d_blocks/deepslate_bricks.png"
+    },
+    {
+      "path": "textures/3d_blocks/dirt.png"
+    },
+    {
+      "path": "textures/3d_blocks/dripstone_block.png"
+    },
+    {
+      "path": "textures/3d_blocks/end_stone_bricks.png"
+    },
+    {
+      "path": "textures/3d_blocks/ender_chest.png"
+    },
+    {
+      "path": "textures/3d_blocks/flowering_azalea.png"
+    },
+    {
+      "path": "textures/3d_blocks/flowering_azalea_leaves.png"
+    },
+    {
+      "path": "textures/3d_blocks/glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/glow_lichen.png"
+    },
+    {
+      "path": "textures/3d_blocks/grass_block.png"
+    },
+    {
+      "path": "textures/3d_blocks/gray_concrete.png"
+    },
+    {
+      "path": "textures/3d_blocks/gray_stained_glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/gray_terracotta.png"
+    },
+    {
+      "path": "textures/3d_blocks/gray_wool.png"
+    },
+    {
+      "path": "textures/3d_blocks/green_concrete.png"
+    },
+    {
+      "path": "textures/3d_blocks/green_stained_glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/green_terracotta.png"
+    },
+    {
+      "path": "textures/3d_blocks/green_wool.png"
+    },
+    {
+      "path": "textures/3d_blocks/jungle_leaves.png"
+    },
+    {
+      "path": "textures/3d_blocks/jungle_log.png"
+    },
+    {
+      "path": "textures/3d_blocks/jungle_planks.png"
+    },
+    {
+      "path": "textures/3d_blocks/light_blue_concrete.png"
+    },
+    {
+      "path": "textures/3d_blocks/light_blue_stained_glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/light_blue_terracotta.png"
+    },
+    {
+      "path": "textures/3d_blocks/light_blue_wool.png"
+    },
+    {
+      "path": "textures/3d_blocks/light_gray_concrete.png"
+    },
+    {
+      "path": "textures/3d_blocks/light_gray_stained_glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/light_gray_terracotta.png"
+    },
+    {
+      "path": "textures/3d_blocks/light_gray_wool.png"
+    },
+    {
+      "path": "textures/3d_blocks/lime_concrete.png"
+    },
+    {
+      "path": "textures/3d_blocks/lime_stained_glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/lime_terracotta.png"
+    },
+    {
+      "path": "textures/3d_blocks/lime_wool.png"
+    },
+    {
+      "path": "textures/3d_blocks/magenta_concrete.png"
+    },
+    {
+      "path": "textures/3d_blocks/magenta_stained_glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/magenta_terracotta.png"
+    },
+    {
+      "path": "textures/3d_blocks/magenta_wool.png"
+    },
+    {
+      "path": "textures/3d_blocks/mangrove_leaves.png"
+    },
+    {
+      "path": "textures/3d_blocks/mangrove_log.png"
+    },
+    {
+      "path": "textures/3d_blocks/mangrove_planks.png"
+    },
+    {
+      "path": "textures/3d_blocks/moss_block.png"
+    },
+    {
+      "path": "textures/3d_blocks/moss_carpet.png"
+    },
+    {
+      "path": "textures/3d_blocks/mud_bricks.png"
+    },
+    {
+      "path": "textures/3d_blocks/mycelium.png"
+    },
+    {
+      "path": "textures/3d_blocks/nether_bricks.png"
+    },
+    {
+      "path": "textures/3d_blocks/nether_wart_block.png"
+    },
+    {
+      "path": "textures/3d_blocks/oak_leaves.png"
+    },
+    {
+      "path": "textures/3d_blocks/oak_log.png"
+    },
+    {
+      "path": "textures/3d_blocks/oak_planks.png"
+    },
+    {
+      "path": "textures/3d_blocks/oak_wood.png"
+    },
+    {
+      "path": "textures/3d_blocks/orange_concrete.png"
+    },
+    {
+      "path": "textures/3d_blocks/orange_poplar_leaves.png"
+    },
+    {
+      "path": "textures/3d_blocks/orange_stained_glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/orange_terracotta.png"
+    },
+    {
+      "path": "textures/3d_blocks/orange_wool.png"
+    },
+    {
+      "path": "textures/3d_blocks/packed_ice.png"
+    },
+    {
+      "path": "textures/3d_blocks/pale_moss_block.png"
+    },
+    {
+      "path": "textures/3d_blocks/pale_moss_carpet.png"
+    },
+    {
+      "path": "textures/3d_blocks/pale_oak_leaves.png"
+    },
+    {
+      "path": "textures/3d_blocks/pale_oak_log.png"
+    },
+    {
+      "path": "textures/3d_blocks/pale_oak_planks.png"
+    },
+    {
+      "path": "textures/3d_blocks/pink_concrete.png"
+    },
+    {
+      "path": "textures/3d_blocks/pink_stained_glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/pink_terracotta.png"
+    },
+    {
+      "path": "textures/3d_blocks/pink_wool.png"
+    },
+    {
+      "path": "textures/3d_blocks/podzol.png"
+    },
+    {
+      "path": "textures/3d_blocks/polished_blackstone_bricks.png"
+    },
+    {
+      "path": "textures/3d_blocks/poplar_log.png"
+    },
+    {
+      "path": "textures/3d_blocks/poplar_planks.png"
+    },
+    {
+      "path": "textures/3d_blocks/prismarine.png"
+    },
+    {
+      "path": "textures/3d_blocks/prismarine_bricks.png"
+    },
+    {
+      "path": "textures/3d_blocks/purple_concrete.png"
+    },
+    {
+      "path": "textures/3d_blocks/purple_stained_glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/purple_terracotta.png"
+    },
+    {
+      "path": "textures/3d_blocks/purple_wool.png"
+    },
+    {
+      "path": "textures/3d_blocks/purpur_block.png"
+    },
+    {
+      "path": "textures/3d_blocks/quartz_bricks.png"
+    },
+    {
+      "path": "textures/3d_blocks/red_concrete.png"
+    },
+    {
+      "path": "textures/3d_blocks/red_nether_bricks.png"
+    },
+    {
+      "path": "textures/3d_blocks/red_poplar_leaves.png"
+    },
+    {
+      "path": "textures/3d_blocks/red_stained_glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/red_terracotta.png"
+    },
+    {
+      "path": "textures/3d_blocks/red_wool.png"
+    },
+    {
+      "path": "textures/3d_blocks/resin_bricks.png"
+    },
+    {
+      "path": "textures/3d_blocks/sand.png"
+    },
+    {
+      "path": "textures/3d_blocks/shulker_box.png"
+    },
+    {
+      "path": "textures/3d_blocks/small_dripleaf.png"
+    },
+    {
+      "path": "textures/3d_blocks/spore_blossom.png"
+    },
+    {
+      "path": "textures/3d_blocks/spruce_leaves.png"
+    },
+    {
+      "path": "textures/3d_blocks/spruce_log.png"
+    },
+    {
+      "path": "textures/3d_blocks/spruce_planks.png"
+    },
+    {
+      "path": "textures/3d_blocks/stone.png"
+    },
+    {
+      "path": "textures/3d_blocks/stone_bricks.png"
+    },
+    {
+      "path": "textures/3d_blocks/terracotta.png"
+    },
+    {
+      "path": "textures/3d_blocks/tinted_glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/tuff_bricks.png"
+    },
+    {
+      "path": "textures/3d_blocks/warped_nylium.png"
+    },
+    {
+      "path": "textures/3d_blocks/warped_planks.png"
+    },
+    {
+      "path": "textures/3d_blocks/warped_stem.png"
+    },
+    {
+      "path": "textures/3d_blocks/warped_wart_block.png"
+    },
+    {
+      "path": "textures/3d_blocks/white_concrete.png"
+    },
+    {
+      "path": "textures/3d_blocks/white_stained_glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/white_terracotta.png"
+    },
+    {
+      "path": "textures/3d_blocks/white_wool.png"
+    },
+    {
+      "path": "textures/3d_blocks/yellow_concrete.png"
+    },
+    {
+      "path": "textures/3d_blocks/yellow_poplar_leaves.png"
+    },
+    {
+      "path": "textures/3d_blocks/yellow_stained_glass.png"
+    },
+    {
+      "path": "textures/3d_blocks/yellow_terracotta.png"
+    },
+    {
+      "path": "textures/3d_blocks/yellow_wool.png"
+    },
+    {
+      "path": "textures/bus/blocks/bus_camera_block.png"
+    },
+    {
+      "path": "textures/bus/items/bus_camera_block.png"
+    },
+    {
+      "path": "textures/bus/items/bus_leave.png"
+    },
+    {
+      "path": "textures/bus/logo.png"
+    },
+    {
+      "path": "textures/item_texture.json"
+    },
+    {
+      "path": "textures/items/enchanted_golden_apple.png"
+    },
+    {
+      "path": "textures/terrain_texture.json"
+    },
+    {
+      "path": "ui/_global_variables.json"
+    },
+    {
+      "path": "ui/déesse_ui/déesse_screen/extension_packs.json"
+    },
+    {
+      "path": "ui/server_form.json"
+    }
+  ],
+  "version": 1
+}
