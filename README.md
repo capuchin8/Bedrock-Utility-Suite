@@ -1,9 +1,11 @@
 <img width="2048" height="512" alt="Bedrock Utility Suite 2 line" src="https://github.com/user-attachments/assets/7d52cd23-d69a-4f10-bf9d-9b69a0a4ac48" />
 
 # Bedrock Utility Suite (BUS)
+
 A modular utility framework for Minecraft Bedrock Edition servers, realms and worlds.
 
 ## Features
+
 ✅ Custom commands
 
 ✅ Rank system
@@ -21,19 +23,25 @@ A modular utility framework for Minecraft Bedrock Edition servers, realms and wo
 (Features with an ❌ are not currently added, but will be added at some point in the future)
 
 ## Installation
+
 1. Download the latest release.
 2. Import the .mcaddon file.
 3. Enable the packs.
-4. Create or join your world.
+4. Enable the Beta APIs experiment
+5. Create or join your world.
 
 ## Requirements
-Minecraft Bedrock Edition v26.50 or later
+
+Minecraft Bedrock Edition v26.60 or later
 
 ## Documentation
+
 Wiki: https://github.com/capuchin8/Bedrock-Utility-Suite/wiki
 
 ## Bug Reports
+
 Found a bug? [Open an issue on GitHub.](https://github.com/capuchin8/Bedrock-Utility-Suite/issues)
 
 ## Suggestions
+
 Have an idea? [Open a GitHub Discussion.](https://github.com/capuchin8/Bedrock-Utility-Suite/discussions/categories/ideas)
