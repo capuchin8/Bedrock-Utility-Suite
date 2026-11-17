@@ -4,7 +4,7 @@
     "name": "Bedrock Utility Suite",
     "description": "pack.description",
     "uuid": "7dfcca22-54b5-43d6-bd97-080e62c33fa5",
-    "version": "26.11.12",
+    "version": "26.11.13",
     "min_engine_version": "1.26.60"
   },
   "modules": [
@@ -12,14 +12,14 @@
       "description": "Bedrock Utility Suite",
       "type": "data",
       "uuid": "c7475935-cfa2-4f48-a841-08ff20340e39",
-      "version": "26.11.12"
+      "version": "26.11.13"
     },
     {
       "description": "Script resources",
       "language": "javascript",
       "type": "script",
       "uuid": "ab1eb1a1-4999-4255-8647-b0a8025affe4",
-      "version": "26.11.12",
+      "version": "26.11.13",
       "entry": "scripts/main.js"
     }
   ],
@@ -34,7 +34,7 @@
     },
     {
       "uuid": "2d59cde1-2302-4f7f-99e3-590e14592e5a",
-      "version": "26.11.12"
+      "version": "26.11.13"
     }
   ],
   "metadata": {
