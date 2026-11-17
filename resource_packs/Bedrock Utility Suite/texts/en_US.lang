@@ -650,7 +650,7 @@ bus.god.notify_off=§eGod mode disabled.
 
 ## ---- item command ----
 bus.perm.item_command.name=/bus:item command
-bus.command.item.description=Set the name or lore of the item you're holding, or give yourself an enchanted book (book sharpness:5,unbreaking:3). Separate lore lines with ; and type two backslashes then n for a line break inside a line.
+bus.command.item.description=Set the name or lore of the item you're holding, give yourself an enchanted book (book sharpness:5,unbreaking:3), or give yourself items with a name and lore (give diamond_sword 1 "Name" "Lore"). Separate lore lines with ; and type two backslashes then n for a line break inside a line.
 bus.command.item.no_item=§cHold an item first.
 bus.command.item.name_done=§aName updated.
 bus.command.item.lore_done=§aLore updated.
@@ -660,6 +660,10 @@ bus.command.item.book_format=§cUse enchantment:level pairs separated by commas,
 bus.command.item.book_unknown=§cUnknown enchantment.
 bus.command.item.book_level=§cThat level is above the enchantment's maximum.
 bus.command.item.book_failed=§cThe enchanted book couldn't be created.
+bus.command.item.give_done=§aItem given.
+bus.command.item.give_unknown=§cUnknown item.
+bus.command.item.give_amount=§cThe amount must be between 1 and 2304.
+bus.command.item.give_failed=§cThe item couldn't be created (name or lore too long?).
 
 ## ---- impulse command ----
 bus.perm.impulse_command.name=/bus:impulse command
