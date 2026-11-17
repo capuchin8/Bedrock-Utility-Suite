@@ -220,6 +220,9 @@ defineBusCommand({
         if (!target.isValid) continue;
         const result = hiding ? hideInventory(target) : restoreInventory(target);
         if (!result.ok) report(runner, result.error, target);
+        else if (result.relocated > 0 && runner) {
+          tell(runner, t("bus.inventory.relocated", target.name, result.relocated));
+        }
       }
     });
 
