@@ -73,6 +73,8 @@ bus.display.chat.unsupported=Disabled because Beta APIs are not enabled for this
 bus.display.chat.format=Chat format
 bus.display.chat.format.desc=Tokens: {role} {name} {message}. Supports &c color codes.
 bus.display.nametag.header=Name tags
+bus.display.nametag.hide=Hide all name tags
+bus.display.nametag.hide.desc=Hides every player's name tag. Also changed with /scriptevent bus:hideNameTags (no value toggles, true hides, false shows).
 bus.display.nametag.toggle=Show roles on name tags
 bus.display.nametag.toggle.desc=Off = BUS doesn't write role text to name tags.
 bus.display.nametag.position=Role position
@@ -88,6 +90,9 @@ bus.display.nick.header=Nicknames
 bus.display.nick.chat=Use nicknames in chat
 bus.display.nick.chat.desc=Show a player's nickname instead of their name in chat.
 bus.display.nick.tag=Use nicknames on name tags
+bus.nametags.now_hidden=§aName tags are now hidden.
+bus.nametags.now_shown=§aName tags are now shown.
+bus.nametags.invalid=Use /scriptevent bus:hideNameTags with true (hide), false (show), or nothing to toggle.
 
 ## ---- nicknames ----
 bus.nickname.player=Player
@@ -244,7 +249,6 @@ bus.events.remove_n=Remove command %s
 bus.events.add=Add command
 
 ## ---- treasure ----
-
 bus.treasure.open=Treasure containers
 bus.treasure.title=Treasure containers
 bus.treasure.intro=A treasure container gives its contents to every player once. Right-clicking it copies the items into the player's inventory (the container keeps its items for the next player), plays a sound and sends a chat message. Clicking it again says it was already claimed and plays an error sound. It never opens for players. Owners can sneak and right-click to open it and change what is inside.

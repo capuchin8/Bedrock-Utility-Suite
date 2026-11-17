@@ -25,6 +25,7 @@ import "./rules/rulesScriptEvent";
 
 // Roles, name tags and chat
 import "./roles/nameTag";
+import "./roles/nametagScriptEvent";
 import "./roles/chat";
 
 // Settings screen and its built-in sections

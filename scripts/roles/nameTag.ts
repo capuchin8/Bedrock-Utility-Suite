@@ -10,6 +10,8 @@ const applied = new Map<string, string>();
 
 function buildTag(player: Player): string | undefined {
   const s = getDisplaySettings();
+  // An empty name tag is how Bedrock hides it, so this is the one case where "" is wanted.
+  if (s.hideNametags) return "";
   const nickname = s.nicknameInNametag ? getNickname(player) : undefined;
   const label = s.nametagEnabled ? getRoleLabel(player) : "";
   if (!nickname && !label) return undefined; // leave the vanilla name tag alone
@@ -24,8 +26,8 @@ function buildTag(player: Player): string | undefined {
     case "below":
       return `${name}\n${label}`;
     default:
-      // No-break spaces so the client can't wrap the line between role and name (seen while emoting).
-      return `${label} ${name}`.replace(/ /g, "\u00A0");
+      // Plain spaces only: no-break spaces made the client add trailing space to the end of the tag.
+      return `${label} ${name}`;
   }
 }
 

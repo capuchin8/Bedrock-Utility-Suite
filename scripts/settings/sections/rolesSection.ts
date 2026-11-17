@@ -8,6 +8,7 @@ import {
   createRole,
   deleteRole,
   getPlayerRoleIds,
+  getRoleEntries,
   getRoles,
   grantRole,
   revokeRole,
@@ -34,7 +35,7 @@ function rolesHome(player: Player, back: () => void): void {
   if (!guard.check()) return;
   showForm(player, () => {
     const form = guard.attach(new CustomForm(player, t("bus.section.roles.title")));
-    const roles = Object.entries(getRoles()).sort(([, a], [, b]) => b.priority - a.priority);
+    const roles = getRoleEntries();
 
     form.label(t(roles.length ? "bus.roles.pick" : "bus.roles.none"));
     for (const [id, role] of roles) {
@@ -164,7 +165,7 @@ function editRole(player: Player, roleId: string, back: () => void): void {
 function assignForm(player: Player, back: () => void): void {
   const guard = createGuard(player, KEY);
   const players = world.getAllPlayers();
-  const roles = Object.entries(getRoles());
+  const roles = getRoleEntries();
   if (players.length === 0 || roles.length === 0) {
     // No form is open here, so chat is visible.
     player.sendMessage(t("bus.roles.assign.need"));

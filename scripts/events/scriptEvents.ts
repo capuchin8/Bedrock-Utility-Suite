@@ -12,14 +12,16 @@ let subscribed = false;
 /** Register a handler for "bus:<name>". Call at the top level of a module file. */
 export function onScriptEvent(id: string, handler: ScriptEventHandler): void {
   if (!id.startsWith("bus:")) throw new Error(`Script event id must use the bus: namespace ("${id}")`);
-  if (handlers.has(id)) throw new Error(`Script event "${id}" is already registered`);
-  handlers.set(id, handler);
+  // Matched without caring about capitals, so a readable id like bus:hideNameTags works however it is typed.
+  const key = id.toLowerCase();
+  if (handlers.has(key)) throw new Error(`Script event "${id}" is already registered`);
+  handlers.set(key, handler);
 
   if (subscribed) return;
   subscribed = true;
   system.afterEvents.scriptEventReceive.subscribe(
     (event) => {
-      const handler = handlers.get(event.id);
+      const handler = handlers.get(event.id.toLowerCase());
       if (!handler) return;
       try {
         handler(event);

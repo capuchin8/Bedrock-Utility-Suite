@@ -13,6 +13,8 @@ export interface DisplaySettings {
   /** Show roles on name tags. When false BUS doesn't write role text to name tags. */
   nametagEnabled: boolean;
   nametagPosition: NametagPosition;
+  /** Hide every player's name tag (set from the settings screen or /scriptevent bus:hideNameTags). */
+  hideNametags: boolean;
   multiRoleMode: MultiRoleMode;
   /** Joiner used when multiRoleMode is "all". */
   separator: string;
@@ -22,9 +24,10 @@ export interface DisplaySettings {
 
 export const DEFAULT_DISPLAY_SETTINGS: DisplaySettings = {
   chatEnabled: true,
-  chatFormat: "{role}<{name}§r> {message}",
+  chatFormat: "{role}{name}§r: {message}",
   nametagEnabled: true,
   nametagPosition: "above",
+  hideNametags: false,
   multiRoleMode: "highest",
   separator: " ",
   nicknameInChat: true,
@@ -44,6 +47,7 @@ export function normalizeDisplaySettings(v: unknown): DisplaySettings | undefine
       v.nametagPosition === "above" || v.nametagPosition === "below" || v.nametagPosition === "beside"
         ? v.nametagPosition
         : d.nametagPosition,
+    hideNametags: bool(v.hideNametags, d.hideNametags),
     multiRoleMode: v.multiRoleMode === "all" || v.multiRoleMode === "highest" ? v.multiRoleMode : d.multiRoleMode,
     separator: str(v.separator, d.separator),
     nicknameInChat: bool(v.nicknameInChat, d.nicknameInChat),
