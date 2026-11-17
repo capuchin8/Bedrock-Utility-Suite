@@ -690,6 +690,21 @@ bus.inventory.equip.legs=Legs
 bus.inventory.equip.feet=Feet
 bus.inventory.equip.offhand=Offhand
 
+## ---- inventory live view  ----
+bus.perm.inventory_edit.name=Live inventory view (edit)
+bus.perm.inventory_edit.desc=Lets /bus:inventory see and see_echest open a live screen where items can be taken, moved and equipped. Without it they print a read-only list in chat.
+bus.inventory.view.title_inventory=Inventory
+bus.inventory.view.title_echest=Ender chest
+## The notice item's name. Custom item names come from this key (item.<identifier>), in the RESOURCE pack lang file.
+item.bus:inventory_hidden_notice=Hidden inventory: items placed here are lost when it is restored
+
+## Delete these if you pasted them from an earlier version (they are no longer used):
+##   bus.inventory.view.header, bus.inventory.view.echest_header, bus.inventory.view.hidden,
+##   bus.inventory.view.hidden.desc, bus.inventory.view.title, bus.inventory.view.echest_title
+
+## ---- RP/textures/item_texture.json: add this entry inside "texture_data" (merge into your existing file) ----
+## "bus_inventory_hidden_notice": { "textures": "textures/items/barrier" }
+
 ## ---- anti-cheat / anti-dupe ----
 bus.section.anti_cheat.title=Anti cheat
 bus.section.anti_cheat.desc=Protections against exploits and duplication.

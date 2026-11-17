@@ -103,7 +103,7 @@ export function hideInventory(player: Player): VaultResult {
   const dimension = player.dimension;
   let storage: Entity;
   try {
-    storage = dimension.spawnEntity(STORAGE_ENTITY_ID, {
+    storage = dimension.spawnEntity(STORAGE_ENTITY_ID as Parameters<typeof dimension.spawnEntity>[0], {
       x: player.location.x,
       y: dimension.heightRange.max - 5,
       z: player.location.z,

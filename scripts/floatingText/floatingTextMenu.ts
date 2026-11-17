@@ -89,7 +89,7 @@ function spawnFloating(player: Player, pos: Vector3, spawnEvent: string, init: (
   if (!player.isValid) return t("bus.floatingtext.error.spawn");
   try {
     const entity = player.dimension.spawnEntity(
-      ENTITY_ID,
+      ENTITY_ID as Parameters<typeof player.dimension.spawnEntity>[0],
       { x: pos.x, y: pos.y - NAME_TAG_Y_OFFSET, z: pos.z },
       { spawnEvent }
     );

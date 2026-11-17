@@ -7,6 +7,9 @@
     },
     "bus:leave": {
       "textures": "textures/bus/items/bus_leave"
+    },
+    "bus_inventory_hidden_notice": {
+      "textures": "textures/blocks/barrier"
     }
   }
 }

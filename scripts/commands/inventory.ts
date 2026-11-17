@@ -9,7 +9,10 @@
  * so the work is deferred with system.run; the response is decided up front from what can be read
  * synchronously (valid targets, hidden flag). If the deferred part fails, the runner is told in chat.
  *
- * see / see_echest print to the runner's chat and do not touch the storage entity.
+ * see / see_echest: when the VirtualContainer API exists in the running game (Preview 26.70+, beta-only), the
+ * runner holds bus:inventory_edit and there is exactly one target (hidden or not), they open a
+ * live, EDITABLE screen (utils/virtualInventoryView.ts): items moved there are real transfers to the target.
+ * In every other case they print a read-only list to the runner's chat, as before, and do not touch anything.
  */
 
 import {
@@ -26,6 +29,7 @@ import type { UIRawMessage } from "@minecraft/server-ui";
 import { defineBusCommand } from "./busCommand";
 import { reply } from "../core/commandResult";
 import { raw, t, tell } from "../core/lang";
+import { canUse, registerPermission } from "../permissions/permissionStore";
 import {
   hideInventory,
   isInventoryHidden,
@@ -33,8 +37,21 @@ import {
   VAULT_ARMOR_SLOTS,
   type VaultError,
 } from "../utils/inventoryVault";
+import { openEnderChestView, openInventoryView, virtualViewsSupported } from "../utils/virtualInventoryView";
 
 const ACTION_ENUM = "bus:inventory_action";
+const EDIT_KEY = "bus:inventory_edit";
+
+// The live screens let the runner take, move and equip items on the target, so they get their own permission.
+// Off for everyone (operators included) until the owner grants it; the owner always passes.
+registerPermission({
+  key: EDIT_KEY,
+  label: t("bus.perm.inventory_edit.name"),
+  description: t("bus.perm.inventory_edit.desc"),
+  category: "command",
+  defaultEveryone: false,
+  defaultOperators: false,
+});
 
 const EQUIP_LANG_KEY: Record<string, string> = {
   [EquipmentSlot.Head]: "bus.inventory.equip.head",
@@ -112,6 +129,27 @@ function seeEnderChest(runner: Player, target: Player): void {
 }
 
 // ---------------------------------------------------------------------------
+// Live screen (VirtualContainer API, beta-only; falls back to the chat output above)
+// ---------------------------------------------------------------------------
+
+/** Decided in the command callback, where permissions and the hidden flag can be read. */
+function wantsLiveView(runner: Player, targets: Player[]): boolean {
+  // A hidden inventory can be opened too: the screen shows a notice about it (see utils/virtualInventoryView.ts).
+  return targets.length === 1 && virtualViewsSupported() && canUse(runner, EDIT_KEY);
+}
+
+/** Opens the editable screen; on any failure prints the read-only chat list instead. Call inside system.run. */
+function showLiveView(runner: Player, target: Player, enderChest: boolean): void {
+  // Re-checked on every move inside the screen, which closes (and undoes the move) if access is removed.
+  const canEdit = () => runner.isValid && canUse(runner, EDIT_KEY);
+  const result = enderChest ? openEnderChestView(runner, target, canEdit) : openInventoryView(runner, target, canEdit);
+  if (result.ok) return;
+  console.warn(`[bus:inventory] live view unavailable (${result.error}); using chat output`);
+  if (enderChest) seeEnderChest(runner, target);
+  else seeInventory(runner, target);
+}
+
+// ---------------------------------------------------------------------------
 // Command
 // ---------------------------------------------------------------------------
 
@@ -136,13 +174,19 @@ defineBusCommand({
     }
     const runner = origin.sourceEntity instanceof Player ? origin.sourceEntity : undefined;
 
-    // see / see_echest: the content is the output, so it goes to the runner's chat (players only).
+    // see / see_echest: the content is the output, so it goes to the runner (players only): a live screen when
+    // supported and permitted, otherwise a read-only list in chat.
     if (action === "see" || action === "see_echest") {
       if (!runner) {
         return reply(origin, CustomCommandStatus.Failure, "bus.command.players_only", "Only players can use this.");
       }
+      const live = wantsLiveView(runner, players);
       system.run(() => {
         if (!runner.isValid) return;
+        if (live) {
+          if (players[0].isValid) showLiveView(runner, players[0], action === "see_echest");
+          return;
+        }
         for (const target of players) {
           if (!target.isValid) continue;
           if (action === "see") seeInventory(runner, target);
