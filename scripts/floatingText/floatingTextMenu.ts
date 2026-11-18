@@ -102,6 +102,18 @@ function spawnFloating(player: Player, pos: Vector3, spawnEvent: string, init: (
   }
 }
 
+/**
+ * Moves a floating entity. The first teleport after an entity has sat still for a while updates its
+ * position on the server but sometimes isn't shown to players until it is moved again, so the same
+ * teleport is repeated half a second later. (Workaround: the cause is not confirmed.)
+ */
+function moveFloating(entity: Entity, target: Vector3): void {
+  entity.teleport(target);
+  system.runTimeout(() => {
+    if (entity.isValid) entity.teleport(target);
+  }, 10);
+}
+
 function removeFloating(entity: Entity): UIRawMessage {
   if (!entity.isValid) return t("bus.floatingtext.error.gone");
   removeFloatingEntity(entity);
@@ -243,7 +255,7 @@ function editText(player: Player, entity: Entity, done: Done): void {
           system.run(() => {
             if (!entity.isValid) return done(t("bus.floatingtext.error.gone"));
             entity.nameTag = nameTag;
-            entity.teleport({ x: pos.x, y: pos.y - NAME_TAG_Y_OFFSET, z: pos.z });
+            moveFloating(entity, { x: pos.x, y: pos.y - NAME_TAG_Y_OFFSET, z: pos.z });
             done(t("bus.floatingtext.notice.saved"));
           });
         })
@@ -409,7 +421,7 @@ function editScoreboard(player: Player, entity: Entity, done: Done): void {
           if (!entity.isValid) return done(t("bus.floatingtext.error.gone"));
           writeScoreboardInfo(entity, updated);
           entity.nameTag = LOADING_TEXT;
-          entity.teleport({ x: pos.x, y: pos.y - NAME_TAG_Y_OFFSET, z: pos.z });
+          moveFloating(entity, { x: pos.x, y: pos.y - NAME_TAG_Y_OFFSET, z: pos.z });
           done(t("bus.floatingtext.notice.saved"));
         });
       })
