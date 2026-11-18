@@ -45,6 +45,7 @@ import "./settings/sections/rulesSection";
 import "./settings/sections/permissionsSection";
 import "./settings/sections/shareSection";
 import "./settings/sections/shopSection";
+import "./settings/sections/iconOverrideSection";
 
 // God Mode
 import "./utils/godMode";
