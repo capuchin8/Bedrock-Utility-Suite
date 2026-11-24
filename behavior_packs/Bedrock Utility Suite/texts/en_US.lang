@@ -24,3 +24,5 @@ bus.pack_settings.command_unmute=Unmute Command Permission Level
 bus.pack_settings.command_staffchat=StafChat Command Permission Level
 bus.pack_settings.command_sc=SC (StaffChat Alias) Command Permission Level
 bus.pack_settings.command_owner=Owner Command Permission Level
+bus.pack_settings.command_vanish=Vanish Command Permission Level
+bus.pack_settings.command_v=V (Vanish Alias) Command Permission Level

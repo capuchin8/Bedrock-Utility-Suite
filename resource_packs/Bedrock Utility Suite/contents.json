@@ -605,6 +605,12 @@
     },
     {
       "path": "ui/server_form.json"
+    },
+    {
+      "path": "particles/vanish_marker.json"
+    },
+    {
+      "path": "animations/bus_vanish.animation.json"
     }
   ],
   "version": 1

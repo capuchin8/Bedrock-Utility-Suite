@@ -51,6 +51,13 @@ import "./settings/sections/iconOverrideSection";
 import "./utils/godMode";
 import "./commands/god";
 
+// Vanish
+import "./vanish/vanishService";
+import "./vanish/visibility";
+import "./vanish/vanishCommand";
+import "./vanish/containerPeek";
+import "./settings/sections/vanishSection";
+
 // Nicknames
 import "./nicknames/nicknameSection";
 import "./nicknames/nicknameCommand";
