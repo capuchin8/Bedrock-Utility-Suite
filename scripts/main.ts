@@ -72,6 +72,16 @@ import "./antiCheat/antiDupe/antiDupeShare";
 import "./antiCheat/antiDupe/antiDupeAlerts";
 import "./settings/sections/antiDupeSection";
 
+// Teleport (shared rules, Random Teleport, TPA)
+import "./teleport/teleportSettings";
+import "./teleport/teleportService";
+import "./settings/sections/teleportSection";
+import "./rtp/rtpStore";
+import "./rtp/rtpCommand";
+import "./settings/sections/rtpSection";
+import "./tpa/tpaCommands";
+import "./tpa/tpaPrivacyCommands";
+
 // Debug menu: stripped from production builds (see justfile dropLabels)
 import "./debug/debugSection";
 
