@@ -20,6 +20,8 @@ import type { ShopTree } from "../../shop/shopTypes";
 import { confirmButton } from "../confirmButton";
 import { createGuard } from "../guard";
 import { openReorderEditor, type ReorderKind } from "./shopReorderEditor";
+import { addMoveControl } from "./shopMoveControl";
+import { listDestinations, moveCategory, subtreeIds } from "../../shop/shopMove";
 import { showForm } from "../openForm";
 import {
   KEY,
@@ -206,6 +208,17 @@ export function openCategoryEditor(player: Player, tree: ShopTree, categoryId: s
           })
         ),
         { tooltip: t("bus.shopedit.import_hotbar.sell_desc") }
+      );
+    }
+
+    if (!isRoot) {
+      addMoveControl(
+        form,
+        guard,
+        listDestinations(tree, subtreeIds(cat)),
+        (to) => moveCategory(tree, cat.id, to),
+        back,
+        status
       );
     }
 

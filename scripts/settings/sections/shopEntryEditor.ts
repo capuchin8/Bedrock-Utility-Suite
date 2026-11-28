@@ -9,6 +9,8 @@ import type { ItemSpec, KitContent, Sellable, ShopCategory, ShopItem, ShopKit } 
 import { confirmButton } from "../confirmButton";
 import { createGuard, type SettingsGuard } from "../guard";
 import { openIconOverrideEditor } from "./iconOverrideSection";
+import { addMoveControl } from "./shopMoveControl";
+import { listDestinations, moveEntry } from "../../shop/shopMove";
 import { showForm } from "../openForm";
 import { addSpecControls, toInt } from "./shopSpecControls";
 
@@ -121,6 +123,14 @@ export function openItemEditor(player: Player, categoryId: string, itemId: strin
     );
     addSpecControls(form, guard, player, item, reopen, status, (name) => (item.name = name));
     testButton(form, guard, player, item, status);
+    addMoveControl(
+      form,
+      guard,
+      listDestinations("buy", new Set([cat.id])),
+      (to) => moveEntry("items", cat.id, itemId, to),
+      back,
+      status
+    );
     form.divider();
     confirmButton(
       form,
@@ -234,6 +244,14 @@ export function openSellableEditor(player: Player, categoryId: string, sellId: s
       2304,
       (n) => (s.maxSellPerTransaction = n)
     );
+    addMoveControl(
+      form,
+      guard,
+      listDestinations("sell", new Set([cat.id])),
+      (to) => moveEntry("sellables", cat.id, sellId, to),
+      back,
+      status
+    );
     form.divider();
     confirmButton(
       form,
@@ -343,6 +361,14 @@ export function openKitEditor(player: Player, categoryId: string, kitId: string,
         })
       ),
       { tooltip: t("bus.shopedit.kit_import_hotbar.desc") }
+    );
+    addMoveControl(
+      form,
+      guard,
+      listDestinations("buy", new Set([cat.id])),
+      (to) => moveEntry("kits", cat.id, kitId, to),
+      back,
+      status
     );
     form.divider();
     confirmButton(

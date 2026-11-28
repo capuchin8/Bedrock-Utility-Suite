@@ -433,7 +433,7 @@ bus.mute.detail.ended=No longer muted.
 ## ---- Shop  ----
 bus.command.players_only=Only players can use this.
 bus.section.shop.title=Shop
-bus.command.shop.description=Opens the shop (append " sell" to open the sell shop.)
+bus.command.shop.description=Opens the shop. Use buy, sell, or "category <id>" to open a specific category.
 bus.section.shop.desc=Edit the buy shop, sell shop, currency and armor trims.
 bus.perm.shop.name=Use the shop
 bus.share.shop=Shop (categories, items, kits, prices)
@@ -616,9 +616,51 @@ bus.shopedit.sound_reset=Reset to default
 bus.shopedit.sound_played=Played.
 bus.shopedit.sound_silent=This sound is empty, so nothing plays.
 bus.shopedit.sound.invalid_id=Invalid sound id. Use letters, numbers, . _ : and - only.
+bus.shopedit.move=Move to
+bus.shopedit.move.desc=Pick a category to move this into (dashes show how deep it is). It is added at the end there.
+bus.shopedit.move.keep=Keep where it is
+bus.shopedit.move.failed=That move isn't possible.
 
 bus.shopedit.icon_everywhere=Set icon for this item everywhere
 bus.shopedit.icon_everywhere.desc=Opens the item icon editor for this item id. It changes the icon in every place BUS shows this item, not just this entry.
+
+## ---- pay  ----
+bus.section.pay.title=Pay
+bus.section.pay.desc=Limits and tax for /bus:pay, the command players use to send money to each other.
+bus.perm.pay.name=Use /bus:pay
+bus.share.pay=Pay settings (limits and tax)
+bus.share.pay.invalid=That is not valid pay data.
+bus.command.pay.description=Send money to another player
+bus.command.pay.not_found=No matching player is online.
+bus.command.pay.one_player=Pick exactly one player.
+bus.command.pay.self=You can't pay yourself.
+bus.command.pay.sent=Payment sent.
+bus.command.pay.err.disabled=Payments are turned off.
+bus.command.pay.err.min=That is below the minimum payment.
+bus.command.pay.err.max=That is above the maximum payment.
+bus.command.pay.err.daily=That would go over your daily payment limit.
+bus.command.pay.err.cooldown=Please wait before paying again.
+bus.command.pay.err.funds=You don't have enough money.
+bus.pay.received=You received %s %s from %s.
+bus.pay.someone=someone
+bus.pay.intro=Rules for /bus:pay. A value of 0 turns that limit off. Changes apply immediately.
+bus.pay.enabled=Payments enabled
+bus.pay.enabled.desc=Off = /bus:pay refuses everyone.
+bus.pay.min=Minimum payment
+bus.pay.min.desc=Smallest amount that can be sent (at least 1).
+bus.pay.max=Maximum per payment
+bus.pay.max.desc=Largest single payment. 0 = no limit.
+bus.pay.daily=Daily limit per player
+bus.pay.daily.desc=Most a player can send in any rolling 24 hours, counted before tax. 0 = no limit.
+bus.pay.cooldown=Cooldown (seconds)
+bus.pay.cooldown.desc=Wait between payments. 0 = none. Resets when the world reloads.
+bus.pay.tax=Tax (%)
+bus.pay.tax.desc=0 to 100, up to 2 decimals. Rounded down, and removed from the economy. 0 = no tax.
+bus.pay.tax_mode=Tax is
+bus.pay.tax_mode.deduct=Taken from the payment
+bus.pay.tax_mode.add=Added on top
+bus.pay.tax_mode.desc=Taken: the receiver gets less. Added: the sender pays more.
+bus.pay.example=Example: sending %s costs the sender %s and the receiver gets %s %s.
 
 bus.section.item_icons.title=Item icons
 bus.section.item_icons.desc=Choose the texture used as an item's icon in menus (shop, item pickers).
